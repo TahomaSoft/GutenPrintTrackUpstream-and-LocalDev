@@ -1400,6 +1400,18 @@
       <height value="0"/>
       <unit value="english"/>
     </paper>
+    <paper name="17in-22in">
+      <description translate="value" value="17in x 22in Roll"/>
+      <width value="1224"/>
+      <height value="1584"/>
+      <unit value="english"/>
+    </paper>
+    <paper name="17in-26in">
+      <description translate="value" value="17in x 26in Roll"/>
+      <width value="1224"/>
+      <height value="1872"/>
+      <unit value="english"/>
+    </paper>
     <paper name="w1584">
       <description translate="value" value="22 Inch Roll Paper"/>
       <width value="1584"/>
