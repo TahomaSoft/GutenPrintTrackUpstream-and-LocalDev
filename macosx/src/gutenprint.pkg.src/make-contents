@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+#set -x  # uncomment for debugging
+
+pkg_dir="$1"
+
+# install everything
+cp -pR build/install/* "$pkg_dir/Contents"
+
+# install documentation
+#for i in usr/share/gutenprint/doc/gutenprint.pdf \
+#         usr/share/gutenprint/doc/reference-html \
+#         ; do
+#   cp -pR build/install/$i "$pkg_dir/Contents/$(dirname $i)"
+#done

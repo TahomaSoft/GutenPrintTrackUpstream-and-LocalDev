@@ -1,0 +1,160 @@
+Building Gutenprint for Mac OS X
+by John Labovitz <johnl@johnlabovitz.com>
+Updated by Steve Letter <sletter1@yahoo.com>`
+
+This guide describes how to build and package Gutenprint for Mac OS X
+versions 10.6 (Snow Leopard) and above. Because Gutenprint supports many now-
+obsolete OS X versions, its build process is fairly complicated. The
+essential steps are:
+
+	- set up development environment
+	- clone git repository
+	- obtain release distribution
+	- build from source
+	- build installer package and final DMG for distribution
+
+The steps below are listed in order that they need to be completed.
+
+
+================================================================
+Configure machines
+
+A Mac running 10.6 or later is required to build Gutenprint. An optional
+physical or virtual Linux machine is needed for doing a full build from
+the git repository.
+
+
+Operating system
+----------------
+
+All machines should be up to date within their major release. Run Software
+Update to be sure.
+
+
+Xcode
+-----
+
+The development environment needed for the OS X machines is available from
+Apple Downloads, but requires a developer membership to access it as well as
+the required developer and installer certificates.
+
+	https://developer.apple.com/downloads/index.action
+
+The OS X machines must have the Xcode tools (5.0.2 or above) installed, both
+the IDE and command-line tools.
+
+The Mac must also have the 'Auxiliary Tools for Xcode' package (labeled 'Late
+July 2012' -- newer verions will not work!). This can be downloaded from
+Apple Downloads, as above. Once downloaded, drag the 'PackageMaker.app' from
+the disk image to your main Applications folder.
+
+
+Homebrew
+--------
+
+Homebrew is not specifically required, but is helpful for obtaining the
+required 'pkg-config' tool. If you don't already have it, installation
+instructions can be found at the Homebrew site:
+
+	http://brew.sh
+
+Follow the instructions on that page to install Homebrew. Then run 'brew
+doctor' to check the installation, and then install 'git'.
+
+	brew doctor
+	brew install git
+
+
+pkg-config
+----------
+
+If you installed Homebrew, the installation of 'git' installed 'pkg-config'
+for you, so you don't need to install any further packages. If you didn't use
+Homebrew, you must install 'pkg-config' (which depends on 'glib').
+
+
+
+================================================================
+Create working directory
+
+The working directory will contain the initial files needed for the
+build, the temporary artifacts, and the final installation packages.
+It can be created anywhere. For example:
+
+	mkdir ~/projects/gutenprint
+	cd ~/projects/gutenprint
+
+The steps below assume that the current directory is the working
+directory.
+
+
+================================================================
+Get Gutenprint from the Repository
+
+The git repository contains the source for this document, as well as
+scripts and resources needed to build the final installation packages.
+You will also need the cloned repository you need to build the release
+tarball from source. Cloning from GIT documentation can be found using
+Google.
+
+
+================================================================
+Obtain a Gutenprint release
+
+A Gutenprint release is published as a compressed _tar_ archive (aka
+'tarball') of the source files for a particular version. Unlike the CVS tree,
+a release does not depend on the more exotic build tools, and so is more
+easily configured and built on OS X. While the release itself can install
+Gutenprint under OS X (with the usual './configure && make install'), we
+instead convert the release to an installer package for ease of use by regular
+OS X users.
+
+
+* Option 1: Download release
+
+Releases can be downloaded from Sourceforge:
+
+	http://sourceforge.net/projects/gimp-print/files/
+
+Look for a subdirectory named for the major version (e.g., 'gutenprint-5.2').
+Tarballs are named for the full version: 'gutenprint-5.2.10.tar.bz2'.
+
+If the project is nearing a release, tarballs may be in the snapshot
+directory instead, at:
+
+	http://sourceforge.net/projects/gimp-print/files/snapshots/
+
+Once the release has been downloaded, the tarball should be placed in the
+working  directory.
+
+
+* Option 2: Build release
+
+A release can be built out of the git image. However, due to the autotools not
+being fully implemented on OS X, this must be done on a physical or
+virtualized Linux development machine is required. To install a Linux VM,
+refer to the file 'macosx/README.vm-environment.markdown' in the git image. To
+build the tarball, see 'doc/README.maintaining'.
+
+
+================================================================
+Obtain libusb release
+
+To support the dyesub backend, the 'libusb' package must be downloaded and
+extracted in a place where the build tools can access it. Download version
+1.0.18 or later from the following site and place the tarball into the
+working directory.
+
+	https://sourceforge.net/projects/libusb/files/
+
+A version of the libusb source, 1.0.22, is now included in the build.  It
+includes a pkg-config file that should be used to allow the compilers to
+find it.
+
+
+
+================================================================
+Build from release
+
+Given a release distribution tarball, the 'makegutenpkg.sh' makes the complete
+distribution dmg.
