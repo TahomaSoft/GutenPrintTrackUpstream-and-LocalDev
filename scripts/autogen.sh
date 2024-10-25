@@ -168,50 +168,6 @@ test -n "$NO_AUTOMAKE" || (aclocal --version) < /dev/null > /dev/null 2>&1 || {
   DIE=1
 }
 
-# Check first for existence and then for proper version of Jade >= 1.2.1
-
-jade_err=0
-
-# Exists?
-command -V jade >/dev/null 2>&1 || jade_err=1
-
-# Proper rev?
-test "$jade_err" -eq 0 && {
-#  echo "Checking for proper revision of jade..."
-# shellcheck disable=SC2006
-  jade_version=`jade -v < /dev/null 2>&1 | grep -i "jade\"? version" | awk -F\" '{print $2}'`
-
-  # jade:I: "openjade" version "1.3.2"
-  if [ -z "$jade_version" ] ; then
-# shellcheck disable=SC2006
-    jade_version=`jade -v < /dev/null 2>&1 | grep -i 'jade"* version' | sed 's/"//g' | awk '{print $NF}'`
-  fi
-  if [ -z "$jade_version" ] ; then
-    jade -v < /dev/null 2>&1
-    jade_err=1
-  else
-# shellcheck disable=SC2006
-    jade_version_major=`echo "$jade_version" | awk -F. '{print $1}'`
-# shellcheck disable=SC2006
-    jade_version_minor=`echo "$jade_version" | awk -F. '{print $2}'`
-# shellcheck disable=SC2006
-    jade_version_point=`echo "$jade_version" | awk -F. '{print $3}'`
-
-    test "$jade_version_major" -ge 1 || jade_err=1
-
-    test "$jade_version_minor" -lt 2 || {
-	test "$jade_version_minor" -eq 2 -a "$jade_version_point" -lt 1
-      } && jade_err=1
-  fi
-}
-test "$jade_err" -gt 0 && {
-  echo
-  echo "***Warning***: You must have \"Jade\" version 1.2.1 or"
-  echo "newer installed to build the Gutenprint user's guide."
-  echo "Get ftp://ftp.jclark.com/pub/jade/jade-1.2.1.tar.gz"
-  echo "(or a newer version if available)"
-  echo
-}
 
 # Check for existence of dvips
 
@@ -222,55 +178,6 @@ command -V dvips >/dev/null 2>&1 || {
   echo
 }
 
-# Check for existence of jadetex
-
-command -V jadetex >/dev/null 2>&1 || {
-  echo
-  echo "***Warning***: You must have \"jadetex\" version 3.5 or"
-  echo "newer installed to build the Gutenprint user's guide."
-  echo "Get ftp://prdownloads.sourceforge.net/jadetex/jadetex-3.5.tar.gz"
-  echo "(or a newer version if available)"
-  echo
-}
-
-# Check for OpenJade >= 1.3
-
-openjade_err=0
-
-# Exists?
-command -V openjade >/dev/null 2>&1 || openjade_err=1
-
-# Proper rev?
-test "$openjade_err" -eq 0 && {
-#  echo "Checking for proper revision of openjade..."
-# shellcheck disable=SC2006
-  openjade_version=`openjade -v < /dev/null 2>&1 | sed 's/"//g' | grep -i "openjade version" | awk -F ' ' '{print $4}'`
-  if [ -n "$openjade_version" ] ; then
-# shellcheck disable=SC2006
-    openjade_version_major=`echo "$openjade_version" | awk -F. '{print $1}'`
-# shellcheck disable=SC2006
-    openjade_version_minor=`echo "$openjade_version" | awk -F. '{print $2}'`
-# shellcheck disable=SC2006
-    openjade_version_minor=`echo "$openjade_version_minor" | awk -F- '{print $1}' | sed -e 's/\([0-9][0-9]*\).*/\1/'`
-
-    if [ "$openjade_version_major" -lt 1 ] ; then
-      openjade_error=1
-    elif [ "$openjade_version_major" -eq 1 ] && [ "$openjade_version_minor" -lt 3 ] ; then
-      openjade_error=1
-    fi
-  else
-    openjade_err=1
-  fi
-
-  test "$openjade_err" -eq 1 && {
-    echo " "
-    echo "***Warning***: You must have \"OpenJade\" version 1.3 or"
-    echo "newer installed to build the Gutenprint user's guide."
-    echo "Get http://download.sourceforge.net/openjade/openjade-1.3.tar.gz"
-    echo "(or a newer version if available)"
-    echo " "
-  }
-}
 
 command -V db2html >/dev/null 2>&1 || {
   echo " "
@@ -283,7 +190,7 @@ command -V db2html >/dev/null 2>&1 || {
 command -V db2pdf >/dev/null 2>&1 || {
   echo " "
   echo "***Warning***: You must have \"db2pdf\" installed to"
-  echo "build the Gutenprint user's guide."
+  echo "build the Gutenprint developers's guide."
   echo "This usually comes from packages named docbook-utils-pdf"
   echo "or docbook-toys."
   echo " "
@@ -320,14 +227,6 @@ test "$sgmltools_err" -eq 0 && {
   fi
 }
 
-test "$sgmltools_err" -eq 1 && {
-  echo " "
-  echo "***Warning***: You must have \"sgmltools-lite\" version 3.0.2"
-  echo "or newer installed to build the Gutenprint user's guide."
-  echo "Get https://sourceforge.net/projects/sgmltools-lite/files/latest/download"
-  echo "(or a newer version if available)"
-  echo " "
-}
 
 # Check for convert
 
