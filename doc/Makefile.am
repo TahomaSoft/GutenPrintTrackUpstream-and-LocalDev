@@ -61,6 +61,8 @@ pdf: $(MANUAL).pdf
 	cd developer; $(MAKE) pdf
 
 html:
+	FAQ.html: FAQ.md
+		pandoc --standalone -o $@ $<
 	cd developer; $(MAKE) html
 
 install-data-local: FAQ.html gutenprint-users-manual.odt gutenprint-users-manual.pdf
