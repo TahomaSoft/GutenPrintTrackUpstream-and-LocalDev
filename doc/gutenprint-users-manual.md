@@ -1,12 +1,12 @@
-Gutenprint 5.2
+---
+title: Gutenprint 5.2 User's Manual
+author: Robert Krawitz
+copyright: Copyright © 2000-2012 Robert Krawitz
+date: 06/01/2012
+note: transliterated to MarkDown
+---
 
-User\'s Manual
 
-Robert Krawitz
-
-Gutenprint 5.2 User\'s Manual
-
-Copyright © 2000-2012 Robert Krawitz
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.2 or
@@ -21,30 +21,28 @@ EPSON, ESC/P, and Stylus are registered trademarks of Seiko Epson Corp.
 ESC/P2 is a trademark of Seiko Epson Corp. All other product names are
 trademarks and/or registered trademarks of their vendors.
 
-1.  # []{#anchor}Introduction
-
-```{=html}
-<!-- -->
-```
-1)  1)  ## []{#anchor-1}What is Gutenprint?
+# Introduction #
+## What is Gutenprint? ##
 
 Gutenprint, formerly named Gimp-Print, is a suite of printer drivers
-that may be used with most common UNIX and Linux print spooling systems,
-including CUPS, lpr, LPRng, or others. These drivers provide high
-quality printing for UNIX (including Macintosh OS X 10.2, 10.3, and
-10.4) and Linux systems that in many cases equal or exceed proprietary
-vendor-supplied drivers in quality and functionality, and can be used
-for demanding printing tasks requiring flexibility and high quality.
-This software package includes an enhanced Print plugin for the GIMP
-that replaces the plugin packaged with the GIMP, and a CUPS driver.
+that may be used with most common UNIX and Linux print spooling
+systems, including CUPS, lpr, LPRng, or others. These drivers provide
+high quality printing for UNIX (including Macintosh OS X 10.2, 10.3,
+and 10.4) and Linux systems that in many cases equal or exceed
+proprietary vendor-supplied drivers in quality and functionality, and
+can be used for demanding printing tasks requiring flexibility and
+high quality.  This software package includes an enhanced Print plugin
+for the GIMP that replaces the plugin packaged with the GIMP, and a
+CUPS driver.
 
-Gutenprint has been renamed in order to clearly distinguish it from the
-GIMP. While this package started out as the original Print plugin for
-the GIMP, it has expanded into a collection of general purpose printer
-drivers, and the new, enhanced Print plugin for the GIMP is now only a
-small part of the package. Furthermore, the name Gutenprint recognizes
-Johannes Gutenberg, the inventor of the movable type printing press.
-Finally, the word *guten* is the German word for *good*.
+Gutenprint has been renamed in order to clearly distinguish it from
+the GIMP. While this package started out as the original Print plugin
+for the GIMP, it has expanded into a collection of general purpose
+printer drivers, and the new, enhanced Print plugin for the GIMP is
+now only a small part of the package. Furthermore, the name Gutenprint
+recognizes Johannes Gutenberg, the inventor of the movable type
+printing press.  Finally, the word *guten* is the German word for
+*good*.
 
 Gutenprint 5.2 offers significant enhancements over Gutenprint 5.0.
 
@@ -64,40 +62,40 @@ CUPS.
 
 Gutenprint currently supports over 1500 printer models.
 
-1.  1.  ## []{#anchor-2}History of Gutenprint
+## History of Gutenprint ##
 
-        1.  ### []{#anchor-3}The early years: Gimp-Print 3.x and 4.0
+### The early years: Gimp-Print 3.x and 4.0 ###
 
-The predecessor to this software package (the original Print plugin for
-the GIMP) was first written by Michael Sweet of Easy Software Products
-and initially worked only as a print plugin to the GIMP (GNU Image
-Manipulation Program). In the summer of 1999, I purchased an Epson
-Stylus Photo EX printer to feed my photography hobby. Finding no
+The predecessor to this software package (the original Print plugin
+for the GIMP) was first written by Michael Sweet of Easy Software
+Products and initially worked only as a print plugin to the GIMP (GNU
+Image Manipulation Program). In the summer of 1999, I purchased an
+Epson Stylus Photo EX printer to feed my photography hobby. Finding no
 existing printer drivers, I adapted Mike\'s GIMP Print plugin to this
 six-color printer, and by the end of the year released version 3.0 of
-the Gimp-Print software, which was included in version 1.1 of the GIMP.
-The intention was for this to be the stable plugin in version 1.2 of the
-GIMP while development of the GIMP Print plugin continued for later
-release.
+the Gimp-Print software, which was included in version 1.1 of the
+GIMP.  The intention was for this to be the stable plugin in version
+1.2 of the GIMP while development of the GIMP Print plugin continued
+for later release.
 
 I put the Gimp-Print development tree on SourceForge starting with
-version 3.1, and quickly found a group of like-minded people who wanted
-to print high quality output on inexpensive inkjet printers. One of the
-main goals, which was not expected to be met until late in the version
-3.1 cycle, was to write a Ghostscript driver so that printing would not
-be restricted to the GIMP. Much to my surprise, someone wrote one within
-days! That gave me my first clue that the project was destined for
-greater things.
+version 3.1, and quickly found a group of like-minded people who
+wanted to print high quality output on inexpensive inkjet
+printers. One of the main goals, which was not expected to be met
+until late in the version 3.1 cycle, was to write a Ghostscript driver
+so that printing would not be restricted to the GIMP. Much to my
+surprise, someone wrote one within days! That gave me my first clue
+that the project was destined for greater things.
 
 In July 2000, barely a year after I bought my Epson Stylus Photo EX, I
-was invited to the Linux Printing Summit hosted by VA Linux Systems. In
-preparation for that, I spent long hours printing out test images. I
-went back to the Gimp-Print version 3.0.9 release, which seemed like
-such an advance at the time, and was floored at how far the project had
-come in four months! Output that had been considered impressive with
-using six colors was put to shame by four color output. That should give
-you an idea what modern printing technology can do. It also illustrates
-what a group of committed people can do.
+was invited to the Linux Printing Summit hosted by VA Linux
+Systems. In preparation for that, I spent long hours printing out test
+images. I went back to the Gimp-Print version 3.0.9 release, which
+seemed like such an advance at the time, and was floored at how far
+the project had come in four months! Output that had been considered
+impressive with using six colors was put to shame by four color
+output. That should give you an idea what modern printing technology
+can do. It also illustrates what a group of committed people can do.
 
 I came away from the Printing Summit with a lot of new ideas. Other
 people were busy adding new features and support for more printers, and
@@ -118,7 +116,7 @@ goals weren\'t going to be achieved quickly. We decided to do an interim
 stable release based on improvements to the 4.0 codebase that would give
 us some breathing space while we worked on a new architecture.
 
-1.  1.  1.  ### []{#anchor-4}Gimp-Print 4.2
+### Gimp-Print 4.2 ###
 
 The interim stable release was to become Gimp-Print 4.2. We used the
 numbering scheme adopted by the Linux kernel team, whereby stable
@@ -126,143 +124,146 @@ releases were denoted by even numbers in the minor release (the "2" in
 4.2) while odd numbers denoted unstable development releases. We were
 fortunate that Roger Leigh joined the project shortly after the
 Gimp-Print 4.0 release. Roger is a superb architect, and he quickly
-whipped the somewhat disorganized code base into shape. We spent most of
-2001 cleaning up the code base, adding support for CUPS (by now, Mike
-Sweet had joined the project) and the nascent Foomatic metadata
+whipped the somewhat disorganized code base into shape. We spent most
+of 2001 cleaning up the code base, adding support for CUPS (by now,
+Mike Sweet had joined the project) and the nascent Foomatic metadata
 management project, improving the color generation and dithering code,
 and adding support for more printers. A lot of our work went into
 automatically generating the CUPS PPD files and Foomatic data; the
 project already supported about 200 printers with a large number of
-options, and writing all of this by hand would be tedious, error-prone,
-and unmaintainable. We spent most of the fall working on documentation,
-cleaning up bugs, and the like, and released Gimp-Print 4.2.0 in late
-November.
+options, and writing all of this by hand would be tedious,
+error-prone, and unmaintainable. We spent most of the fall working on
+documentation, cleaning up bugs, and the like, and released Gimp-Print
+4.2.0 in late November.
 
 Anticipating that the next major release of Gimp-Print would be a more
-extensive project, we decided to branch the 4.2 release, and work on the
-next release (which would be either 4.4 or 5.0, depending upon how
+extensive project, we decided to branch the 4.2 release, and work on
+the next release (which would be either 4.4 or 5.0, depending upon how
 extensive the changes would be) while also releasing updates to 4.2.
 This would allow us to fix bugs and add new printers and perhaps minor
 new capabilities for users wanting a stable Gimp-Print release while
-making much more radical changes in preparation for the next release. We
-started work on Gimp-Print 4.3 (the development series that would
-eventually mature into the next stable release series) around the
-beginning of 2002.
+making much more radical changes in preparation for the next
+release. We started work on Gimp-Print 4.3 (the development series
+that would eventually mature into the next stable release series)
+around the beginning of 2002.
 
-The Gimp-Print 4.2 release proved to be far more successful than we ever
-imagined. First of all, it was wonderfully stable from the outset; it
-was to be over 4 months before we needed to release an update. We added
-one major new feature shortly after release, support for the new
-Ghostscript driver architecture based on HP\'s HPIJS driver. This driver
-architecture allowed drivers to be compiled independently of Ghostscript
-(previously drivers had to be compiled into Ghostscript, a somewhat
-daunting project for end users). We continued to add more printers,
-dither algorithms, and so forth, all without breaking compatibility with
-the initial 4.2.0 release.
+The Gimp-Print 4.2 release proved to be far more successful than we
+ever imagined. First of all, it was wonderfully stable from the
+outset; it was to be over 4 months before we needed to release an
+update. We added one major new feature shortly after release, support
+for the new Ghostscript driver architecture based on HP\'s HPIJS
+driver. This driver architecture allowed drivers to be compiled
+independently of Ghostscript (previously drivers had to be compiled
+into Ghostscript, a somewhat daunting project for end users). We
+continued to add more printers, dither algorithms, and so forth, all
+without breaking compatibility with the initial 4.2.0 release.
 
 2002 was a very exciting year for Gimp-Print. Apple had released OS X
-for the Macintosh and was planning to rely on a lot of free/open source
-software for key functions of the OS. In particular from our standpoint,
-many vendors had not updated printer drivers for OS X, and many did not
-want to update their drivers for older printers. Since OS X had settled
-on CUPS as the core of its printing system from 10.2 on, and Gimp-Print
-had full support for CUPS, the fit was very obvious and Gimp-Print wound
-up becoming part of the OS X printing system. We were very busy that
-year preparing for release of Gimp-Print for OS X. This was done in
-4.2.2, which we released almost 9 months after the initial 4.2.0 release
-(which says something about the stability of Gimp-Print 4.2). This
-release created a lot of excitement in the OS X world and for us, and we
-did three more releases in quick succession culminating with Gimp-Print
-4.2.5 in early 2003.
+for the Macintosh and was planning to rely on a lot of free/open
+source software for key functions of the OS. In particular from our
+standpoint, many vendors had not updated printer drivers for OS X, and
+many did not want to update their drivers for older printers. Since OS
+X had settled on CUPS as the core of its printing system from 10.2 on,
+and Gimp-Print had full support for CUPS, the fit was very obvious and
+Gimp-Print wound up becoming part of the OS X printing system. We were
+very busy that year preparing for release of Gimp-Print for OS X. This
+was done in 4.2.2, which we released almost 9 months after the initial
+4.2.0 release (which says something about the stability of Gimp-Print
+4.2). This release created a lot of excitement in the OS X world and
+for us, and we did three more releases in quick succession culminating
+with Gimp-Print 4.2.5 in early 2003.
 
 I was expecting that there would be one more release of Gimp-Print 4.2
 that would primarily contain bug fixes and incremental support for new
-printers. By 2003, many of the printers being released had capabilities
-beyond what Gimp-Print 4.2 could support. I also expected that we would
-be ready to release Gimp-Print 4.4 or 5.0 within a year, so there
-wouldn\'t be a need for anything more. We released Gimp-Print 4.2.6 in
-early 2004. However, there were still some problems with that release,
-and we did one more release (4.2.7) in July 2004. This wound up being
-the final Gimp-Print 4.2 release.
+printers. By 2003, many of the printers being released had
+capabilities beyond what Gimp-Print 4.2 could support. I also expected
+that we would be ready to release Gimp-Print 4.4 or 5.0 within a year,
+so there wouldn\'t be a need for anything more. We released Gimp-Print
+4.2.6 in early 2004. However, there were still some problems with that
+release, and we did one more release (4.2.7) in July 2004. This wound
+up being the final Gimp-Print 4.2 release.
 
-1.  1.  1.  ### []{#anchor-5}Gimp-Print Becomes Gutenprint
+### Gimp-Print Becomes Gutenprint ###
 
 In the meantime, work on Gimp-Print 4.3 was progressing, albeit rather
 slowly. We wanted to support the newest generation printers with tiny
-droplets, very high resolutions, and extra colors, in addition to adding
-color management and the possibility of supporting many more printer
-capabilities beyond the fixed set offered in Gimp-Print 4.2. In part due
-to all of the maintenance work on 4.2, and in part due to the natural
-tendency of people to move on to other projects, we made only slow
-progress on Gimp-Print 4.3. It was clear that we weren\'t going to
-release a next generation of Gimp-Print in 2002 or early 2003 as we
-hoped. However, the success of Gimp-Print 4.2 took some of the pressure
-off, because 4.2 was proving to be highly maintainable. We wanted the
-next generation of Gimp-Print to be more than just another incremental
-advance.
+droplets, very high resolutions, and extra colors, in addition to
+adding color management and the possibility of supporting many more
+printer capabilities beyond the fixed set offered in Gimp-Print
+4.2. In part due to all of the maintenance work on 4.2, and in part
+due to the natural tendency of people to move on to other projects, we
+made only slow progress on Gimp-Print 4.3. It was clear that we
+weren\'t going to release a next generation of Gimp-Print in 2002 or
+early 2003 as we hoped. However, the success of Gimp-Print 4.2 took
+some of the pressure off, because 4.2 was proving to be highly
+maintainable. We wanted the next generation of Gimp-Print to be more
+than just another incremental advance.
 
 The core of the new parameter-based API, and hence of Gimp-Print 4.3,
-was in place by early 2003. By this time, 4.2 was slowing down, and work
-on our development tree was starting to pick up. We decided that the
-architectural and user experience changes were sufficient to name the
-next release 5.0, and I put together a plan for going to alpha in July
-and releasing 5.0 in November 2003. That was not to be.
+was in place by early 2003. By this time, 4.2 was slowing down, and
+work on our development tree was starting to pick up. We decided that
+the architectural and user experience changes were sufficient to name
+the next release 5.0, and I put together a plan for going to alpha in
+July and releasing 5.0 in November 2003. That was not to be.
 
 We were doing new releases of 4.3 for intrepid adventurers every few
 weeks, with extensive changes continuing, and it was only in December
 that we finally felt ready to move to 5.0 alpha, which we released in
 January 2004. Progress was slow; there were still quite a few API
-changes we felt we needed to make, and there were still serious quality
-problems with many printers. In addition, new printers were being
-shipped with additional inks that we couldn\'t handle very well. We also
-had to adapt to other changes, such as GIMP 2.0 based on GTK+ 2.0, which
-was not backward compatible with GTK+/GIMP 1.2. We released Gimp-Print
-5.0 beta in June with many improvements, but there were still quite a
-few things on our release checklist that weren\'t done.
+changes we felt we needed to make, and there were still serious
+quality problems with many printers. In addition, new printers were
+being shipped with additional inks that we couldn\'t handle very
+well. We also had to adapt to other changes, such as GIMP 2.0 based on
+GTK+ 2.0, which was not backward compatible with GTK+/GIMP 1.2. We
+released Gimp-Print 5.0 beta in June with many improvements, but there
+were still quite a few things on our release checklist that weren\'t
+done.
 
 Based on the popularity of Gimp-Print 4.2, we decided that it was very
 important that Gimp-Print 5.0 not interfere with the use of Gimp-Print
-4.2. It was clear that the changes in 5.0 were too extensive to maintain
-compatibility in any useful way with 4.2, and a lot of people had
-incorporated 4.2 into their daily work, so we thought long and hard
-about how to make the CUPS and Foomatic interfaces not interfere with
-Gimp-Print 4.2.
+4.2. It was clear that the changes in 5.0 were too extensive to
+maintain compatibility in any useful way with 4.2, and a lot of people
+had incorporated 4.2 into their daily work, so we thought long and
+hard about how to make the CUPS and Foomatic interfaces not interfere
+with Gimp-Print 4.2.
 
 It also became apparent that our ties to the GIMP had all but vanished
-by this point. We had actually squeezed all of the GIMP-related code out
-into a very small stub that was actually smaller than the original GIMP
-plugin! Furthermore, the Gimp-Print name was causing a lot of confusion
-among users; OS X users in parrticular were referring to Gimp-Print as
-"Gimp". We settled on the name Gutenprint, and renamed the project in
-the fall of 2004.
+by this point. We had actually squeezed all of the GIMP-related code
+out into a very small stub that was actually smaller than the original
+GIMP plugin! Furthermore, the Gimp-Print name was causing a lot of
+confusion among users; OS X users in parrticular were referring to
+Gimp-Print as "Gimp". We settled on the name Gutenprint, and renamed
+the project in the fall of 2004.
 
-We were still in beta; progress was slow at this point, but we weren\'t
-satisfied with the results. We finally did our first release candidate
-in September 2005, over a year after we entered beta. We continued to
-move toward 5.0 release, but there was still a lot of cleanup work that
-needed to be done: printers needed to be retuned, PPD files needed to be
-validated, we needed to incorporate feedback from users that we only
-really started to get from the release candidates. There were a number
-of serious but subtle bugs with the CUPS and Foomatic interfaces that
-needed to be fixed in order to have a useful 5.0 public release.
+We were still in beta; progress was slow at this point, but we
+weren\'t satisfied with the results. We finally did our first release
+candidate in September 2005, over a year after we entered beta. We
+continued to move toward 5.0 release, but there was still a lot of
+cleanup work that needed to be done: printers needed to be retuned,
+PPD files needed to be validated, we needed to incorporate feedback
+from users that we only really started to get from the release
+candidates. There were a number of serious but subtle bugs with the
+CUPS and Foomatic interfaces that needed to be fixed in order to have
+a useful 5.0 public release.
 
 In April 2006 I attended my second printing summit, this one hosted by
 Lanier, and spent three days working with many key players in the
 Linux/UNIX printing world. This was very productive; I got a lot of
-useful feedback on various issues and was able to raise issues important
-to Gutenprint. We released the third release candidate in May 2006, with
-a tremendous number of bug fixes and improvements, and this finally felt
-like a real release candidate. We received extensive feedback from this
-release, and fixed other problems and made some other changes to improve
-quality.
+useful feedback on various issues and was able to raise issues
+important to Gutenprint. We released the third release candidate in
+May 2006, with a tremendous number of bug fixes and improvements, and
+this finally felt like a real release candidate. We received extensive
+feedback from this release, and fixed other problems and made some
+other changes to improve quality.
 
 In Gutenprint 5.2, we accomplished many of our outstanding goals left
 over from Gutenprint 5.0, but not all. We\'ve rewritten the Postscript
-output driver, converted the data in the Epson driver to be data-driven,
-and much more. Unfortunately, Gutenprint 5.2 still does not offer true
-color management, but many of the hooks required are there.
+output driver, converted the data in the Epson driver to be
+data-driven, and much more. Unfortunately, Gutenprint 5.2 still does
+not offer true color management, but many of the hooks required are
+there.
 
-1.  1.  ## []{#anchor-6}Note to Packagers and Distributors
+## Note to Packagers and Distributors ##
 
 We recommend that all packagers of Gutenprint, such as Linux
 distribution vendors, read this manual carefully. There are important
@@ -271,74 +272,74 @@ notes throughout. Please contact us via email at
 request that vendors notify us of private patches that they plan to
 distribute.
 
-1.  # []{#anchor-7}General Requirements
+# General Requirements #
 
 Gutenprint will run on any reasonably modern computer running Linux,
 Macintosh OS X (10.3 or above), Solaris, or any other UNIX-like
 operating system. If you plan to compile this package from source, you
-will also need an ANSI C compiler, such as *gcc* (recommended), and GNU
-Make. A compiler is not required if you are installing a pre-compiled
-package.
+will also need an ANSI C compiler, such as *gcc* (recommended), and
+GNU Make. A compiler is not required if you are installing a
+pre-compiled package.
 
 Processor and memory requirements vary depending upon the printer and
 runtime options selected; it is suggested that you have at least 64 MB
-of memory for general purpose printing, 256 MB or more for high quality
-printing on a good printer, and 1 GB or more for large format printing
-at high resolution. You should have at least 50 MB of free disk space to
-compile and install Gutenprint. Disk space requirements for printing
-will vary depending upon how you use Gutenprint, but are generally
-modest except as noted below. We recommend a processor speed of at least
-300 MHz. Fast printers may require a faster processor to achieve maximum
-printing speed.
+of memory for general purpose printing, 256 MB or more for high
+quality printing on a good printer, and 1 GB or more for large format
+printing at high resolution. You should have at least 50 MB of free
+disk space to compile and install Gutenprint. Disk space requirements
+for printing will vary depending upon how you use Gutenprint, but are
+generally modest except as noted below. We recommend a processor speed
+of at least 300 MHz. Fast printers may require a faster processor to
+achieve maximum printing speed.
 
 For general use, you should have the Common UNIX Printing System, CUPS
-(version 1.1.15 or above) installed. Please read the rest of the release
-notes, in particular the Exceptions and Workarounds, for full details on
-installation, as there is important information to be aware of. CUPS is
-the printing system used on Macintosh OS X 10.2 and above, and many
-other systems use it. The combination of CUPS and Gutenprint provides a
-flexible, general purpose printing system capable of producing the
-highest quality output with any of the printers supported by this
-package. We strongly recommend using CUPS with Gutenprint as a
-general-purpose printing solution.
+(version 1.1.15 or above) installed. Please read the rest of the
+release notes, in particular the Exceptions and Workarounds, for full
+details on installation, as there is important information to be aware
+of. CUPS is the printing system used on Macintosh OS X 10.2 and above,
+and many other systems use it. The combination of CUPS and Gutenprint
+provides a flexible, general purpose printing system capable of
+producing the highest quality output with any of the printers
+supported by this package. We strongly recommend using CUPS with
+Gutenprint as a general-purpose printing solution.
 
-The enhanced Print plugin for the GIMP requires GIMP 2.0 or above. This
-plugin will work with any printing system, and offers a comprehensive
-user interface to control all aspects of the printing process. If you
-are printing photographs in large format from the GIMP at very high
-resolution, disk space requirements may be substantial, and we recommend
-at least 2 GB of free disk space for that purpose.
+The enhanced Print plugin for the GIMP requires GIMP 2.0 or
+above. This plugin will work with any printing system, and offers a
+comprehensive user interface to control all aspects of the printing
+process. If you are printing photographs in large format from the GIMP
+at very high resolution, disk space requirements may be substantial,
+and we recommend at least 2 GB of free disk space for that purpose.
 
 Users of Macintosh OS X 10.6 (Snow Leopard) and above. For ease of
-installation, a pre-built package with installer is normally supplied a
-few days after the release of the source package. We strongly recommend
-that OS X users use the pre-built package rather than attempt to build
-it themselves.
+installation, a pre-built package with installer is normally supplied
+a few days after the release of the source package. We strongly
+recommend that OS X users use the pre-built package rather than
+attempt to build it themselves.
 
 **Note**: This package will not work with any version of OS X 10.0,
 10.1, or 10.2. Users of OS X 10.3 or 10.4 may use Gutenprint 5.2.10;
 users of 10.5 may use 5.2.11.
 
-1.  # []{#anchor-8}Installation
+# Installation #
 
-This section is provided for distributors people installing the package
-from source. If you are installing from a pre-compiled package (such as
-the Macintosh OS X package, or a package provided by your distribution
-vendor), you may skip this section. **We strongly urge all distributors
-of the Gutenprint package, such as Linux distribution vendors, to read
-this information carefully!**
+This section is provided for distributors people installing the
+package from source. If you are installing from a pre-compiled package
+(such as the Macintosh OS X package, or a package provided by your
+distribution vendor), you may skip this section. **We strongly urge
+all distributors of the Gutenprint package, such as Linux distribution
+vendors, to read this information carefully!**
 
 Installing packages from source requires some level of system
 administration skills along with superuser privileges. Superuser
 privilege allows you to perform actions that may be damaging to your
-system. If you are not comfortable with the material discussed here and
-in the release notes, we recommend that you not attempt to install this
-package from source.
+system. If you are not comfortable with the material discussed here
+and in the release notes, we recommend that you not attempt to install
+this package from source.
 
 Before beginning, please read the release notes carefully for any
 updates.
 
-1.  1.  ## []{#anchor-9}Overview
+## Overview ##
 
 Gutenprint includes the following primary components:
 
@@ -432,7 +433,7 @@ note that it is necessary for the versions of the development packages
 to match exactly the versions of the runtime packages they are related
 to.
 
-1.  1.  ## []{#anchor-10}Core Driver Library
+## Core Driver Library ##
 
 The core driver library, which is always built, contains all of the
 printer drivers comprising the Gutenprint package. When the package is
@@ -449,7 +450,7 @@ it. If you experience problems, *‑‑with‑modules=dlopen* or
 wish to compile Gutenprint entirely statically (with no use of shared
 libraries), you may use the option *‑‑disable‑shared*.
 
-1)  1)  1)  1)  -   ##### Notes to Packagers
+##### Notes to Packagers ####
 
 ```{=html}
 <!-- -->
@@ -471,62 +472,63 @@ libraries), you may use the option *‑‑disable‑shared*.
 ```{=html}
 <!-- -->
 ```
-1.  1.  ## []{#anchor-11}CUPS
+## CUPS ##
 
 Gutenprint may be used as a driver under CUPS (Common UNIX Printing
 System), if your system uses that spooler. Full description of CUPS is
 beyond the scope of this README file; full information may be found at
 [http://www.cups.org](http://www.cups.org/). Gutenprint 5.2 requires
-CUPS 1.1.9 or higher. We recommend use of 1.1.15 or above; that release
-of CUPS fixes some important bugs. Gutenprint supports CUPS 1.2, but at
-this time does not take advantage of the new features of that release.
+CUPS 1.1.9 or higher. We recommend use of 1.1.15 or above; that
+release of CUPS fixes some important bugs. Gutenprint supports CUPS
+1.2, but at this time does not take advantage of the new features of
+that release.
 
-Gutenprint will normally detect the presence of CUPS on your system and
-will attempt to build the CUPS driver if it finds CUPS installed. If
-your distribution separates the CUPS installation into development and
-runtime packages, you must install the CUPS development package
-(*cups-devel* or similar). You may need to install other development
-packages depending upon how your distribution has built CUPS. The list
-of packages varies, but commonly development packages for TIFF
-(*libtiff-devel*), JPEG (*jpeg-devel* or *libjpeg-devel*), PNG
-(*libpng-devel*) and OpenSSL (*openssl-devel*) will be required.
-**Failure to install these packages will lead to errors when the package
-is compiled.**
+Gutenprint will normally detect the presence of CUPS on your system
+and will attempt to build the CUPS driver if it finds CUPS
+installed. If your distribution separates the CUPS installation into
+development and runtime packages, you must install the CUPS
+development package (*cups-devel* or similar). You may need to install
+other development packages depending upon how your distribution has
+built CUPS. The list of packages varies, but commonly development
+packages for TIFF (*libtiff-devel*), JPEG (*jpeg-devel* or
+*libjpeg-devel*), PNG (*libpng-devel*) and OpenSSL (*openssl-devel*)
+will be required.  **Failure to install these packages will lead to
+errors when the package is compiled.**
 
 Installing the CUPS driver for Gutenprint 5.2 will not interfere with
-your ability to continue using the Gutenprint 5.0 or Gimp-Print 4.2 CUPS
-driver.
+your ability to continue using the Gutenprint 5.0 or Gimp-Print 4.2
+CUPS driver.
 
 The Gutenprint CUPS driver consists of the following components:
 
--   The core Gutenprint CUPS driver, *rastertogutenprint.5.2*. This is a
-    CUPS filter that converts CUPS raster data into printer-specific
+-   The core Gutenprint CUPS driver, *rastertogutenprint.5.2*. This is
+    a CUPS filter that converts CUPS raster data into printer-specific
     data. This is most commonly installed in */usr/lib/cups/filter*.
--   Additional utilities to send certain commands to these printers are
-    installed as *commandtocanon* and *commandtoepson*; they are
+-   Additional utilities to send certain commands to these printers
+    are installed as *commandtocanon* and *commandtoepson*; they are
     installed in */usr/lib/cups/filter*.
 -   One or more sets of PPD files describing all of the printers
     supported by Gutenprint, if required. With CUPS 1.2 or above, the
-    PPD files are not normally required. These are normally installed in
-    */usr/share/cups/model/gutenprint*. These PPD files can only be used
-    by the precise version of Gutenprint that they were built with; for
-    example, it is not possible to use PPD files from Gutenprint 5.2.1
-    with Gutenprint 5.2.2.
--   A CUPS driver for generating PPD files on the fly, *gutenprint.5.2*.
-    This is used to generate PPD files on the fly with CUPS 1.2 or
-    above, avoiding the need for storing large numbers of PPD files in
-    the filesystem. This is normally installed in
-    */usr/lib/cups/driver*.
--   A utility to update PPD files from an earlier release of Gutenprint,
-    *cups-genppdupdate*. This utility may be used to update PPD files
-    generated by earlier versions of Gutenprint starting from 4.3.21.
-    This is normally installed in */usr/sbin*. This utility cannot
-    update PPD files from Gimp-Print 4.2. *cups-genppdupdate* offers a
-    variety of options for more advanced use that are documented in the
-    help message.
--   A utility to generate PPD files, *cups-genppd.5.2*. Normally this is
-    only required when the package is built. This is normally installed
-    in */usr/sbin*.
+    PPD files are not normally required. These are normally installed
+    in */usr/share/cups/model/gutenprint*. These PPD files can only be
+    used by the precise version of Gutenprint that they were built
+    with; for example, it is not possible to use PPD files from
+    Gutenprint 5.2.1 with Gutenprint 5.2.2.
+-   A CUPS driver for generating PPD files on the fly,
+    *gutenprint.5.2*.  This is used to generate PPD files on the fly
+    with CUPS 1.2 or above, avoiding the need for storing large
+    numbers of PPD files in the filesystem. This is normally installed
+    in */usr/lib/cups/driver*.
+-   A utility to update PPD files from an earlier release of
+    Gutenprint, *cups-genppdupdate*. This utility may be used to
+    update PPD files generated by earlier versions of Gutenprint
+    starting from 4.3.21.  This is normally installed in
+    */usr/sbin*. This utility cannot update PPD files from Gimp-Print
+    4.2. *cups-genppdupdate* offers a variety of options for more
+    advanced use that are documented in the help message.
+-   A utility to generate PPD files, *cups-genppd.5.2*. Normally this
+    is only required when the package is built. This is normally
+    installed in */usr/sbin*.
 -   A utility to permit additional color calibration for
     Gutenprint-supported printers, *cups‑calibrate.* This is normally
     installed in */usr/bin*.
@@ -754,7 +756,7 @@ above. It is **strongly ** recommended that you not use this option
 unless you are certain that you understand the problem and how to work
 around it.
 
-1)  1)  1)  1)  -   ##### Notes to Packagers
+##### Notes to Packagers #####
 
 ```{=html}
 <!-- -->
@@ -777,45 +779,46 @@ around it.
 ```{=html}
 <!-- -->
 ```
-1.  1.  ## []{#anchor-12}GIMP
+## GIMP ##
 
-Gutenprint may be used with an enhanced Print plugin for GIMP, providing
-the ability to print images. If you wish to do so, you must use a GIMP
-2.x release (2.0, 2.2, etc.). GIMP 1.2 is no longer supported as of
-Gutenprint 5.2.
+Gutenprint may be used with an enhanced Print plugin for GIMP,
+providing the ability to print images. If you wish to do so, you must
+use a GIMP 2.x release (2.0, 2.2, etc.). GIMP 1.2 is no longer
+supported as of Gutenprint 5.2.
 
 The enhanced Print plugin for GIMP replaces the Gimp-Print 4.2-based
-plugin provided with the GIMP 2.0 and 2.2. As of GIMP 2.4, the GIMP team
-provides a new Print plugin based on the *GtkPrint* framework. That
-plugin provides standard printing capabilities, but does not provide all
-of the new Gutenprint features. Therefore, the enhanced Print plugin for
-the GIMP distributed with Gutenprint does not replace that plugin, but
-is installed alongside that plugin.
+plugin provided with the GIMP 2.0 and 2.2. As of GIMP 2.4, the GIMP
+team provides a new Print plugin based on the *GtkPrint*
+framework. That plugin provides standard printing capabilities, but
+does not provide all of the new Gutenprint features. Therefore, the
+enhanced Print plugin for the GIMP distributed with Gutenprint does
+not replace that plugin, but is installed alongside that plugin.
 
-If your system separates development packages from runtime packages, you
-will typically have to install development packages for GIMP itself, in
-addition to *GTK+* and *glib* development packages. You may have to
-install additional development packages, depending upon your system.
+If your system separates development packages from runtime packages,
+you will typically have to install development packages for GIMP
+itself, in addition to *GTK+* and *glib* development packages. You may
+have to install additional development packages, depending upon your
+system.
 
-Normally, the Gutenprint configure script detects which version, if any,
-of GIMP is installed and builds an appropriate plugin. If the configure
-script does not detect it properly, you may need to specify
+Normally, the Gutenprint configure script detects which version, if
+any, of GIMP is installed and builds an appropriate plugin. If the
+configure script does not detect it properly, you may need to specify
 *\--with-gimp2*. However, it\'s more likely that you need to install
 appropriate development packages.
 
-Normally Gutenprint installs the enhanced Print plugin for GIMP in your
-system plugin directory. If you wish to install it in your personal
-plugin directory, you may use
+Normally Gutenprint installs the enhanced Print plugin for GIMP in
+your system plugin directory. If you wish to install it in your
+personal plugin directory, you may use
 
 *./configure \--enable-user-install*
 
-It is not possible for Gimp-Print 4.2 and Gutenprint 5.2 (or any future
-release) to coexist in the same installation of the GIMP. The Gutenprint
-5.2-based plugin can read settings from previous versions of Gimp-Print,
-but the configuration file format in Gutenprint 5.2 cannot be read by
-older versions of Gimp-Print.
+It is not possible for Gimp-Print 4.2 and Gutenprint 5.2 (or any
+future release) to coexist in the same installation of the GIMP. The
+Gutenprint 5.2-based plugin can read settings from previous versions
+of Gimp-Print, but the configuration file format in Gutenprint 5.2
+cannot be read by older versions of Gimp-Print.
 
-1)  1)  1)  1)  -   ##### Note to Packagers
+##### Note to Packagers #####
 
 The enhanced Print plugin for GIMP, unlike the core library and the CUPS
 driver, may not be installed concurrently with other versions. For
@@ -823,7 +826,7 @@ example, you may not install both the Gimp-Print 4.2 and the Gutenprint
 5.2 version of the Print plugin, as they use different configuration
 file formats.
 
-1.  1.  ## []{#anchor-13}escputil
+## escputil ##
 
 *escputil* is a command line utility for administering Epson inkjet
 printers. It performs head alignment, retrieval of ink levels and status
@@ -932,7 +935,7 @@ rather than on the test itself.
 It is a release requirement that all tests pass, with *valgrind* where
 applicable.
 
-1)  1)  1)  1)  -   ##### Note to Packagers
+##### Note to Packagers #####
 
 ```{=html}
 <!-- -->
@@ -959,7 +962,7 @@ applicable.
 ```{=html}
 <!-- -->
 ```
-1.  # []{#anchor-15}Getting Started
+# Getting Started #
 
 This section describes how to get started using Gutenprint. Certain
 details (particularly for installation and configuration of printers)
@@ -973,7 +976,7 @@ Using Gutenprint consists the following steps:
 ```{=html}
 <!-- -->
 ```
-1.  1.  ## []{#anchor-16}Printer Installation
+## Printer Installation ##
 
 The actual procedure to install a printer depends upon your operating
 system and the spooler (printing system) in use on your system. This
@@ -1010,7 +1013,7 @@ files.
 
 The following are installation notes for different cases:
 
-1.  1.  1.  ### []{#anchor-17}CUPS
+### CUPS ###
 
 -   Gutenprint 5.2 no longer provides the *epson* and *canon* back ends
     provided by earlier releases of Gutenprint to return printer status
@@ -1088,7 +1091,7 @@ The following are installation notes for different cases:
     existing *.lpoptions* file in your home directory and try printing
     again.
 
-1.  1.  ## []{#anchor-18}GIMP
+## GIMP ##
 
 -   The main dialog of the enhanced Print plugin is similar to that of
     the Gutenprint 5.0 plugin. It offers some additional options,
@@ -1166,7 +1169,7 @@ The following are installation notes for different cases:
   Illustration 5: Setup Printer dialog for unsupported printers
   ------------------------------------------------------------------------------------------------
 
-1.  1.  ## []{#anchor-19}Configuring Printer Options
+## Configuring Printer Options ##
 
 Gutenprint offers a variety of printing options, controlling printer
 options, color correction, and quality. Depending upon the application
@@ -1178,20 +1181,20 @@ vary from printer to printer, is provided at the end of this manual. The
 most important settings are the Basic Printer Options and the Basic
 Output Controls. The most important of these are:
 
-1)  1)  1)  1)  -   -   ###### Page Size
+###### Page Size ####
 
 > Select the paper (media) size to print to. A selection of common paper
 > sizes suitable for the printer is offered. The GIMP plugin by default
 > offers the most common sizes; check Show All Paper Sizes to be offered
 > the entire list.
 
-1)  1)  1)  1)  -   -   ###### Double-Sided Printing
+###### Double-Sided Printing #####
 
 > Otherwise known as "duplex" printing, this is offered for printers
 > capable of printing on both sides of the page (generally laser
 > printers).
 
-1)  1)  1)  1)  -   -   ###### Media Type
+###### Media Type #####
 
 > Select the kind of paper or other media being printed to. This enables
 > the printer and driver to be set up appropriately for the kind of
@@ -1199,13 +1202,13 @@ Output Controls. The most important of these are:
 > printing to; failure to do so will typically yield poor results.
 > Gutenprint cannot detect the paper type actually in the printer.
 
-1)  1)  1)  1)  -   -   ###### Media Source
+###### Media Source #####
 
 > Select the source of the paper or other media. This option is offered
 > with printers that have multiple feeds, for example multiple paper
 > bins, manual feed, printing directly to a CD, etc.
 
-1)  1)  1)  1)  -   -   ###### Output Type
+###### Output Type #####
 
 > This option specifies whether to print in color or black and
 > white/grayscale (using only black inks). Black and white printing is
@@ -1213,7 +1216,7 @@ Output Controls. The most important of these are:
 > is entirely black and white. However, printing with only black ink may
 > yield a "grainy" appearance.
 
-1)  1)  1)  1)  -   -   ###### Color Correction
+###### Color Correction #####
 
 > This selects the choice of color correction method within Gutenprint.
 > Normally it is not necessary to change this setting from the default,
@@ -1247,7 +1250,7 @@ Output Controls. The most important of these are:
 > may not perform well with Gutenprint 5.2, depending upon the printer
 > and settings; you will need to experiment.
 
-1)  1)  1)  1)  -   -   ###### Image Type
+###### Image Type ######
 
 > Specify the option that best describes what you are printing. Your
 > choice here will affect the processing of the print job. Currently
@@ -1271,7 +1274,7 @@ Output Controls. The most important of these are:
 -   **Line Art** Optimize the output for printing black and white line
     > art with intricate detail.
 
-1)  1)  1)  1)  -   -   ###### Resolution 
+###### Resolution ######
 
 > Note: Epson inkjet printers, laser printers, and HP inkjet printers
 > offer a Quality option, which should normally be used on those
@@ -1290,7 +1293,7 @@ Output Controls. The most important of these are:
 > produce acceptable output; in some cases even 1440x720 DPI does not
 > produce very high quality.
 
-1)  1)  1)  1)  -   -   ###### Print Quality
+###### Print Quality ######
 
 > Specify the desired output quality using convenient presets. Where
 > this option is available (currently on Epson inkjet printers, laser
@@ -1334,7 +1337,7 @@ Output Controls. The most important of these are:
     > settings; on a very few printers the resolution may exceed that of
     > **Super Photo** mode.
 
-1.  1.  ## []{#anchor-20}Using escputil
+## Using escputil ##
 
 *escputil* is a command line utility which allows the user to perform a
 variety of maintenance tasks on EPSON Stylus inkjet printers. These
@@ -1407,10 +1410,10 @@ The following additional options are available:
 Other less frequently used options are available; please run ***escputil
 -h*** for more information.
 
-1.  # []{#anchor-21}Solving Problems
+# Solving Problems #
 
-While we have attempted to make use of Gutenprint as straightforward and
-trouble-free as possible, we certainly recognize that there may be
+While we have attempted to make use of Gutenprint as straightforward
+and trouble-free as possible, we certainly recognize that there may be
 problems with installing and using Gutenprint. In the event of any
 difficulty, we ask that you take the following actions:
 
@@ -1474,18 +1477,18 @@ difficulty, we ask that you take the following actions:
 ```{=html}
 <!-- -->
 ```
-1.  # []{#anchor-22}Release Notes
+# Release Notes #
 
 These release notes apply to Gutenprint 5.2 in general and are not
 updated for each point release. Release notes for each version are
 distributed with the package.
 
-1.  1.  ## []{#anchor-23}Critical Update Note for CUPS Users
+## Critical Update Note for CUPS Users ##
 
-If you are using CUPS with Gutenprint on a non-Macintosh system, and are
-upgrading from an earlier version of Gutenprint or Gimp-Print, please
-read this note carefully as there are special procedures that you should
-follow in addition to the normal procedure of running
+If you are using CUPS with Gutenprint on a non-Macintosh system, and
+are upgrading from an earlier version of Gutenprint or Gimp-Print,
+please read this note carefully as there are special procedures that
+you should follow in addition to the normal procedure of running
 *cups-genppdupdate*.
 
 Background: older versions of Gutenprint distributed CUPS backends,
@@ -1624,7 +1627,7 @@ the *close()* call does not result in all data being flushed to the
 device. We have determined that the data is in fact written by the
 *epson* process, but it\'s never getting to the printer.
 
-1.  1.  ## []{#anchor-24}Overall Changes Between Gutenprint 5.0 and Gutenprint 5.2
+## Overall Changes Between Gutenprint 5.0 and Gutenprint 5.2 ##
 
         1.  ### []{#anchor-25}General User-Visible Changes
 
@@ -1645,7 +1648,7 @@ device. We have determined that the data is in fact written by the
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  ### []{#anchor-26}New Functionality
+### New Functionality ###
 
 ```{=html}
 <!-- -->
@@ -1682,7 +1685,7 @@ device. We have determined that the data is in fact written by the
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  ### []{#anchor-27}Changes to the Enhanced Print Plugin for The GIMP
+### Changes to the Enhanced Print Plugin for The GIMP ###
 
 ```{=html}
 <!-- -->
@@ -1699,7 +1702,7 @@ device. We have determined that the data is in fact written by the
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  ### []{#anchor-28}Changes to the CUPS Interface
+### Changes to the CUPS Interface ###
 
 ```{=html}
 <!-- -->
@@ -1846,7 +1849,7 @@ device. We have determined that the data is in fact written by the
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  ### []{#anchor-29}Changes to the Foomatic Interface
+### Changes to the Foomatic Interface ###
 
 ***Note that the Foomatic interface and Ghostscript driver have been
 removed from the latest Gutenprint release.***
@@ -1963,7 +1966,7 @@ removed from the latest Gutenprint release.***
     > mechanism be used to allow calibration information to be saved and
     > restored.
 
-1.  1.  1.  ### []{#anchor-31}Architectural Changes
+### Architectural Changes ###
 
 ```{=html}
 <!-- -->
@@ -1977,7 +1980,7 @@ removed from the latest Gutenprint release.***
 ```{=html}
 <!-- -->
 ```
-1.  1.  ## []{#anchor-32}Exceptions and Workarounds
+## Exceptions and Workarounds ##
 
         1.  ### []{#anchor-33}General Issues
 
@@ -2073,7 +2076,7 @@ iii. Edit *cups-config* to remove the reference to the run path.
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  1.  #### []{#anchor-36}Problems Building escputil
+#### []{#anchor-36}Problems Building escputil
 
 ```{=html}
 <!-- -->
@@ -2135,7 +2138,7 @@ iii. Edit *cups-config* to remove the reference to the run path.
 > suggest using *\--with-readline=no*. The commands used within
 > *escputil* are very short and seldom require significant editing.
 
-1.  1.  1.  1.  #### []{#anchor-37}Problems Building the Print plugin for the GIMP
+#### Problems Building the Print plugin for the GIMP ####
 
 ```{=html}
 <!-- -->
@@ -2182,7 +2185,7 @@ iii. Edit *cups-config* to remove the reference to the run path.
 > that you cannot or do not wish to upgrade your installation of the
 > GIMP.
 
-1.  1.  ## []{#anchor-38}Printer-Specific Notes
+## Printer-Specific Notes ##
 
 ```{=html}
 <!-- -->
@@ -2262,7 +2265,7 @@ iii. In some cases, we offer additional resolutions not offered by the
     (specifically, the Standard ink type), this will be handled
     automatically.
 
-1.  # []{#anchor-39}List of Supported Options
+# List of Supported Options #
 
 This section details the options available in this release of Gutenprint
 5.2. More advanced options are subject to change between releases, and
@@ -2273,23 +2276,23 @@ These options are not supported by all printers; depending upon the
 functionality of the driver and printer, different capabilities are
 available for different printers.
 
-1.  1.  ## []{#anchor-40}Printer Options
+## Printer Options ##
 
 > These options control aspects of printer behavior, including choice of
 > media type, media size, paper feed, and so forth.
 
-1.  1.  1.  ### []{#anchor-41}Basic Printer Options
+### Basic Printer Options ###
 
 > These options control basic printer functions.
 
-1)  1)  1)  1)  -   -   ###### Printer Model
+###### Printer Model ######
 
 > Select the printer to use. It must always be supplied. When using
 > CUPS, the printer will automatically be selected via the chosen PPD
 > file; with the Print plugin for the GIMP, it is selected in the Setup
 > Printer dialog.
 
-1)  1)  1)  1)  -   -   ###### Page Size
+###### Page Size ######
 
 > Select the paper (media) size to print to. Some printers support
 > custom paper sizes, while others only support certain preset sizes.
@@ -2299,7 +2302,7 @@ available for different printers.
 > printable area. For example, selecting *A4* refers to actual A4 paper,
 > whatever the margins may be.
 
-1)  1)  1)  1)  -   -   ###### Double-Sided Printing
+###### Double-Sided Printing ######
 
 > Otherwise known as "duplex" printing, this is offered for printers
 > capable of printing on both sides of the page. In addition to
@@ -2307,7 +2310,7 @@ available for different printers.
 > page may be flipped over its long edge (like a book), or over the
 > short edge (like a note pad; this is sometimes referred to as Tumble).
 
-1)  1)  1)  1)  -   -   ###### Media Type
+###### Media Type ######
 
 > Select the kind of paper or other media being printed to. This enables
 > the printer and driver to be set up appropriately for the kind of
@@ -2319,13 +2322,13 @@ available for different printers.
 > paper correctly; the driver needs to know in order to select the right
 > output settings.
 
-1)  1)  1)  1)  -   -   ###### Media Source
+ ###### Media Source ######
 
 > Select the source of the paper or other media. This option is offered
 > with printers that have multiple feeds, for example multiple paper
 > bins, manual feed, printing directly to a CD, etc.
 
-1)  1)  1)  1)  -   -   ###### Ink Set
+###### Ink Set ######
 
 > Select the kind of ink in use in the printer, for printers offering
 > different optional inks (for example, ink designed for matte paper vs.
