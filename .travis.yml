@@ -1,0 +1,298 @@
+os: linux
+dist: trusty
+language: c
+# Need all history to build change log.
+git:
+  depth: false
+  quiet: true
+matrix:
+  include:
+    - stage: "Smoke test"
+      addons: &smoketest_addons
+        apt:
+          sources: &sources
+            - ubuntu-toolchain-r-test
+          packages:
+            - &other_packages
+              - &base_packages
+                - autoconf
+                - autogen
+                - automake
+                - autopoint
+                - bzip2
+                - bison
+                - flex
+                - gettext
+                - libtool
+                - perl
+                - rsync
+                - time
+                - zpaq
+              - &cups_packages
+                - cups-filters
+                - cups-filters-core-drivers
+                - cups-client
+                - libcups2-dev
+                - libcupsimage2-dev
+                - libusb-1.0-0-dev
+              - valgrind
+              - &gimp_packages
+                - libgimp2.0-dev
+                - libgtk2.0-dev
+                - libpango1.0-dev
+                - libxrandr-dev
+                - libxrandr2
+                - libpango-1.0-0
+                - libpangocairo-1.0-0
+                - libpangoft2-1.0-0
+                - libpangoxft-1.0-0
+            - &doc_packages
+              - docbook
+              - docbook-dsssl
+              - docbook-simple
+              - docbook-utils
+              - docbook-xml
+              - docbook-xsl
+              - doxygen
+              - dvips-fontdata-n2bk
+              - imagemagick
+              - texi2html
+            - gcc-8
+      script: scripts/travis/smoke
+
+
+    - stage: "Integration tests"
+      name: "Base build (gcc-8)"
+      script: scripts/travis/smoke
+      addons: *smoketest_addons
+
+    -
+      script: scripts/travis/integration gcc-4.9 0
+      env: &integration_env
+        - STP_TEST_ROTOR_CIRCUMFERENCE=9
+      name: gcc-4.9
+      addons: &gcc-4_9-addons
+        apt:
+          sources:
+           - *sources
+          packages:
+            - *other_packages
+            - gcc-4.9
+    -
+      script: scripts/travis/integration gcc-7 1
+      env: *integration_env
+      name: gcc-7
+      addons: &gcc-7-addons
+        apt:
+          sources:
+            - *sources
+          packages:
+            - *other_packages
+            - gcc-7
+    -
+      script: scripts/travis/integration gcc-8 2
+      env: *integration_env
+      name: gcc-8
+      addons: &gcc-8-addons
+        apt:
+          sources:
+            - *sources
+          packages:
+            - *other_packages
+            - gcc-8
+    -
+      script: scripts/travis/integration gcc-9 3
+      env: *integration_env
+      name: gcc-9
+      addons: &gcc-9-addons
+        apt:
+          sources:
+            - *sources
+          packages:
+            - *other_packages
+            - gcc-9
+    -
+      script: scripts/travis/integration clang-3.9 4
+      env: *integration_env
+      name: clang-3.9
+      addons: &clang-3_9-addons
+        apt:
+          sources:
+            - *sources
+            - llvm-toolchain-trusty-3.9
+          packages:
+            - *other_packages
+            - clang-3.9
+    -
+      script: scripts/travis/integration clang-5.0 5
+      env: *integration_env
+      name: clang-5.0
+      addons: &clang-5_0-addons
+        apt:
+          sources:
+            - *sources
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - *other_packages
+            - clang-5.0
+    -
+      script: scripts/travis/integration clang-6.0 6
+      env: *integration_env
+      name: clang-6.0
+      addons: &clang-6_0-addons
+        apt:
+          sources:
+            - *sources
+            - llvm-toolchain-trusty-6.0
+          packages:
+            - *other_packages
+            - clang-6.0
+    -
+      script: scripts/travis/integration clang-7 7
+      env: *integration_env
+      name: clang-7
+      addons: &clang-7-addons
+        apt:
+          sources:
+            - *sources
+            - llvm-toolchain-trusty-7
+          packages:
+            - *other_packages
+            - clang-7
+    -
+      script: scripts/travis/integration clang-8 8
+      env: *integration_env
+      name: clang-8
+      addons: &clang-8-addons
+        apt:
+          sources:
+            - *sources
+            - llvm-toolchain-trusty-8
+          packages:
+            - *other_packages
+            - clang-8
+
+
+    - stage: "Checksums"
+      env: &checksum_env
+        - STP_TEST_ROTOR_CIRCUMFERENCE=10
+      script: scripts/travis/checksums 0
+      addons: &checksum_addons
+        apt:
+          sources:
+            - *sources
+          packages:
+            - *base_packages
+    -
+      script: scripts/travis/checksums 1
+      env: *checksum_env
+      addons: *checksum_addons
+    -
+      script: scripts/travis/checksums 2
+      env: *checksum_env
+      addons: *checksum_addons
+    -
+      script: scripts/travis/checksums 3
+      env: *checksum_env
+      addons: *checksum_addons
+    -
+      script: scripts/travis/checksums 4
+      env: *checksum_env
+      addons: *checksum_addons
+    -
+      script: scripts/travis/checksums 5
+      env: *checksum_env
+      addons: *checksum_addons
+    -
+      script: scripts/travis/checksums 6
+      env: *checksum_env
+      addons: *checksum_addons
+    -
+      script: scripts/travis/checksums 7
+      env: *checksum_env
+      addons: *checksum_addons
+    -
+      script: scripts/travis/checksums 8
+      env: *checksum_env
+      addons: *checksum_addons
+    -
+      script: scripts/travis/checksums 9
+      env: *checksum_env
+      addons: *checksum_addons
+
+
+    - stage: "Full tests"
+      name: 0 gcc-4.9
+      env: &full_env
+        - STP_TEST_ROTOR_CIRCUMFERENCE=10
+      script: scripts/travis/full gcc-4.9 0
+      addons: *gcc-4_9-addons
+    -
+      name: 1 gcc-6
+      env: *full_env
+      script: scripts/travis/full gcc-6 1
+      addons: &gcc-6-addons
+        apt:
+          sources:
+            - *sources
+          packages:
+            - *other_packages
+            - gcc-6
+    -
+      name: 2 gcc-7
+      env: *full_env
+      script: scripts/travis/full gcc-7 2
+      addons: *gcc-7-addons
+    -
+      name: 3 gcc-8
+      env: *full_env
+      script: scripts/travis/full gcc-8 3
+      addons: *gcc-8-addons
+    -
+      name: 4 gcc-9
+      env: *full_env
+      script: scripts/travis/full gcc-9 4
+      addons: *gcc-9-addons
+    -
+      name: 5 clang-3.9
+      env: *full_env
+      script: scripts/travis/full clang-3.9 5
+      addons: *clang-3_9-addons
+    -
+      name: 6 clang-5.0
+      env: *full_env
+      script: scripts/travis/full clang-5.0 6
+      addons: *clang-5_0-addons
+    -
+      name: 7 clang-6.0
+      env: *full_env
+      script: scripts/travis/full clang-6.0 7
+      addons: *clang-6_0-addons
+    -
+      name: 8 clang-7
+      env: *full_env
+      script: scripts/travis/full clang-7 8
+      addons: *clang-7-addons
+    -
+      name: 9 clang-8
+      env: *full_env
+      script: scripts/travis/full clang-8 9
+      addons: *clang-8-addons
+
+stages:
+  - name: "Smoke test"
+    if: type = cron
+  - name: "Integration tests"
+    if: type IN (push, pull_request)
+  - name: "Checksums"
+    # Turn this off until we can do something with the output.
+    if: 1 = 0 AND branch = "master" AND type != cron
+  - name: "Full tests"
+    if: type = cron
+
+notifications:
+  email:
+    recipients:
+      - rlk@alum.mit.edu
+    on_success: always
+    on_failure: always

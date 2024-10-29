@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# NOTE: The files 'postinstall' and 'postupgrade' should be exactly the same.
+# But because CVS doesn't support symlinks, we can't do the obvious thing.
+# So if you change one of these files, be sure to copy it to the other file
+# to keep them in sync.
+
+#set -x
+IFS='
+'
+
+export PATH=/bin:/usr/bin:/usr/sbin
+
+echo "Installing..."
+
+# Remove any remaining PPDs
+#
+# We could actually just generate new PPDs that would overwrite the exiting
+# PPDs, but that might pose problems if we just do a reinstall in 10.6.x
+# over an install done in 10.5.x.  Static PPDs vs on the fly PPDs.
+#
+# We are also faced with the dropping of some Canon printers that we
+# need to delete.
+#
+# We are going to be a bit more aggressive than before.  The matching
+# pattern seems to have withstood the test of time.  Also, any depricated
+# printers will not be in a list from cups-genppd.5.2
+
+echo "Removing old PPD files..."
+find /Library/Printers/PPDs/Contents/Resources -name 'stp-*\.5\.[0-2]\.ppd\.gz' -exec rm '{}' \;
+
+# Recreate symlinks
+cd /usr/lib && ln -s -f libgutenprint.2.dylib libgutenprint.dylib
+
+# Update any existing printer queues
+echo "Updating existing queues"
+cups-genppdupdate
+
+# Restart CUPS
+echo "Restarting CUPS"
+launchctl unload /System/Library/LaunchDaemons/org.cups.cupsd.plist
+launchctl load /System/Library/LaunchDaemons/org.cups.cupsd.plist
