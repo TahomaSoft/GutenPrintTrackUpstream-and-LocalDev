@@ -3,9 +3,8 @@ title: Gutenprint 5.2 User's Manual
 author: Robert Krawitz
 copyright: Copyright © 2000-2012 Robert Krawitz
 date: 06/01/2012
-note: transliterated to MarkDown
+note: transliterated to MarkDown Oct. 2024 
 ---
-
 
 
 Permission is granted to copy, distribute and/or modify this document
@@ -1982,7 +1981,7 @@ removed from the latest Gutenprint release.***
 ```
 ## Exceptions and Workarounds ##
 
-        1.  ### []{#anchor-33}General Issues
+###  General Issues
 
 ```{=html}
 <!-- -->
@@ -1995,9 +1994,9 @@ removed from the latest Gutenprint release.***
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  ### []{#anchor-34}Build/Installation Issues
+### Build/Installation Issues
 
-            1.  #### []{#anchor-35}Incorrect Generation of CUPS PPD Files
+#### Incorrect Generation of CUPS PPD Files
 
 ```{=html}
 <!-- -->
@@ -2076,7 +2075,7 @@ iii. Edit *cups-config* to remove the reference to the run path.
 ```{=html}
 <!-- -->
 ```
-#### []{#anchor-36}Problems Building escputil
+#### Problems Building escputil
 
 ```{=html}
 <!-- -->
@@ -2334,13 +2333,13 @@ available for different printers.
 > different optional inks (for example, ink designed for matte paper vs.
 > ink designed for glossy paper).
 
-1)  1)  1)  1)  -   -   ###### Borderless
+###### Borderless ######
 
 > Select whether to print with borders or not, for printers with the
 > capability to print to the edge of the page. This is otherwise known
 > as "full bleed".
 
-1)  1)  1)  1)  -   -   1)  ####### Shrink Page If Necessary to Fit Borders
+####### Shrink Page If Necessary to Fit Borders ######
 
 This option is provided in the native CUPS driver only. It is not needed
 in other environments.
@@ -2377,7 +2376,7 @@ in other environments.
     With this option, there should be no reason to change page sizes to
     work around border issues.
 
-1)  1)  1)  1)  -   -   ###### Resolution
+###### Resolution ######
 
 > Select the resolution to print at (dots per inch). In general, higher
 > resolutions produce better quality, at the expense of additional time.
@@ -2396,11 +2395,11 @@ in other environments.
 > indirectly control the printer resolution, among other things. This
 > offers a simpler way to control output quality.
 
-1.  1.  1.  ### []{#anchor-42}Advanced Printer Options
+### Advanced Printer Options ###
 
 > These options control less frequently used printer options.
 
-1)  1)  1)  1)  -   -   ###### CD Hub Size
+###### CD Hub Size ######
 
 > This setting may be used on printers with the capability to print
 > directly to a CD. Depending upon your choice of media, you may be able
@@ -2408,45 +2407,45 @@ in other environments.
 > not be able to print any closer than the hub about an inch from the
 > center. This provides standard options of small and large hub size.
 
-1)  1)  1)  1)  -   -   ###### CD Horizontal Fine Adjustment CD Vertical Fine Adjustment
+###### CD Horizontal Fine Adjustment CD Vertical Fine Adjustment ######
 
 > These settings allow you to shift the position of the print while
 > printing to a CD. If you find that your print is not centered on the
 > CD surface, you may need to adjust these setting to compensate.
 
-1)  1)  1)  1)  -   -   ###### CD Size (Custom)
+###### CD Size (Custom) ######
 
 > This setting may be used on printers with the capability to print
 > directly to a CD. This option allows precise specification of the CD
 > diameter between 64.9 and 119.9 millimetres. This option is new with
 > Gutenprint 5.2.
 
-1)  1)  1)  1)  -   -   ###### CD Horizontal Fine Adjustment CD Vertical Fine Adjustment
+###### CD Horizontal Fine Adjustment CD Vertical Fine Adjustment ######
 
 > This setting may be used on printers with the capability to print
 > directly to a CD. This option allows precise specification of the CD
 > hub diameter between 15.9 and 42.7 millimetres. This option is new
 > with Gutenprint 5.2.
 
-1)  1)  1)  1)  -   -   ###### Enhanced Gloss
+###### Enhanced Gloss ######
 
 > Some newer printers have a cartridge of "gloss enhancer", which helps
 > solve the problem of pigment inks having an inconsistent lustre on
 > glossy paper. Use this option to enable use of the gloss enhancer.
 
-1)  1)  1)  1)  -   -   ###### Laminate Pattern
+###### Laminate Pattern ######
 
 > Some dye sublimation printers are able achieve better durability of
 > output by covering it with transparent laminate surface. This surface
 > can be of different patterns: common are matte, glossy or texture.
 
-1.  1.  1.  ### []{#anchor-43}Specialized Printer Options
+### Specialized Printer Options ###
 
 > These options control unusual printer features. They may be useful in
 > certain circumstances; generally the default settings will work
 > optimally.
 
-1)  1)  1)  1)  -   -   ###### Ink Type
+###### Ink Type ######
 
 > Select which subset of inks to use for printing. For example, on a
 > photo printer with additional light cyan and light magenta inks, it\'s
@@ -2469,7 +2468,7 @@ in other environments.
 ```{=html}
 <!-- -->
 ```
-1)  1)  1)  1)  -   -   ###### Printing Direction
+###### Printing Direction ######
 
 > Most inkjet printers can print either unidirectionally (the head
 > prints only when moving in one direction) or bidirectionally (the head
@@ -2482,7 +2481,7 @@ in other environments.
 > The standard setting for this option adapts to the printing
 > resolution.
 
-1)  1)  1)  1)  -   -   ###### Interleave Method
+###### Interleave Method ######
 
 > Most inkjet printers create the printed image using multiple
 > overlapping passes of the print head. On many printers this function
@@ -2505,7 +2504,7 @@ in other environments.
 > overlap pattern may affect both the printing time and the quality to a
 > significant degree.
 
-1)  1)  1)  1)  -   -   ###### Adjust dot size as necessary
+###### Adjust dot size as necessary ######
 
 > This option is provided on many Epson inkjet printers to allow you to
 > use larger ink drops than those normally used for the resolution
@@ -2513,7 +2512,7 @@ in other environments.
 > some reason wish to use much more ink (higher density) than the
 > default. It should never be necessary to use this option.
 
-1.  1.  ## []{#anchor-44}Output Controls
+## Output Controls ##
 
 > These adjustments control how Gutenprint generates output.
 
@@ -2541,12 +2540,12 @@ in other environments.
 > value based on the other options; it is not the same thing as a
 > specific numeric value.
 
-1.  1.  1.  ### []{#anchor-45}Basic Output Controls
+### Basic Output Controls ###
 
 ```{=html}
 <!-- -->
 ```
-1)  1)  1)  1)  -   -   ###### Output Type
+###### Output Type ######
 
 > This option specifies whether to print in color or black and
 > white/grayscale (using only black inks). Black and white printing is
@@ -2554,7 +2553,7 @@ in other environments.
 > is entirely black and white. However, printing with only black ink may
 > yield a "grainy" appearance.
 
-1)  1)  1)  1)  -   -   ###### Color Correction
+###### Color Correction ######
 
 > This selects the choice of color correction method within Gutenprint.
 > The following options are presently offered:
@@ -2622,7 +2621,7 @@ in other environments.
     > printers; all printers support 0 (no droplet) and 1 (the largest
     > droplet). Some printers support four levels (0, 1, 2, and 3).
 
-1)  1)  1)  1)  -   -   ###### Image Type
+###### Image Type ######
 
 > Specify the option that best describes your print job. Your choice
 > here will affect the processing of the print job. Currently available
@@ -2649,7 +2648,7 @@ in other environments.
 -   **Manual Control** Do not bias the output at all; use only the
     > settings specified by the user.
 
-1)  1)  1)  1)  -   -   ###### Print Quality
+###### Print Quality ######
 
 > Specify the desired output quality using convenient presets. Where
 > this option is available (on Epson inkjets, laser printers, and HP
@@ -2717,18 +2716,18 @@ in other environments.
 -   **Manual Control** Do not adjust the settings at all; use only the
     > settings specified by the user.
 
-1.  1.  1.  ### []{#anchor-46}Basic Output Adjustments
+### Basic Output Adjustments ###
 
 ```{=html}
 <!-- -->
 ```
-1)  1)  1)  1)  -   -   ###### Saturation
+###### Saturation ######
 
 > This option controls the vividness of the output color; higher values
 > produce more vivid colors. Very low values produce muted colors;
 > setting this to zero produces gray.
 
-1)  1)  1)  1)  -   -   ###### Contrast
+###### Contrast ######
 
 > This controls the contrast of the output. Lower values produce less
 > tonal range in the midtones (lighter colors become darker, and darker
@@ -2744,7 +2743,7 @@ in other environments.
 > Contrast Adjustment option described below restores the Gimp-Print 4.2
 > behavior.
 
-1)  1)  1)  1)  -   -   ###### Brightness
+###### Brightness ######
 
 > This control adjusts the general brightness of the print; higher
 > values produce generally lighter output, while lower values produce
@@ -2757,11 +2756,11 @@ in other environments.
 > print as gray. In Gutenprint 5.0 and 5.2, this control changes the
 > shape of the curve, but the black and white points remain the same.
 
-1.  1.  1.  ### []{#anchor-47}Advanced Output Adjustments
+### Advanced Output Adjustments ###
 
 > These controls adjust more specialized settings.
 
-1)  1)  1)  1)  -   -   ###### Dither Algorithm
+###### Dither Algorithm ######
 
 > Since inkjet printers have a limited set of ink colors (normally cyan,
 > magenta, yellow, and black), most colors have to be produced by mixing
@@ -2843,7 +2842,7 @@ in other environments.
     > printers, and has no real use for normal printing. SegmentedNew is
     > a combination of OrderedNew and Segmented.
 
-1)  1)  1)  1)  -   -   ###### Linear Contrast Adjustment
+###### Linear Contrast Adjustment ######
 
 > The standard contrast control does not adjust the black and white
 > points of the output; black in the input becomes black in the output,
@@ -2862,7 +2861,7 @@ in other environments.
 > Turning this control on selects the old Gimp-Print 4.2 behavior. This
 > control is normally turned off.
 
-1.  1.  1.  ### []{#anchor-48}Output Density (Ink Quantity) Controls
+### Output Density (Ink Quantity) Controls ###
 
 > These controls adjust the amount of ink printed on the page. These
 > controls may be used to darken a solid, pure black, or eliminate
@@ -2875,7 +2874,7 @@ in other environments.
 > relative to the amount selected by the driver for the paper and
 > resolution chosen.
 
-1)  1)  1)  1)  -   -   ###### Density Value
+###### Density Value ######
 
 > This control adjusts the total amount of ink used in all channels (ink
 > colors). It may be used to lighten or darken the output overall if the
@@ -2888,7 +2887,7 @@ in other environments.
 > paper type, etc. If you want to specify *absolute* density, you must
 > select Raw for Color Correction.
 
-1)  1)  1)  1)  -   -   ###### Black Density Value Blue Density Value Cyan Density Value Magenta Density Value Yellow Density Value Red Density Value Orange Density Value
+###### Black Density Value Blue Density Value Cyan Density Value Magenta Density Value Yellow Density Value Red Density Value Orange Density Value ######
 
 > These controls adjust the amount of ink used by each channel
 > separately. They may be used to correct the amount of ink if needed to
@@ -2899,7 +2898,7 @@ in other environments.
 > multiplied by the base density and by the density value described
 > above to generate the final per-channel density.
 
-1)  1)  1)  1)  -   -   ###### Ink Limit Value
+###### Ink Limit Value ######
 
 > This control adjusts the maximum amount of ink that the driver will
 > use to print with. This may be used if you want to use large amounts
@@ -2909,7 +2908,7 @@ in other environments.
 > experienced in inkjet printing. This is an absolute parameter; it is
 > not scaled by the base density value.
 
-1.  1.  1.  ### []{#anchor-49}Gray Balance Controls
+### Gray Balance Controls ###
 
 > These controls adjust the gray balance by changing the amount of each
 > color of ink used to produce gray. For example, if gray prints
@@ -2918,12 +2917,13 @@ in other environments.
 > too dark). Note that auxiliary inks, such as the red and blue inks on
 > the Epson Stylus Photo R800, are not used to generate composite gray.
 
-1)  1)  1)  1)  -   -   ###### Magenta Balance Value Yellow Balance Value Cyan Balance Value
+###### Magenta Balance Value Yellow Balance Value Cyan Balance Value ######
 
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  ### []{#anchor-50}Output Gamma Controls
+
+### Output Gamma Controls ###
 
 > These controls permit adjusting the gamma (exponent) of the transfer
 > curves of the individual channels. On most printers, using a linear
@@ -2942,17 +2942,17 @@ in other environments.
 > particular printer, and you specify a gamma of 0.75, the actual gamma
 > used to print will be 1.5.
 
-1)  1)  1)  1)  -   -   ###### Composite Gamma Value
+###### Composite Gamma Value ######
 
 > This control adjusts the gamma of all available ink channels when
 > printing in color.
 
-1)  1)  1)  1)  -   -   ###### Black Gamma Value
+###### Black Gamma Value ######
 
 > This control adjusts the gamma of the black channel when printing in
 > grayscale.
 
-1)  1)  1)  1)  -   -   ###### Cyan Gamma Value Magenta Gamma Value Yellow Gamma Value
+###### Cyan Gamma Value Magenta Gamma Value Yellow Gamma Value ######
 
 > These controls adjust the gamma of individual channels when printing
 > on printers that use cyan, magenta, and yellow inks (all inkjet
@@ -2967,7 +2967,7 @@ in other environments.
 > values for the special channels for printers that offer additional
 > inks (such as red and blue) for similar reasons.
 
-1)  1)  1)  1)  -   -   ###### Red Gamma Value Green Gamma Value Blue Gamma Value
+###### Red Gamma Value Green Gamma Value Blue Gamma Value ######
 
 > These controls adjust the gamma of individual channels when printing
 > on printers that use red, green, and blue inks (Postscript printers
@@ -2977,12 +2977,12 @@ in other environments.
 > alternate channels such as the red and blue inks on the Epson Stylus
 > Photo R800.
 
-1.  1.  ## []{#anchor-51}Specialized Adjustments
+## Specialized Adjustments ##
 
 > These adjustments control highly specialized output behavior, and are
 > intended for advanced users only.
 
-1.  1.  1.  ### []{#anchor-52}Gray Generation Controls
+### Gray Generation Controls ###
 
 > These controls adjust the conversion of gray into black ink and
 > composite (CMY) components. When printing in color, light grays are
@@ -3011,7 +3011,7 @@ in other environments.
 > gray generation and a fair amount of experimentation. Normally it\'s
 > only necessary to set the paper type correctly to get good results.
 
-1)  1)  1)  1)  -   -   ###### GCR Lower Bound Value
+###### GCR Lower Bound Value ######
 
 > This control specifies the darkest shade of gray at which no black ink
 > will be used (i. e. any lighter gray component will be printed using
@@ -3019,7 +3019,7 @@ in other environments.
 > amount of black ink will always be used; setting it to 1 means that no
 > black ink will ever be used.
 
-1)  1)  1)  1)  -   -   ###### GCR Upper Bound Value
+###### GCR Upper Bound Value ######
 
 > This control specifies the lightest shade of gray at which no
 > composite CMY ink will be used (i. e. this level of gray and higher
