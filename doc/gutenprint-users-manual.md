@@ -1,11 +1,11 @@
 ---
-title: Gutenprint 5.2 User's Manual
+title: "Gutenprint 5.2 User's Manual"
 author: Robert Krawitz
 copyright: Copyright © 2000-2012 Robert Krawitz
-date: 06/01/2012
+date: September 3, 2016
+# First Date 06/01/2012
 note: transliterated to MarkDown Oct. 2024 
 ---
-
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.2 or
@@ -19,6 +19,8 @@ Free Software Foundation.
 EPSON, ESC/P, and Stylus are registered trademarks of Seiko Epson Corp.
 ESC/P2 is a trademark of Seiko Epson Corp. All other product names are
 trademarks and/or registered trademarks of their vendors.
+
+Copyright © 2000-2012 Robert Krawitz
 
 # Introduction #
 ## What is Gutenprint? ##
@@ -370,7 +372,8 @@ proceeding, and save it in case you have any problems. If you request
 assistance from the Gutenprint development team, you will be asked to
 provide this report. The summary looks like this:
 
-Configuration Summary:\
+Configuration Summary:
+
 \-\-\-\-\-\-\-\-\-\-\-\-- \-\-\-\-\-\-\--\
 \
 If you have any problems, please report the information below to\
@@ -451,9 +454,6 @@ libraries), you may use the option *‑‑disable‑shared*.
 
 ##### Notes to Packagers ####
 
-```{=html}
-<!-- -->
-```
 1.  You may wish to create a development package containing header files
     and linkable libraries separate from the runtime package. There are
     a few third party applications that link against Gutenprint.
@@ -468,9 +468,6 @@ libraries), you may use the option *‑‑disable‑shared*.
     5.0.1. Modifying this file changes the margins for *all* printers.
     Please direct any questions to the Gutenprint developers.
 
-```{=html}
-<!-- -->
-```
 ## CUPS ##
 
 Gutenprint may be used as a driver under CUPS (Common UNIX Printing
@@ -757,9 +754,7 @@ around it.
 
 ##### Notes to Packagers #####
 
-```{=html}
-<!-- -->
-```
+
 1.  We recommend that your installation package run *cups-genppdupdate*
     and restart CUPS as part of the installation process.
 2.  We recommend that your installation process detect printers using
@@ -775,9 +770,6 @@ around it.
     separates the Gutenprint core libraries from the CUPS component. Be
     sure that you understand the issues surrounding this.
 
-```{=html}
-<!-- -->
-```
 ## GIMP ##
 
 Gutenprint may be used with an enhanced Print plugin for GIMP,
@@ -844,11 +836,9 @@ Unlike the case in Gimp-Print 4.2, this utility is not standalone; it
 requires the installation of the core Gutenprint package to function.
 This allows it to support new printers without modification.
 
-1)  1)  1)  1)  -   ##### Note to Packagers
+##### Note to Packagers #####
 
-```{=html}
-<!-- -->
-```
+
 1.  *escputil* presents installation problems in that on most systems
     users without superuser privileges do not have access to the raw
     printer port. We have tried to make *escputil* robust (in
@@ -858,10 +848,7 @@ This allows it to support new printers without modification.
     distributors to carefully consider their installation strategy for
     *escputil*.
 
-```{=html}
-<!-- -->
-```
-1.  1.  ## []{#anchor-14}Other Packages
+## Other Packages ##
 
 Gutenprint includes a few other packages: a test pattern generator and a
 test suite. If you wish to compile these, you may use *\--enable-test*
@@ -936,9 +923,6 @@ applicable.
 
 ##### Note to Packagers #####
 
-```{=html}
-<!-- -->
-```
 1.  You may wish to distribute the test pattern generator in a
     development package, as it\'s useful as sample code if nothing else.
     In addition, there are some tools in the test directory that aren\'t
@@ -958,9 +942,7 @@ applicable.
 
 1.  None of these tools are versioned.
 
-```{=html}
-<!-- -->
-```
+
 # Getting Started #
 
 This section describes how to get started using Gutenprint. Certain
@@ -972,9 +954,7 @@ Using Gutenprint consists the following steps:
 1.  Installing your printer
 2.  Configuring desired options
 
-```{=html}
-<!-- -->
-```
+
 ## Printer Installation ##
 
 The actual procedure to install a printer depends upon your operating
@@ -1097,7 +1077,7 @@ The following are installation notes for different cases:
     depending upon the printer:
 
   ------------------------------------------------------------------------------------------------
-  ![](Pictures/10000000000003120000036D08977391C101DF5A.png){width="6.8846in" height="7.6811in"}
+  ![](Art4UsersManual/MainEnhancedPrintPluginDialog-Illus1.png){width="6.8846in" height="7.6811in"}
   Illustration 1: Main Enhanced Print Plugin dialog
   ------------------------------------------------------------------------------------------------
 
@@ -1107,14 +1087,11 @@ The following are installation notes for different cases:
     does not mean the same thing as the option being turned off; when
     the option is turned off, the driver selects an appropriate value.
 
-```{=html}
-<!-- -->
-```
 -   Note that it is possible to view the output of each ink channel
     independently if so desired.
 
   -----------------------------------------------------------------------------------------------
-  ![](Pictures/10000000000002090000026746098CFE36588B5A.png){width="6.572in" height="7.7583in"}
+  ![](Art4UsersManual/PrintColorAdjustDialog-Illus2.png){width="6.572in" height="7.7583in"}
   Illustration 2: Color Adjustment dialog
   -----------------------------------------------------------------------------------------------
 
@@ -1128,22 +1105,20 @@ The following are installation notes for different cases:
     independent of the other printers defined.
 
   ---------------------------------------------------------------------------------------------
-  ![](Pictures/10000000000000F40000006C2C801AD57736DC8E.png){width="3.3898in" height="1.5in"}
+  ![](Art4UsersManual/NewPrinterDialog-Illus3.png){width="3.3898in" height="1.5in"}
   Illustration 3: New Printer dialog
   ---------------------------------------------------------------------------------------------
 
--   
 -   The Setup Printer dialog is very different from Gimp-Print 4.2; it
     provides a much more intuitive interface for selecting the printer
     and model to print to.
 
   ------------------------------------------------------------------------------------------------
-  ![](Pictures/10000000000002780000014661491352193B6ECA.png){width="6.8484in" height="3.5319in"}
+  ![](Art4UsersManual/SetupPrinterDialog-Supported-Illus4.png){width="6.8484in" height="3.5319in"}
   Illustration 4: Setup Printer dialog for supported printers
   ------------------------------------------------------------------------------------------------
 
--   \
-    The printer make and model should be self-explanatory. The dialog
+-   The printer make and model should be self-explanatory. The dialog
     offers a choice of printer queue and shows the command that will be
     used to print the file. You may also select a file to print to, or
     specify a custom command if so desired.
@@ -1164,7 +1139,7 @@ The following are installation notes for different cases:
     the correct PPD file based on the printer selected).
 
   ------------------------------------------------------------------------------------------------
-  ![](Pictures/1000000000000278000001687551FD7D75F07A29.png){width="6.8484in" height="3.9008in"}
+  ![](Art4UsersManual/SetupPrinterDialog-Unsupported-Illus5.png){width="6.8484in" height="3.9008in"}
   Illustration 5: Setup Printer dialog for unsupported printers
   ------------------------------------------------------------------------------------------------
 
@@ -1473,9 +1448,6 @@ difficulty, we ask that you take the following actions:
     system, and if you compiled the package from source, the
     configuration summary.
 
-```{=html}
-<!-- -->
-```
 # Release Notes #
 
 These release notes apply to Gutenprint 5.2 in general and are not
@@ -1628,11 +1600,8 @@ device. We have determined that the data is in fact written by the
 
 ## Overall Changes Between Gutenprint 5.0 and Gutenprint 5.2 ##
 
-        1.  ### []{#anchor-25}General User-Visible Changes
+### General User-Visible Changes ###
 
-```{=html}
-<!-- -->
-```
 1.  Gutenprint 5.2 and beyond no longer support GIMP 1.2. Please ensure
     that you are using GIMP 2.0 or above.
 2.  Gutenprint 5.2 no longer supports Macintosh OS X 10.2; it now
@@ -1644,14 +1613,9 @@ device. We have determined that the data is in fact written by the
     earlier releases be checked, and if necessary, re-created for use
     with Gutenprint 5.2.
 
-```{=html}
-<!-- -->
-```
+
 ### New Functionality ###
 
-```{=html}
-<!-- -->
-```
 1.  The PostScript driver has been rewritten, offering enhanced
     functionality approaching that of the native printer drivers. This
     driver is used by the enhanced Print plugin for the GIMP, and by
@@ -1681,14 +1645,9 @@ device. We have determined that the data is in fact written by the
     and other laser printers).
 7.  L-size photo paper (3 1/2x5 inches) has been added.
 
-```{=html}
-<!-- -->
-```
+
 ### Changes to the Enhanced Print Plugin for The GIMP ###
 
-```{=html}
-<!-- -->
-```
 1.  The GIMP plugin now offers additional options for many Epson inkjet
     printers, allowing precise specification of drop sizes if desired.
 2.  A problem with determining the system printer queues in the GIMP
@@ -1698,14 +1657,8 @@ device. We have determined that the data is in fact written by the
     it is possible to reset a single setting to its default without
     resetting all settings.
 
-```{=html}
-<!-- -->
-```
 ### Changes to the CUPS Interface ###
 
-```{=html}
-<!-- -->
-```
 1.  PPD files generated by *cups-genppd* and the CUPS driver interface
     (*gutenprint.5.2*) now include, by default, all localizations in a
     single file. This is referred to as \"globalized PPD files\". This
@@ -1845,9 +1798,6 @@ device. We have determined that the data is in fact written by the
     in Exceptions and Workarounds **carefully** for a full description
     of the problem along with suggested methods of procedure.
 
-```{=html}
-<!-- -->
-```
 ### Changes to the Foomatic Interface ###
 
 ***Note that the Foomatic interface and Ghostscript driver have been
@@ -1857,14 +1807,8 @@ removed from the latest Gutenprint release.***
     matching page size when a custom page size is passed in. This yields
     more accurate printing sizes for custom paper sizes.
 
-```{=html}
-<!-- -->
-```
-1.  1.  1.  ### []{#anchor-30}Quality Improvements
+### Quality Improvements ###
 
-```{=html}
-<!-- -->
-```
 1.  A number of improvements have been made to the Epson driver:
 
 -   Borderless printing and in general printing near the bottom of the
@@ -1915,9 +1859,6 @@ removed from the latest Gutenprint release.***
 -   The Epson driver now offers additional controls for adjusting the
     > relationship between light and dark ink:
 
-```{=html}
-<!-- -->
-```
 -   -   The Value parameters (such as Light Cyan Value) specify the
         > relative darkness of the light vs. dark inks.
 
@@ -1928,9 +1869,6 @@ removed from the latest Gutenprint release.***
         > (essentially the density of the light ink). This is the same
         > as the parameters previously called Cutoff.
 
-```{=html}
-<!-- -->
-```
 -   The Epson driver now exposes as defaults the actual GCR settings
     > used for the printer, paper, and ink combination in use.
 
@@ -1967,49 +1905,31 @@ removed from the latest Gutenprint release.***
 
 ### Architectural Changes ###
 
-```{=html}
-<!-- -->
-```
 1.  The Epson driver has been significantly rewritten to use data stored
     in external files external to the binary library. This allows making
     improvements, adding new features, and adding new printers without
     recompiling the source code.
 2.  Test coverage has been increased.
 
-```{=html}
-<!-- -->
-```
 ## Exceptions and Workarounds ##
 
 ###  General Issues
 
-```{=html}
-<!-- -->
-```
 1.  The Canon, Hewlett-Packard, Lexmark, and dye sublimation drivers do
     not offer all of the additional options and improvements that the
     Epson driver does. We do not have an estimated time for fix. Please
     contact us if you would like to assist with this.
 
-```{=html}
-<!-- -->
-```
 ### Build/Installation Issues
 
 #### Incorrect Generation of CUPS PPD Files
 
-```{=html}
-<!-- -->
-```
 1.  With certain versions of CUPS and in certain non-default
     configurations, if a new version of Gutenprint is installed over an
     existing version *genppd* will create PPD files based on the older
     version of Gutenprint rather than the newer version. This will
     happen if all of the following are true:
 
-```{=html}
-<!-- -->
-```
 i.  The cups-config provided by the CUPS driver adds
     > *-Wl,rpath=/usr/lib*. This is done by some versions of CUPS
     > reportedly because in some cases the runtime linker does not pick
@@ -2072,14 +1992,8 @@ ii. Remove the old version of Gutenprint prior to building the new
 
 iii. Edit *cups-config* to remove the reference to the run path.
 
-```{=html}
-<!-- -->
-```
 #### Problems Building escputil
 
-```{=html}
-<!-- -->
-```
 1.  There is a known complication building *escputil* that causes
     problems on some systems. *escputil* uses the *readline* package, to
     support command editing and history within the program.
@@ -2139,9 +2053,6 @@ iii. Edit *cups-config* to remove the reference to the run path.
 
 #### Problems Building the Print plugin for the GIMP ####
 
-```{=html}
-<!-- -->
-```
 1.  The fix for bug 929227 (Gimp-Print incorrectly attempts to build
     against GIMP 2.0) requires special build instructions if you are
     using a very old version of the GIMP 1.2 (1.2.0, 1.2.1, or 1.2.2).
@@ -2186,9 +2097,6 @@ iii. Edit *cups-config* to remove the reference to the run path.
 
 ## Printer-Specific Notes ##
 
-```{=html}
-<!-- -->
-```
 1.  Support for color laser printers (e. g. Color LaserJet printers) is
     currently black and white only. We do not have a plan for
     implementing color support for these printers, but will accept a
@@ -2197,9 +2105,6 @@ iii. Edit *cups-config* to remove the reference to the run path.
     resolutions offered by the printer manufacturer\'s drivers. There
     are a variety of reasons why that is the case:
 
-```{=html}
-<!-- -->
-```
 i.  In some cases, we have not determined the necessary commands to
     > utilize some resolutions (particularly very high resolutions).
 
@@ -2220,9 +2125,6 @@ iii. In some cases, we offer additional resolutions not offered by the
      > printer vendor. These resolutions may be either lower or higher
      > than those offered by the printer vendor.
 
-```{=html}
-<!-- -->
-```
 1.  We frequently offer lower resolutions than those offered by the
     printer vendor to offer a greater choice of printing speed. These
     resolutions will offer low quality but very fast printing speed for
@@ -2465,9 +2367,6 @@ in other environments.
     > the Four Color Standard option, which will generally yield more
     > consistent color at the expense of "grainier" output.
 
-```{=html}
-<!-- -->
-```
 ###### Printing Direction ######
 
 > Most inkjet printers can print either unidirectionally (the head
@@ -2542,9 +2441,6 @@ in other environments.
 
 ### Basic Output Controls ###
 
-```{=html}
-<!-- -->
-```
 ###### Output Type ######
 
 > This option specifies whether to print in color or black and
@@ -2588,9 +2484,6 @@ in other environments.
     > Gimp-Print 4.2 or earlier will generally not perform well with
     > Gutenprint 5.2.
 
-```{=html}
-<!-- -->
-```
 -   **Desaturated** Print in pure grayscale, but using color inks. The
     > result is somewhat different from printing in black and white
     > using the Output Type option --- the driver may use color ink,
@@ -2718,9 +2611,6 @@ in other environments.
 
 ### Basic Output Adjustments ###
 
-```{=html}
-<!-- -->
-```
 ###### Saturation ######
 
 > This option controls the vividness of the output color; higher values
@@ -2919,10 +2809,6 @@ in other environments.
 
 ###### Magenta Balance Value Yellow Balance Value Cyan Balance Value ######
 
-```{=html}
-<!-- -->
-```
-
 ### Output Gamma Controls ###
 
 > These controls permit adjusting the gamma (exponent) of the transfer
@@ -3074,9 +2960,6 @@ in other environments.
 
 ###### Black Curve Blue Curve Cyan Curve Magenta Curve Yellow Curve Red Curve Green Curve ######
 
-```{=html}
-<!-- -->
-```
 ### Advanced Color Correction Curves ###
 
 > These controls permit adjusting precise characteristics of color
@@ -3172,7 +3055,7 @@ in other environments.
 > possible to specify that a certain shade of purple is printed using .2
 > red ink, .6 magenta ink, and .5 blue ink (hypothetically).
 
-1.  1.  1.  ### []{#anchor-55}Transition Controls
+### Transition Controls ###
 
 > These controls adjust the level at which light inks (such as the light
 > cyan and magenta inks used on many "photo printers") are used in place
@@ -3259,9 +3142,6 @@ in other environments.
     > include Dark Yellow, Light Gray, Mid Gray, Dark Gray, Gray, Light
     > Cyan, Light Magenta, and Light Yellow.
 
-```{=html}
-<!-- -->
-```
 ### Miscellaneous Output Controls ###
 
 > These controls are used to modify the output in very printer-specific
