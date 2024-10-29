@@ -3044,7 +3044,7 @@ in other environments.
 > tone (less black ink) while decreasing it will yield a warmer tone
 > (more black ink).
 
-1)  1)  1)  1)  -   -   ###### GCR Transition Value
+###### GCR Transition Value ######
 
 > This control specifies the gamma of the GCR transition curve. Setting
 > this control to a smaller value results in less black ink being used
@@ -3052,7 +3052,7 @@ in other environments.
 > useful if the black ink is much darker than the composite inks in
 > order to produce a smoother transition.
 
-1)  1)  1)  1)  -   -   ###### GCR Curve
+###### GCR Curve ######
 
 > This control (only available through the enhanced Print plugin for
 > GIMP or other Gutenprint-based applications that provide curve
@@ -3063,7 +3063,7 @@ in other environments.
 > converted to black (0 means only composite inks, and 1 means only
 > black ink).
 
-1.  1.  1.  ### []{#anchor-53}Output Linearization Controls
+### Output Linearization Controls ###
 
 > These controls permit adjusting the transfer (linearization) curves of
 > each channel precisely. They are only available through the Print
@@ -3072,12 +3072,12 @@ in other environments.
 > for very advanced use only. In the future we would like to make these
 > curves available to allow user control over the linearization process.
 
-1)  1)  1)  1)  -   -   ###### Black Curve Blue Curve Cyan Curve Magenta Curve Yellow Curve Red Curve Green Curve
+###### Black Curve Blue Curve Cyan Curve Magenta Curve Yellow Curve Red Curve Green Curve ######
 
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  ### []{#anchor-54}Advanced Color Correction Curves
+### Advanced Color Correction Curves ###
 
 > These controls permit adjusting precise characteristics of color
 > generation/correction. They are only available through the enhanced
@@ -3110,7 +3110,7 @@ in other environments.
 | > 6     | > Red     | > Cyan    |
 +---------+-----------+-----------+
 
-1)  1)  1)  1)  -   -   ###### Hue Adjustment Curve Luminosity Adjustment Curve Saturation Adjustment Curve
+###### Hue Adjustment Curve Luminosity Adjustment Curve Saturation Adjustment Curve ######
 
 > These controls adjust the color correction in High Accuracy, Bright
 > Colors, and Correct Hue Only color correction modes. These color
@@ -3155,7 +3155,7 @@ in other environments.
 > rather than to darken light colors. This control has no effect if
 > Correct Hue Only mode is used.
 
-1)  1)  1)  1)  -   -   ###### Blue Map Cyan Map Magenta Map Yellow Map Red Map OrangeMap
+###### Blue Map Cyan Map Magenta Map Yellow Map Red Map OrangeMap ######
 
 > These curves control how the auxiliary red and blue inks are used on
 > the Epson Stylus Photo R800, Stylus Photo R1800, and PictureMate
@@ -3262,12 +3262,12 @@ in other environments.
 ```{=html}
 <!-- -->
 ```
-1.  1.  1.  ### []{#anchor-56}Miscellaneous Output Controls
+### Miscellaneous Output Controls ###
 
 > These controls are used to modify the output in very printer-specific
 > ways.
 
-1)  1)  1)  1)  -   -   ###### Gloss Level Value
+###### Gloss Level Value ######
 
 > This control is provided on printers such as the Epson Stylus Photo
 > R800 and R1800 that offer a special gloss enhancer to produce an even
@@ -3280,14 +3280,14 @@ in other environments.
 > gloss enhancer. If the amount of normal inks is less than this amount,
 > gloss enhancer is used to increase the total amount of ink used.
 
-1.  1.  ## []{#anchor-57}CUPS-Only Options
+## CUPS-Only Options ##
 
 > These controls are available only when using the CUPS interface to
 > Gutenprint. They control CUPS-specific behavior.
 
 > *Shrink Page If Necessary to Fit Borders* is described above.
 
-1)  1)  1)  1)  -   -   ###### Color Model
+###### Color Model ######
 
 > Select the desired color model in which to send data to Gutenprint.
 > The following options are available:
@@ -3318,7 +3318,7 @@ in other environments.
     > the normal (sometimes this is called "whitescale"). This is
     > normally not useful.
 
-1)  1)  1)  1)  -   -   ###### Color Precision
+###### Color Precision ######
 
 > Select the color precision you wish to use. **Normal **color precision
 > is 8-bit; **Best** color precision is 16 bit. This only works with
@@ -3326,7 +3326,7 @@ in other environments.
 > otherwise less efficient than 8-bit and offers no benefit, since
 > Gutenprint will convert 8-bit data to 16-bit itself.
 
-1.  # []{#anchor-58}[GNU GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/fdl.html#TOC1)
+# [GNU GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/fdl.html#TOC1)
 
 Version 2, June 1991
 
@@ -3338,7 +3338,7 @@ Everyone is permitted to copy and distribute verbatim copies
 
 of this license document, but changing it is not allowed.
 
-1.  1.  ## []{#anchor-59}[Preamble](http://www.gnu.org/licenses/gpl.html#TOC2)
+## [Preamble](http://www.gnu.org/licenses/gpl.html#TOC2)
 
 The licenses for most software are designed to take away your freedom to
 share and change it. By contrast, the GNU General Public License is
@@ -3387,7 +3387,7 @@ be licensed for everyone\'s free use or not licensed at all.
 The precise terms and conditions for copying, distribution and
 modification follow.
 
-1.  1.  ## []{#anchor-60}[TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION](http://www.gnu.org/licenses/gpl.html#TOC3)
+## [TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION](http://www.gnu.org/licenses/gpl.html#TOC3)
 
 **0.** This License applies to any program or other work which contains
 a notice placed by the copyright holder saying it may be distributed
@@ -3606,9 +3606,9 @@ INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF
 THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR
 OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-1.  1.  ## []{#anchor-61}END OF TERMS AND CONDITIONS
+ ## END OF TERMS AND CONDITIONS ##
 
-1.  # []{#anchor-62}[GNU Free Documentation License](http://www.gnu.org/licenses/fdl.html#TOC1)
+# [GNU Free Documentation License] (http://www.gnu.org/licenses/fdl.html#TOC1)
 
 Version 1.2, November 2002
 
