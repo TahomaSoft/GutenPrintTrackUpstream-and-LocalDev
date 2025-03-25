@@ -1,0 +1,74 @@
+Copyright (C) 2001-2004 Roger Leigh
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Process this file with autoconf to produce a configure script.
+
+MAKING RELEASES (a step-by-step guide!)
+===============
+
+Since the last release:
+1. if only source code (not the interface) has changed, set
+     GUTENPRINT_MICRO_VERSION += 1;
+2. if any interfaces have been added or changed *compatibly*
+     GUTENPRINT_CURRENT_INTERFACE (GCI) += 1;
+     GUTENPRINT_BINARY_AGE (GBA) += 1;
+3. if interfaces have been deleted or changed *incompatibly*, set
+   	 GCI = GBA + 1;
+     GBA = 0;
+
+(Note that "added", "changed", and "deleted" refer to *external*
+interfaces, that is, interfaces that start with stp_ and are in any
+of the header files in include/gutenprint.  Internal interfaces
+that are prefixed with stpi_ and are only listed in internal headers
+in src/main do not need to be considered, since no external program
+should rely on them.  "Change" refers to more than just function
+signature; things like changes to enumerated types or changes in
+behavior with the same function arguments are also considered changes)
+
+The .soname version is (GCI - GBA).GBA
+Example: if GCI is 3 and GBA is 1, the version is 2.1.  To get 2.2,
+GCI would be incremented to 4 and GBA to 2.
+
+*NOTE*: due to an error preparing 5.2.8, we must skip over major version of
+3 (that is, GCI - GBA) and go directly from 2 to 4.
+
+For example:
+	 GCI=3, GBA=1 => .soname = libgutenprint.so.2.1
+	 GCI=4, GBA=2 => .soname = libgutenprint.so.2.2 (5.2.9)
+	 GCI=5, GBA=3 => .soname = libgutenprint.so.2.3 (5.2.10)
+         (and so on for 5.2 releases, which must remain compatible)
+	 GCI=4, GBA=0 => .soname = libgutenprint.so.4.0
+	 GCI=5, GBA=1 => .soname = libgutenprint.so.4.1
+	 GCI=6, GBA=2 => .soname = libgutenprint.so.4.2
+         (for Gutenprint 5.3 or 5.4 or 6.0 or whatever)
+	 GCI=5, GBA=0 => .soname = libgutenprint.so.5.0
+	 GCI=6, GBA=1 => .soname = libgutenprint.so.5.1
+	 GCI=7, GBA=2 => .soname = libgutenprint.so.5.2
+         (for the next major/minor release beyond that)
+
+Typically, programs will require a certain major number to be matched
+and a minimum minor number.  Causing the major number to be incremented
+will result in programs linked against libgutenprint.so.2 to be treated
+as incompatible with libgutenprint.so.3.
+
+.soname versions can have a third component, which is set from
+GUTENPRINT_INTERFACE_AGE.  This resulted in problems on OS X and
+we have elected to use only two components in the .soname.
+
+Similar principles apply to libgutenprintui2, but that interface is
+still at 1.0.
+
+For more detailed information, see the libtool info documentation.
+
