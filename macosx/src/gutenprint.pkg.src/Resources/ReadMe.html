@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+
+<HEAD>
+<TITLE>
+ReadMe
+</TITLE>
+</HEAD>
+
+<BODY style="font-size:110%;">
+
+<h1 style="margin-bottom:0em;">Gutenprint 5.2.11-pre1</h1>
+<h2 style="margin-top:0em;">released May 22, 2015</h2>
+
+<h3 style="margin-bottom:0em;">Software Requirements</h3>
+<p style="margin-top:0.25em;">
+<b>System software:</b> Mac OS X Snow Leopard (10.6.x) or later.
+</p>
+
+<p>
+Welcome to Gutenprint 5.2.11-pre1. Please read these release notes carefully.
+</p>
+
+
+<h3 style="margin-bottom:0em;">Important Notes:</h3>
+<ul style="margin-top:0.25em; list-style-type:disc;">
+  <li><b>Certain models of dyesub printers are not automatically recognized by Gutenprint, and require manual installation. Please refer to the section <a href="http://gimp-print.sourceforge.net/p_FAQ_OS_X.php#dyesub"><b>I added my dyesub printer, but nothing prints</b></a>
+  in the FAQ</a> for complete installation instructions.</b></li>
+  <li><b>The Gutenprint drivers do not support any other functions such as scanning on all-in-one devices. </b></li>
+	<li><b>The Mac OS X Gutenprint package download does not contain the PPDs for the supported printers. This significantly reduces the size of the download. All necessary files will be written during installation.</b></li>
+	<li><b>For OS X 10.6.x (Snow Leopard) and above, PPD files will be created when you add the printer.</b></li>
+</ul>
+
+<p>
+Gutenprint evolved from Gimp-Print, which originated as the print facility for the open source GNU Image Manipulation Program (GIMP).  It has matured into an independent suite of printer drivers compatible with most UNIX print spooling systems, such as the CUPS spooler in Mac OS X (10.5 and later).  The Gutenprint drivers provide printing quality for UNIX/Linux that in many cases is equal to or better than proprietary vendor-supplied drivers; they can be used for many of the most demanding printing tasks.
+</p>
+
+<h3 style="margin-bottom:0em;">Changes from 5.2.10</h3>
+ <ol style="margin-top:0.25em; list-style-type:decimal;">
+
+  <li>Added support for the following printers:</li>
+
+        <ul><li>Citizen CW-01 / Olmec OP900</li>
+        <li>Mitsubishi CP3800DW</li>
+        <li>Kodak 305                 [experimental]</li>
+        <li>Mitsubishi CP-D80DW       [experimental]</li>
+        <li>Shinko S1245/S6145/S6245  [experimental]</li>
+        <li>Sony UP-CR10/DNP SL10     [experimental]</li>
+        <li>Kodak 8810                [experimental]</li>
+        <li>Ciaat Brava 21            [experimental]</li>
+        <li>Canon SELPHY CP820/CP910</li></ul>
+
+  <li>Enhanced support (and bugfixes) for the following printers:</li>
+
+        <ul><li>DNP DS40/DS80/RX1</li>
+        <li>Citizen CX/CX-W/CY</li>
+        <li>Kodak 6800/6850</li>
+        <li>Kodak 605</li>
+        <li>Canon SELPHY CP900</li>
+        <li>Sony UP-DR200</li>
+        <li>Mitsubishi CP-9550 family (including the CP9550DW-S variant)</li>
+        <li>Mitsubishi CP-D70DW/D707DW/K60DW-S [experimental]</li></ul>
+
+  <li>Added support for the Datamax-O'Neil PCL printers, the Performance
+     series (p1115, p1115s, p1120n, p1125, p1725, h8308) and the
+     Datamax-O'Neil Workstation printer.</li>
+
+  <li>Added common Imperial and Metric label sizes to the Paper Selection
+     menu.</li>
+
+  <li>Canon backend enhancements.</li>
+
+     <ul><li>Added support for following models:</li>
+
+        <ul><li>Canon iP8700 series (EXPERIMENTAL)</li>
+
+        <li>Canon iX6800 series (EXPERIMENTAL)</li>
+
+        <li>Canon iX6800 series (EXPERIMENTAL)</li>
+
+        <li>Canon PIXMA P200    (EXPERIMENTAL)</li>
+
+        <li>Canon iB4000 series (EXPERIMENTAL)</li>
+
+        <li>Canon MB2000 series (EXPERIMENTAL)</li>
+
+        <li>Canon MB2300 series (EXPERIMENTAL)</li>
+
+        <li>Canon MB5000 series (EXPERIMENTAL)</li>
+
+        <li>Canon MB5300 series (EXPERIMENTAL)</li>
+
+        <li>Canon MG5600 series (EXPERIMENTAL)</li>
+
+        <li>Canon MG6600 series (EXPERIMENTAL)</li>
+
+        <li>Canon MG6700 series (EXPERIMENTAL)</li>
+
+        <li>Canon MG7500 series (EXPERIMENTAL)</li></ul>
+
+     <li>Added following models to existing series:</li>
+
+        <ul><li>MG2500 series:</li>
+          <ul><li>Canon PIXMA MG2590</li></ul>
+
+        <li>MG5400 series:</li>
+          <ul><li>Canon PIXMA MG4560</li>
+          <li>Canon PIXMA MG4590</li></ul>
+
+        <li>E510 series:</li>
+          <ul><li>Canon PIXMA E514</li></ul></ul>
+
+     <li>Duplex option added to following printers:</li>
+
+        <ul><li>MP750/MP760/MP770/MP780/MP790</li></ul>
+
+     <li>Resolution modes corrected for following printers:</li>
+
+        <ul><li>MG6300 series</li></ul>
+
+    <li>Added support for upper/lower tray in cassette for following models:</li></ul>
+
+        <ul><li>MG5400 series</li>
+        <li>MG6200 series</li>
+        <li>MG6300 series</li>
+        <li>MG6500 seriesi</li>
+        <li>MG7100 series</li></ul>
+
+  <li>Canon backend bugfixes.</li>
+
+     <ul><li><p>A problem with a new ink level compression added in 5.2.7 has
+     affected multiple printer models. The affected models have been
+     modified accordingly, as described below. As a result, media choice
+     has been limited for the MP, iP and Pro series, only draft-quality
+     printing for plain, Hagaki and Envelope media (and monochrome photo
+     printing in some cases) is currently possible.</p>
+
+     <p>The following printer models have had their modes set back to what
+     they were in 5.2.7, namely the same as the BJC-8200. These modes
+     are not detected in the Windows driver; however, they appear to
+     work, while most detected modes are currently not workable owing to
+     unsolved compression of ink levels. Remaining newer workable modes
+     without problematic compression can be used.</p></li>
+
+        <ul><li>Canon BJC S600</li>
+        <li>Canon BJC S630</li>
+        <li>Canon BJC S800</li></ul>
+
+     <li><p>The following newer printer models added since 5.2.7 have also had
+     their modes set to those of the BJC-8200, for the same reason as above.
+     Remaining newer modes without problematic compression can be used.</p></li>
+
+        <ul><li>Canon BJC S820</li>
+        <li>Canon BJC S900</li>
+        <li>Canon BJC S9000</li>
+        <li>Canon BJC i950</li>
+        <li>Canon BJC i960</li>
+        <li>Canon BJC i965</li>
+        <li>Canon BJC i990</li>
+        <li>Canon BJC i9100</li>
+        <li>Canon BJC i9900</li>
+        <li>Canon BJC i9950</li>
+        <li>Canon BJC 950i</li>
+        <li>Canon BJC 960i</li>
+        <li>Canon BJC 990i</li>
+        <li>Canon BJC 9100i</li>
+        <li>Canon BJC 9900i</li></ul>
+
+     <li><p>The following newer print models added since 5.2.7 have had modes
+     with the problematic ink sets removed. Some of these printers can
+     use monochrome modes to print on photo media.</p></li>
+
+        <ul><li>Canon MP900</li>
+        <li>Canon iP7100</li>
+        <li>Canon iP8100</li>
+        <li>Canon iP8500</li>
+        <li>Canon iP8600</li>
+        <li>Canon iP9910</li>
+        <li>Canon Pro 9000</li>
+        <li>Canon Pro 9000 Mk.II</li>
+        <li>Canon Pro 9500</li>
+        <li>Canon Pro 9500 Mk.II</li></ul></ul>
+
+</ol>
+
+
+<h3 style="margin-bottom:0em;">Installation Notes</h3>
+<p style="margin-top:0.25em;">
+Once you have finished this installation process you will need to set up your printer(s) before printing. Users that already have a previous version of Gutenprint installed will automatically have their print queues updated to use the updated PPDs.
+</p>
+
+<h3 style="margin-bottom:0em;">Support</h3>
+<ol style="margin-top:0.25em; list-style-type:decimal;">
+<li>Read the <b><a href="http://gimp-print.sourceforge.net/p_FAQ_OS_X.php">FAQ</a></b> and the <b><em>Gutenprint Users Manual</em></b>, located at the root level of the installation disk. Answers to most questions can be found within these documents. </li><li> Check the online <b><a href="http://gimp-print.sourceforge.net/p_FAQ_OS_X.php">Gutenprint OS X FAQ</a></b> for the most up-to-date information.  It is available at the Gutenprint Mac website: <a href="http://gimp-print.sourceforge.net/MacOSX.php">http://gimp-print.sourceforge.net/MacOSX.php</a> </li><li> There are <a href="http://sourceforge.net/forum/?group_id=1537">public forums</a> on Sourceforge dedicated to this package.  Please visit them for more information.  The <B>help</B> forum is a good source of information. </li><li> If you have a technical support issue that does not appear to be a bug in the software and you can't find an answer in the <a href="http://gimp-print.sourceforge.net/p_FAQ_OS_X.php">FAQ</a>, you can use the <a href="http://sourceforge.net/support/?group_id=1537">Tech Support Manager</a>. </li><li> If you have found a clear bug in the package, you may file a <a href="http://sourceforge.net/tracker/?group_id=1537&amp;atid=101537">bug report</a>. Please do not file bug reports frivolously, as it wastes everyone's time.  An example of a driver bug is an image being printed at the wrong size or with the wrong colors. If your <a href="http://gimp-print.sourceforge.net/p_Supported_Printers.php">supported printer</a> does not print at all, or prints only garbage, then  most likely your printer queue is simply not configured with the correct driver. Please don't file a bug report for these cases. </li><li> As a last resort only you may send mail to the gimp-print-devel@sourceforge.net mailing list.  The people on this list are busy working to make Gutenprint available to you <B>for free</B>. Please exhaust all other sources of support before you send mail to this list. Please <b>do not</b> post questions to this list that have answers available in the <a href="http://gimp-print.sourceforge.net/p_FAQ_OS_X.php">FAQ</a>!</li></ol>
+
+
+</BODY>
+</HTML>
