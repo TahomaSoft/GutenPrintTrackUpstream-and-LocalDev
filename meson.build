@@ -1,4 +1,7 @@
-project('gutenprint','c','cpp', version : '5.3.5.2')
+project('gutenprint','c','cpp',
+	default_options: 'prefix=/usr/local',
+	version: '5.3.5.2')
+
 
 # March 25, 2025
 # First Crack Port from AutoTools for Gutenprint 5.x...
@@ -17,3 +20,13 @@ conf = configuration_data()
 conf.set_quoted('VERSION', as_version)
 configure_file(output : 'config.h',
                configuration : conf)
+
+
+################################################################################
+# Host system detection
+
+host_cpu_family = host_machine.cpu_family()
+message('Host machine cpu family: ' + host_cpu_family)
+
+
+subdir('man')

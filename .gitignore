@@ -104,10 +104,6 @@ include/Makefile
 include/gutenprint/Makefile
 include/gutenprint/gutenprint-version.h
 include/gutenprintui2/Makefile
-man/cups-calibrate.8
-man/cups-genppd.8
-man/cups-genppdupdate.8
-man/escputil.1
 po/stamp-po
 scripts/build-release
 scripts/count-cpus
