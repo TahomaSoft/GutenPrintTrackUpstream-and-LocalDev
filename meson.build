@@ -5,8 +5,15 @@ project(
   version:'5.3.5.2',
   default_options: [
     'prefix=/usr/local', 'buildtype=debugoptimized',
+    'datadir=share/',
   ],
 )
+
+
+# Setup Various subdirectory paths
+
+
+
 
 
 # March 25, 2025
@@ -39,3 +46,4 @@ host_cpu_family = host_machine.cpu_family()
 message('Host machine cpu family: ' + host_cpu_family)
 
 subdir('man')
+subdir('samples')
