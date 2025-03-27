@@ -84,12 +84,8 @@ pushdef([GUTENPRINTUI2_CURRENT_INTERFACE], [8])
 pushdef([GUTENPRINTUI2_BINARY_AGE],        [6])
 pushdef([GUTENPRINT_VERSION], GUTENPRINT_MAJOR_VERSION.GUTENPRINT_MINOR_VERSION.GUTENPRINT_MICRO_VERSION[]GUTENPRINT_EXTRA_VERSION)
 
-AC_INIT([GUTENPRINT_NAME],
-	[GUTENPRINT_VERSION],
-	[gimp-print-devel@lists.sourceforge.net],
-	[GUTENPRINT_NAME],
-	[https://gimp-print.sourceforge.net])
-AC_PREREQ([2.69])
+AC_INIT([GUTENPRINT_NAME],[GUTENPRINT_VERSION],[gimp-print-devel@lists.sourceforge.net],[GUTENPRINT_NAME],[https://gimp-print.sourceforge.net])
+AC_PREREQ([2.72])
 AC_REVISION($Revision$)
 AC_CONFIG_SRCDIR(src/main/print-vars.c)
 AC_CONFIG_MACRO_DIR([m4])
@@ -809,7 +805,15 @@ STP_CUPS_PATH
 STP_CUPS_LIBS
 
 dnl Checks for header files.
-AC_HEADER_STDC
+m4_warn([obsolete],
+[The preprocessor macro 'STDC_HEADERS' is obsolete.
+  Except in unusual embedded environments, you can safely include all
+  C89 headers unconditionally.])dnl
+# Autoupdate added the next two lines to ensure that your configure
+# script's behavior did not change.  They are probably safe to remove.
+AC_CHECK_INCLUDES_DEFAULT
+AC_PROG_EGREP
+
 AC_CHECK_HEADERS(getopt.h)
 AC_CHECK_HEADER(readline/readline.h,
   HAVE_READLINE_READLINE_H=true,

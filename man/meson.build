@@ -28,8 +28,8 @@ man_files = [
     configuration: manconf,
   ),
    configure_file(
-    input : 'cups-genppddupdate.8.in',
-    output: 'cups-genppddupdate.8',
+     input : 'cups-genppdupdate.8.in',
+     output: 'cups-genppdupdate.8',
     configuration: manconf,
    ),		   
    configure_file(
