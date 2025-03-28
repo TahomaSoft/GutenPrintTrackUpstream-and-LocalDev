@@ -1,0 +1,46 @@
+# Preface
+
+reading
+
+manual, how to read
+
+Gutenprint is the print facility of the GNU Image Manipulation Program
+(GIMP). It is in addition a suite of drivers that may be used with CUPS.
+These drivers provide printing quality for Linux, MacOS X and UNIX on a
+par with proprietary vendor-supplied drivers in many cases, and can be
+used for many of the most demanding printing tasks, especially for high
+quality printing on modern inkjets, including "photographic quality"
+models which offer very high resolutions and several inks. The core of
+Gutenprint is a shared library (libgutenprint) which may be used by any
+program that wishes to produce high-quality printed output.
+
+This manual documents the use of the Gutenprint package, focusing mainly
+on the libgutenprint library that is the core of Gutenprint. Parts of
+the manual which describe the use of libgutenprint are aimed primarily
+at programmers, and do assume that the reader is familiar with C
+programming, and using standard programming tools on GNU or UNIX
+systems.
+
+For the end-user, there is a separate manual documenting programs that
+come with Gutenprint, including the GIMP `print` plugin, and the CUPS
+driver.
+
+To learn how to use libgutenprint in your own programs is to look at the
+source of the `testpattern`, located in `src/testpattern`, as well as
+the source of the other programs that use libgutenprint, and
+libgutenprint itself. Most importantly, please consult the API reference
+and libgutenprint headers.
+
+The manual is split into several parts for the programmer. It starts
+with a simple usage example of how to link a program with libgutenprint,
+then how to integrate this into package build scripts, using `make`,
+`autoconf` and `automake`. The appendices cover the detail of the inner
+workings of some parts of libgutenprint.
+
+The following sections detail the dither and weave algorithms used in
+libgutenprint, the ESC/P2 printer control language used in Epson
+printers and how to add support for a new printer to libgutenprint.
+
+    We hope you enjoy using Gutenprint!
+    —The Gutenprint project
+        

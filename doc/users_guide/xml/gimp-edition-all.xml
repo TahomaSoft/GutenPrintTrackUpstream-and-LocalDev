@@ -1,0 +1,3877 @@
+<?xml version="1.0"?>
+<BOOK
+><BOOKINFO
+><TITLE
+>The User's Guide to the Gutenprint - GIMP Edition</TITLE><DATE
+>April 7, 2002</DATE><PUBDATE
+>April 7, 2002</PUBDATE><AUTHOR
+><FIRSTNAME
+>Andy</FIRSTNAME><SURNAME
+>Stewart</SURNAME></AUTHOR><COPYRIGHT
+><YEAR
+>2002</YEAR><HOLDER
+>Andy Stewart</HOLDER></COPYRIGHT><LEGALNOTICE
+><PARA
+>The User's Guide to the Gutenprint - GIMP Edition, Copyright
+2002, Andy Stewart.
+    </PARA><PARA
+>    Permission is granted to copy, distribute and/or modify this
+document under the terms of the GNU Free Documentation License,
+Version 1.1 or any later version published by the Free Software
+Foundation with no invariant sections, no Front-Cover texts, and no
+Back-Cover texts.  A copy of the license is included in <XREF
+LINKEND="GFDL"
+></XREF>.
+    </PARA></LEGALNOTICE><ABSTRACT
+><PARA
+>    The Gutenprint Top Quality Printer Drivers (hereafter
+called Gutenprint) are a set of printer drivers written to
+take advantage of the full capabilities of a wide range of
+printers. These drivers should work on any POSIX compliant operating
+system (e.g. Linux, Solaris, IRIX, etc).  This document will explain how to
+use the Gutenprint software to achieve high quality printouts from the
+<ULINK
+URL="http://www.gimp.org"
+>GIMP</ULINK> (GNU Image
+Manipulation Program) and
+<ULINK
+URL="http://www.cups.org"
+>CUPS</ULINK> (Common Unix Printing
+System).
+  </PARA><PARA
+>Regardless of whether the Gutenprint software is used with the GIMP or
+CUPS, the print quality and printer settings remain the same.
+  </PARA><PARA
+>  This document corresponds to version 4.2.0 and later of the Gutenprint
+software. This document will serve as a guide to the user, and as such
+will not explain how to install Gutenprint, CUPS, GIMP, or any other related
+software.
+  </PARA><PARA
+>    Andy Stewart, the author, is the founder of the
+<ULINK
+URL="http://www.wlug.org"
+>Worcester Linux Users' Group</ULINK> in
+Worcester, Massachusetts, USA.  The group was founded in July 1997 and has
+approximately 140 people on its mailing list.  Monthly meetings are
+held and all are invited.
+  </PARA><PARA
+>    In terms of "code", this is the author's first contribution to the
+open source community, and definitely his first experience with DocBook.
+Constructive comments, praise, words of encouragement, and the like
+will be most appreciated if e-mailed to the
+<ULINK
+URL="mailto:andystewart@attbi.com"
+>author</ULINK>.
+  </PARA></ABSTRACT></BOOKINFO><CHAPTER
+><TITLE
+>GIMP Edition</TITLE><CAUTION
+><TITLE
+>PLEASE NOTE</TITLE><PARA
+>    This manual includes a subset of chapters from a more complete
+manual entitled <EMPHASIS
+>The User's Guide to the Gutenprint Top
+Quality Printer Drivers</EMPHASIS>.  To obtain the complete manual, go
+to the <ULINK
+URL="http://gimp-print.sourceforge.net"
+>Gutenprint
+Project</ULINK> home page.
+    </PARA><PARA
+>    This version of the manual has been specifically packaged in this
+way in an attempt to better suit the needs of people interested only
+in using the Gutenprint software with
+<ULINK
+URL="http://www.gimp.org"
+>GIMP</ULINK> (GNU Image Manipulation Program).
+    </PARA></CAUTION></CHAPTER><CHAPTER
+><TITLE
+>Project History</TITLE><PARA
+>This software package was first written by Michael Sweet of
+<ULINK
+URL="http://www.easysw.com"
+>Easy Software Products</ULINK> and
+initially worked only as a print plugin to the GIMP (GNU Image
+Manipulation Program).  In the summer of 1999,
+Robert Krawitz (the current
+Gutenprint project leader) purchased an Epson Stylus Photo EX printer
+to feed his photography hobby. Finding no existing printer drivers, Robert
+adapted Mike's GIMP Print plugin to his six-color printer, and by the end
+of the year released version 3.0 of the Gimp-Print software, which was
+included in version 1.1 of the GIMP.  The intention was for this to be
+the stable plugin in version 1.2 of the GIMP while development of the
+GIMP Print plugin continued for later release.
+  </PARA><PARA
+>Robert put the Gimp-Print development tree on SourceForge starting
+with version 3.1, and quickly found a group of like-minded people who wanted to print
+high quality output on inexpensive inkjet printers. One of the main
+goals, which was not expected to be met until late in the version 3.1
+cycle, was to write a Ghostscript driver so that printing would not be
+restricted to the GIMP.  Imagine Robert's surprise when Henryk "Buggs"
+Richter wrote one within days!
+  </PARA><PARA
+>In July 2000, not more than a year after Robert bought his Epson
+Stylus Photo EX, he was invited to the Linux Printing
+Summit hosted by VA Linux Systems. In preparation for that, he spent
+long hours printing out test images.  Robert went back to the
+Gimp-Print version 3.0.9 release, which seemed like such an advance
+at the time,  and was floored at how far the project had come in four
+months! Output that had been considered impressive with using six
+colors was put to shame by four color output. That should give you
+an idea what six color and variable dot size printers can do. It also
+illustrates what a group of committed people can do.
+  </PARA><PARA
+>Robert came away from the Printing Summit with a lot of new ideas, and in
+November 2000, Gimp-Print version 4.0 was released, the culmination of 9 months
+of work by the team.  The quality was already tremendously improved
+over what the software could do at the Printing Summit.
+  </PARA><PARA
+>The team started serious work on version 4.1 in December
+2000, and version 4.2.0 was released in November 2001.  Despite the fact
+that version 4.2.0 is a "minor" release over version 4.0, there are vast
+improvements:
+  <ITEMIZEDLIST
+><LISTITEM
+><PARA
+>      The driver is built as a shared library, making it much easier
+to use by higher layers of software
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>      The packaging system now follows GNU standards
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>The print quality (in particular, color accuracy, a well-known weakness in 4.0) is even better
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>      Improved performance
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>      Many more options
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>      More supported printers
+      </PARA></LISTITEM></ITEMIZEDLIST>
+
+  </PARA><PARA
+>Releases of Gimp-Print have been historically numbered in
+a fashion similar to that of the Linux kernel, where major releases
+are denoted by the first digit (in this case '4'), while minor
+releases are denoted by subsequent digits (such as '4.2.0').  Even
+numbered minor releases are considered stable, while odd numbered
+minor releases are considered development releases (whose stability
+may vary for any given release).
+  </PARA><PARA
+>This project is by no means finished.  In future releases, the development
+team hopes to include the following:
+  <ITEMIZEDLIST
+><LISTITEM
+><PARA
+>implementation of proper color management</PARA></LISTITEM><LISTITEM
+><PARA
+>improved dithering</PARA></LISTITEM><LISTITEM
+><PARA
+>improvements in performance</PARA></LISTITEM></ITEMIZEDLIST>
+  </PARA><PARA
+>The entire Gutenprint team hopes you will really enjoy using this
+software!  For more information, please consult the Gutenprint project
+<ULINK
+URL="http://gimp-print.sourceforge.net"
+>web page</ULINK>.
+  </PARA></CHAPTER><CHAPTER
+ID="CH-GIMP-AND-GIMP-PRINT"
+><TITLE
+>GIMP and Gutenprint</TITLE><SECT1
+><TITLE
+>Running the GIMP</TITLE><PARA
+>   This section assumes that you have the GIMP version 1.2 installed
+and working properly on your computer, and that you have an image of
+some type that you desire to print. To get started quickly, log into
+your system, start the X window system, and bring up your favorite terminal
+window.  At the $ prompt, type:
+
+  <PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+     $ gimp &amp;
+    
+  </PROGRAMLISTING>
+
+   This should start the GIMP for you. If it does not, check that
+you have installed the GIMP properly, and that its binary is located
+in one of the directories listed in your [dollar]PATH environment
+variable. On the assumption that this worked, the screen should now
+look something like this:
+
+   <FIGURE
+FLOAT="0"
+><TITLE
+>The Startup Window for The GIMP</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp_startup.png"
+FORMAT="PNG"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>Startup window for The GIMP</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE>
+
+   </PARA><PARA
+>   At this point, you should use the
+
+    <MENUCHOICE
+MOREINFO="NONE"
+><GUIMENU
+MOREINFO="NONE"
+>File</GUIMENU><GUIMENUITEM
+MOREINFO="NONE"
+>Open</GUIMENUITEM></MENUCHOICE>
+
+menu option to open your favorite picture. We will print this picture
+shortly. Your picture should be displayed next to the GIMP startup
+window, perhaps looking similar to the following (sssh! Don't tell
+anybody the secret!):
+
+   <FIGURE
+FLOAT="0"
+><TITLE
+>A Sample Image Displayed by The GIMP</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp_image.png"
+FORMAT="PNG"
+SCALE="50"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>A Sample Image displayed by The Gimp</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE>
+
+  </PARA></SECT1><SECT1
+><TITLE
+>The Gimp-Print Graphical User Interface</TITLE><PARA
+>   Now that the GIMP is displaying your picture, put your mouse over
+the picture and click the right mouse button. A menu will appear.
+Choose the
+    <MENUCHOICE
+MOREINFO="NONE"
+><GUIMENU
+MOREINFO="NONE"
+>File</GUIMENU><GUIMENUITEM
+MOREINFO="NONE"
+>Print</GUIMENUITEM></MENUCHOICE>
+menu option. This will cause the Gimp-Print GUI window to appear (see
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI"
+></XREF>). Move the mouse cursor
+over the various parts of the Gimp-Print GUI window, and notice that
+if you leave your mouse in one place for a short time without clicking
+any buttons, a small box appears.  This box contains helpful text.
+These small boxes are called "tooltips" and are intended to remind you
+about the function of each part of the graphical interface.
+    </PARA><PARA
+>The next several sections will continuously refer to
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI"
+></XREF> and
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI-1"
+></XREF>.  The difference between
+the two figures can be seen in the top right corner of the window.
+Notice that there are two tabs, one which reads
+<GUILABEL
+MOREINFO="NONE"
+>Printer Settings</GUILABEL> and another which reads
+<GUILABEL
+MOREINFO="NONE"
+>Image/Output Settings</GUILABEL>.  Notice also that the
+window is divided into several major sections which directly map to
+the major sections of this document:
+  <ITEMIZEDLIST
+><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-PREVIEW"
+>Preview</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-PRINTER-SETTINGS"
+>Printer Settings</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-PRINTER-SETTINGS"
+>Image/Output Settings</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-POSITION"
+>Position</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-SCALING"
+>Size</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-PRINTING-AND-SAVING-SETTINGS"
+>Printing and Saving Settings</LINK></PARA></LISTITEM></ITEMIZEDLIST>
+  </PARA><FIGURE
+FLOAT="0"
+ID="FIG-GIMP-PRINT-GUI"
+><TITLE
+>The Gimp-Print Graphical User Interface 1 (GUI)</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-gui.png"
+FORMAT="PNG"
+SCALE="40"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The GIMP Print GUI showing printer settings</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><FIGURE
+FLOAT="0"
+ID="FIG-GIMP-PRINT-GUI-1"
+><TITLE
+>The Gimp-Print Graphical User Interface 2 (GUI)</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-gui-1.png"
+FORMAT="PNG"
+SCALE="40"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The GIMP Print GUI showing image/output settings</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><SECT2
+><TITLE
+ID="SEC-PRINTER-SETTINGS"
+>Printer Settings</TITLE><INDEXTERM
+SIGNIFICANCE="NORMAL"
+ID="IDX-PRINTER-SETTINGS"
+><PRIMARY
+>Printer Settings</PRIMARY></INDEXTERM><SECT3
+><TITLE
+>Printer</TITLE><PARA
+>      Click on the <GUILABEL
+MOREINFO="NONE"
+>Printer Settings</GUILABEL> tab near the
+top right hand corner of the window (see
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI"
+></XREF>).  Then, click on the downward
+facing arrow to the right of the <GUILABEL
+MOREINFO="NONE"
+>Printer</GUILABEL> combo
+box to see a list of the system printer queues.  Select the queue to which
+you would like the printed image to be sent.  One may also print the
+image directly to a file by selecting <GUIMENUITEM
+MOREINFO="NONE"
+>File</GUIMENUITEM>.
+In this event, the user will be prompted for the filename when either the
+<GUIBUTTON
+MOREINFO="NONE"
+>Print</GUIBUTTON> button or the <GUIBUTTON
+MOREINFO="NONE"
+>Print and Save
+Settings</GUIBUTTON> button is clicked.
+     </PARA><PARA
+>When either the <GUIBUTTON
+MOREINFO="NONE"
+>Print and Save Settings</GUIBUTTON> button
+or the <GUIBUTTON
+MOREINFO="NONE"
+>Save Settings</GUIBUTTON> button is clicked,
+the settings are saved in a file called
+<FILENAME
+MOREINFO="NONE"
+>~/.gimp-1.2/printrc</FILENAME>.  The user is cautioned about
+hand editing this file since it is generated by Gutenprint (although
+it was the only way that the author found for removing bogus entries
+created while playing with the <GUIBUTTON
+MOREINFO="NONE"
+>New Printer</GUIBUTTON> button).
+    </PARA></SECT3><SECT3
+><TITLE
+>Setup Printer</TITLE><PARA
+>     Before any useful printing can occur, the user needs to associate
+the named printer with the
+actual make and model of the printer.  Click the
+<GUIBUTTON
+MOREINFO="NONE"
+>Setup Printer</GUIBUTTON> button in
+the <GUILABEL
+MOREINFO="NONE"
+>Printer</GUILABEL> section of the window (the upper
+right, and just below the Printer display box). When this is done, the
+following window appears:
+
+   <FIGURE
+FLOAT="0"
+><TITLE
+>The Setup Printer Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-setup.png"
+FORMAT="PNG"
+SCALE="60"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The Setup Printer Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE>
+    </PARA><PARA
+>     Scroll through the Printer Model section of the window until you
+find a printer which matches yours. If you cannot find the precise
+model, pick something close and hope for the best.  There are selections
+for a wide array of Postscript, inkjet, and laser printers.  After you
+have selected a printer, you will see the printer command displayed.
+    </PARA><PARA
+>The Gutenprint software does all of the necessary conversion of the
+image to be printed into the language of your printer. It is
+unnecessary and undesirable for any other software to manipulate this
+data.  (This is why the command contains the "-l" switch or the "-o
+raw" switch).  Please use care if you feel the need to edit this
+command.  Once you are satisfied with your selection, click the
+<GUIBUTTON
+MOREINFO="NONE"
+>OK</GUIBUTTON> button.
+    </PARA></SECT3><SECT3
+><TITLE
+>New Printer</TITLE><PARA
+>     In the previous sections, the user selected an existing printer
+queue and associated a particular type of printer to that queue.  For
+most cases, this is probably all that is required.  However, some
+situations might require more detailed control over the handling of
+the printer data.
+     </PARA><PARA
+>     Click the <GUIBUTTON
+MOREINFO="NONE"
+>New Printer</GUIBUTTON> button to tell the
+software that you wish to create a new name.  In this case, the new
+name may actually be an existing printer with different settings that
+you wish to save, or it may simply be a name associated with a
+particular command for handling the printer data.  A window will
+appear thus:
+
+   <FIGURE
+FLOAT="0"
+><TITLE
+>The New Printer Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-new-printer.png"
+FORMAT="PNG"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The New Printer Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE>
+
+    Type a name into the window and click <GUIBUTTON
+MOREINFO="NONE"
+>OK</GUIBUTTON>
+(or <GUIBUTTON
+MOREINFO="NONE"
+>Cancel</GUIBUTTON> if you wish not to do this).
+Notice that the new name now appears as the selected <GUILABEL
+MOREINFO="NONE"
+>Printer</GUILABEL>.
+As you change settings in the rest of the Gimp-Print GUI, they will be
+associated with this printer name.  When the settings are saved,
+they can be recovered easily by simply selecting this named printer
+from the Printer combo box.
+    </PARA><PARA
+>    One example where this feature might be used is as follows.  The
+author frequently prints photos on Epson 4x6 photo paper.  Note that
+this paper is physically larger than 4x6 and it has perforations on
+all four sides.  The author dislikes printing part of the image on the
+perforated parts of the paper which will be removed after
+printing the photo.  By selecting the proper scaling percentage,
+printing can be constrained to the 4x6 part of the paper which will
+remain after the perforated sections are removed.  The author has
+saved this setting using this feature of the Gutenprint software.
+    </PARA></SECT3><SECT3
+><TITLE
+>Media Size</TITLE><PARA
+>     The term <EMPHASIS
+>media</EMPHASIS> refers to paper, card stock,
+envelopes, or whatever you have put into your printer onto which
+something will be printed.  Click the arrow to the right of the
+<GUILABEL
+MOREINFO="NONE"
+>Media Size</GUILABEL> box to see a long list of different
+sizes of media.  Choose the size that matches the media which you have
+loaded into your printer.  Once you have made your choice, the drop
+down menu will disappear, and your choice will be shown in the
+<GUILABEL
+MOREINFO="NONE"
+>Media Size</GUILABEL> box.  The available paper sizes will
+vary depending upon the printer model you have selected.
+   </PARA><PARA
+>   Some printers support arbitrary (within limits!) paper sizes.
+   These printers will let you select <EMPHASIS
+>Custom</EMPHASIS>
+   or <EMPHASIS
+>Roll</EMPHASIS> paper sizes.  When you select such a
+   printer, one or both of the <GUILABEL
+MOREINFO="NONE"
+>Dimensions</GUILABEL> boxes
+   will let you enter your paper size (in inches or centimetres).  The
+   boxes will not let you enter sizes that your printer cannot handle.
+   </PARA></SECT3><SECT3
+><TITLE
+>Media Type</TITLE><PARA
+>     The type of media onto which your image will be printed should be
+selected here.  Click on the arrow to the right of the <GUILABEL
+MOREINFO="NONE"
+>Media
+Type</GUILABEL> box to see a long list of the different types of media
+onto which you may print your image.  Media types include such things
+as plain paper, postcards, photo quality paper, transparencies, and
+more!  Once you have made your choice, the drop down menu will
+disappear, and your choice will be shown in the <GUILABEL
+MOREINFO="NONE"
+>Media
+Type</GUILABEL> box.  The choices available will vary depending upon
+the printer model you have selected.
+   </PARA></SECT3><SECT3
+><TITLE
+>Media Source</TITLE><PARA
+>     The <GUILABEL
+MOREINFO="NONE"
+>Media Source</GUILABEL> box allows the user to
+  choose the paper source, sometimes called <EMPHASIS
+>Input
+  Slot</EMPHASIS>, that the paper will be fed from.  Many printers
+  only have one available input source (such as the standard paper
+  tray), in which case this entry will be grayed out.  If your printer
+  does support multiple input sources, you may specify the source of
+  your choice here.  Some Epson printers offer a roll feed option in
+  addition to the standard paper tray, and many HP LaserJet printers
+  have multiple paper trays.
+   </PARA></SECT3><SECT3
+><TITLE
+>Ink Type</TITLE><PARA
+>   Some printers offer a choice of different types of ink or ink
+   cartridges.  Many Canon and Lexmark printers support various
+   combinations of cartridges, such as black only, black and color,
+   photo color, and so forth.  Most Epson printers let you choose
+   between three and four color printing (three color uses only color
+   ink, while four color uses black ink as well).  Epson printers that
+   support six color photo printing allow you to choose five and six
+   color printing as well.
+   </PARA></SECT3><SECT3
+><TITLE
+>Resolution</TITLE><PARA
+>     Click on the arrow to the right of the
+<GUILABEL
+MOREINFO="NONE"
+>Resolution</GUILABEL> box to see a long list of resolutions
+at which you can print your image.  The list is written with the
+lowest resolution at the top, with increasing resolution (and
+generally improved printing quality) as you approach the bottom of the
+list.  Different printers support different resolution options, and
+many printers support different quality choices using the same basic
+resolution.  In this menu are a few terms which may be unfamiliar to
+you, and they will now be explained.
+   </PARA><SECT4
+><TITLE
+>DPI</TITLE><PARA
+>         DPI is an acronym which stands for <EMPHASIS
+>D</EMPHASIS>ots
+<EMPHASIS
+>P</EMPHASIS>er <EMPHASIS
+>I</EMPHASIS>nch.  This term refers
+to the number of dots that your printer will print in a space of one
+inch (approximately 2.54 cm).  This is highly dependent upon the
+capability of your printer.  Resolutions below 300 DPI are
+used for draft quality.  For general purpose printing, select
+300 - 360 DPI.  Higher quality printing can be achieved by
+selecting 600 - 720 DPI.  Settings higher than this are used for the
+highest possible quality for printing photographs and other high
+quality graphics.  Experiment with your printer and these settings
+with different types of graphics and photographs to see what
+results you can obtain with your printer.  High resolutions (large
+numbers of dots per inch) require substantial image processing time,
+and the print files can be very large; it's not uncommon for a full
+page, 1440x720 DPI image to require 100 MB of temporary storage!
+       </PARA></SECT4><SECT4
+><TITLE
+>Draft or Fast Economy Draft</TITLE><PARA
+>     When this text appears next to the resolution, it refers to the
+fact that the quality will be relatively low, but suitable for rough
+drafts.  Draft quality is higher than fast economy draft.  These
+options will give you the fastest printing speed.  Economy Draft uses
+less ink, and as a result the image will be pale.  These modes are
+generally not very useful for printing photographs.
+     </PARA></SECT4><SECT4
+><TITLE
+>Unidirectional</TITLE><PARA
+>         When printing an image, you have probably noticed the print
+head inside the printer moving back and forth across the print media.
+Many printers are capable of putting ink on the page regardless of
+which direction the print head is moving.  However, quality can
+sometimes be improved by only putting ink on the page when the printer
+head is moving in one direction.  The
+<GUIMENUITEM
+MOREINFO="NONE"
+>Unidirectional</GUIMENUITEM> setting instructs the
+software to only place ink on the page when the print head is moving
+one way.  When the print head returns, it will not place ink on the
+page.  On many printers, the print quality is better, at the expense
+of printing speed.
+       </PARA></SECT4><SECT4
+><TITLE
+>High(est) Quality</TITLE><PARA
+>         With lower quality print modes, one may see an effect where
+the printed image looks like it has rows of stripes with a small
+separation between the stripes.  This effect is called "banding" and
+is undesirable.  In the <EMPHASIS
+>high</EMPHASIS> and
+<EMPHASIS
+>highest</EMPHASIS> quality modes, the printer will make more
+passes over the same part of the page in order to improve quality and
+(reduce or) eliminate banding.  This requires more temporary disk
+space and prints more slowly, but does not require significantly more
+processing time.
+       </PARA></SECT4><SECT4
+><TITLE
+>DMT</TITLE><PARA
+>       DMT is an acronym which stands for <EMPHASIS
+>D</EMPHASIS>ot
+       <EMPHASIS
+>M</EMPHASIS>odulation
+       <EMPHASIS
+>T</EMPHASIS>echnology.
+       This term refers to a print mode used by certain Canon printers
+       to improve the quality of the printed output.  Unfortunately,
+       at this time,  all of the available DMT modes do not work
+       correctly.  The cases which do work correctly will offer
+       significantly improved printing quality.
+       </PARA></SECT4></SECT3></SECT2><SECT2
+><TITLE
+ID="SEC-PREVIEW"
+>Preview</TITLE><PARA
+>   Notice in the upper left of the window is a preview of your image.
+This preview is a representation of where your picture will print on
+the selected media, and approximately what it will look like.  This
+preview will be updated as you modify selections in the
+<GUILABEL
+MOREINFO="NONE"
+>Position</GUILABEL>, <GUILABEL
+MOREINFO="NONE"
+>Size</GUILABEL>,
+<GUILABEL
+MOREINFO="NONE"
+>Media Size</GUILABEL>, and <GUILABEL
+MOREINFO="NONE"
+>Output Type</GUILABEL>
+portions of the window. You may also select the image with your mouse
+and move it manually if you wish. In doing so, you will note that the
+<GUILABEL
+MOREINFO="NONE"
+>Position</GUILABEL> settings are updated accordingly.  Take
+note of the arrow, which points toward the top of the media, where top
+is the first part of the media to enter the printer.
+  </PARA><PARA
+>  The preview may be moved around the page as follows:
+  </PARA><ITEMIZEDLIST
+><LISTITEM
+><PARA
+> Clicking and dragging the <EMPHASIS
+>left</EMPHASIS>
+  (primary) mouse button moves the image around the page as you would
+  expect; the image moves with the mouse.  </PARA></LISTITEM><LISTITEM
+><PARA
+> Clicking and dragging the
+  <EMPHASIS
+>middle</EMPHASIS> mouse button moves the image around the
+  page in a finer fashion, such that each pixel of mouse movement
+  moves the image by one point (1/72 inch).  This allows very fine
+  placement of the image on the page.  </PARA></LISTITEM><LISTITEM
+><PARA
+> Clicking and dragging the
+  <EMPHASIS
+>right</EMPHASIS> (secondary) mouse button moves the image
+  around the page much the same as with the left button, but the image
+  will only move in units of the image size.  Thus, if the image is
+  one inch wide and two inches tall, the image will not move at all
+  until you have moved the mouse far enough so that the image would be
+  moved one inch vertically and two inches horizontally.  This is
+  handy if you wish to print multiple images of the same size on one
+  piece of paper.</PARA></LISTITEM><LISTITEM
+><PARA
+> If you hold down the <EMPHASIS
+>shift</EMPHASIS> key
+  on the keyboard when you click and drag the mouse, the image will
+  only move in the horizontal or vertical direction (depending upon
+  which way you first move the mouse).  This allows you to constrain
+  motion to the horizontal or vertical. </PARA></LISTITEM><LISTITEM
+><PARA
+> If you click another button while dragging the
+  mouse, the image will immediately return to the position it was in
+  before you clicked the mouse the first time.  This allows you to
+  not move the image if you have started moving it and have decided
+  that you don't want to move it.  The preview will not respond to the
+  mouse until you release all of the mouse buttons and click and drag
+  afresh. </PARA></LISTITEM></ITEMIZEDLIST></SECT2><SECT2
+><TITLE
+ID="SEC-POSITION"
+>Position</TITLE><SECT3
+><TITLE
+>Orientation</TITLE><PARA
+>      The Orientation menu allows the user to choose the orientation
+of the paper.  The menu selections are
+<GUIMENUITEM
+MOREINFO="NONE"
+>Auto</GUIMENUITEM>, <GUIMENUITEM
+MOREINFO="NONE"
+>Portrait</GUIMENUITEM>,
+<GUIMENUITEM
+MOREINFO="NONE"
+>Landscape</GUIMENUITEM>, <GUIMENUITEM
+MOREINFO="NONE"
+>Upside
+down</GUIMENUITEM>, and <GUIMENUITEM
+MOREINFO="NONE"
+>Seascape</GUIMENUITEM>.  Click on
+the rectangular tab to see these choices
+and make your selection.  When you have done so, the pulldown menu
+will have disappeared, and your choice will appear.  Also, note that
+the preview image will have changed accordingly.
+   </PARA><PARA
+>     When set to <GUIMENUITEM
+MOREINFO="NONE"
+>Auto</GUIMENUITEM>, the software will make an
+intelligent choice of orientation based on the dimensions of the image
+to be printed.   <GUIMENUITEM
+MOREINFO="NONE"
+>Portrait</GUIMENUITEM> orients the print media
+with the longest edge going from top to bottom, while
+<GUIMENUITEM
+MOREINFO="NONE"
+>Landscape</GUIMENUITEM> orients the paper with the longest edge
+going from side to side.  <GUIMENUITEM
+MOREINFO="NONE"
+>Upside down</GUIMENUITEM> and
+<GUIMENUITEM
+MOREINFO="NONE"
+>Seascape</GUIMENUITEM> orient the paper the same as
+<GUIMENUITEM
+MOREINFO="NONE"
+>Portrait</GUIMENUITEM> and  <GUIMENUITEM
+MOREINFO="NONE"
+>Landscape</GUIMENUITEM>
+respectively, with the difference being that the image is rotated 180 degrees.
+   </PARA></SECT3><SECT3
+><TITLE
+>Automatic Centering</TITLE><PARA
+>      There are three buttons that deal with centering an image.  The
+leftmost button is the <GUIBUTTON
+MOREINFO="NONE"
+>Vertically</GUIBUTTON> button, the
+middle button is the <GUIBUTTON
+MOREINFO="NONE"
+>Both</GUIBUTTON> button, and
+the rightmost button is the <GUIBUTTON
+MOREINFO="NONE"
+>Horizontally</GUIBUTTON>
+button.  Use the <GUIBUTTON
+MOREINFO="NONE"
+>Both</GUIBUTTON> button to center your
+image both horizontally and vertically.  This will cause the top and
+bottom borders to be equal, and the left and right borders to be
+equal.  If you have placed your image manually by using the mouse
+button, then you may center the image in the horizontal direction only
+by clicking on the <GUIBUTTON
+MOREINFO="NONE"
+>Horizontally</GUIBUTTON> button.
+Likewise, to adjust the image only in the vertical direction, click on
+the <GUIBUTTON
+MOREINFO="NONE"
+>Vertically</GUIBUTTON> button.  Note that in
+each case, the image is centered with regard to the edges of the
+media, and without regard to the printable portion of the media.  Many
+printers are incapable of printing to each edge of the media.  Some
+media may have edges which detach.  Consult your printer documentation
+for more details regarding your printer's capabilities in this regard.
+   </PARA></SECT3><SECT3
+><TITLE
+>Manual Settings</TITLE><PARA
+>      You will notice that there are six boxes that contain numbers
+just below the Orientation menu and just above the GUI buttons related
+to centering an image.  When you move the preview image manually with
+the mouse, or when you click on one of the centering buttons, the
+preview image moves and these six boxes get updated.
+   </PARA><SECT4
+><TITLE
+>Left</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Left</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the left side of the image
+will be printed away from the left edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Right</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Right</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the right side of the image
+will be printed away from the left edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Right Border</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Right Border</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the right side of the image
+will be printed away from the right edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Top</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Top</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the top side of the image
+will be printed away from the top edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Bottom</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Bottom</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the bottom side of the image
+will be printed away from the top edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Bottom Border</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Bottom Border</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the bottom side of the image
+will be printed away from the bottom edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4></SECT3></SECT2><SECT2
+><TITLE
+ID="SEC-SCALING"
+>Size</TITLE><SECT3
+><TITLE
+>Slider Bar and Spin Box</TITLE><PARA
+>      The slider bar can be moved as desired by the user.  Notice
+that while sliding this bar, the preview image changes accordingly.
+One will also note that several boxes in the Gimp-Print GUI change values when this bar is moved.
+These boxes are the six position boxes (left, right, right border,
+top, bottom, bottom border), the two size boxes (width and height),
+and the spin box to the right of the slider bar.
+   </PARA><PARA
+>   This slider bar is used to scale the image to a desirable size, but the same effect can
+be obtained by either clicking an arrow on the spin box to the right of this
+slider bar, or by manually typing a number into this spin box.  Notice
+that by setting the spin box in this way, the slider bar is also
+moved.  All of the described methods will cause the image to be
+scaled accordingly.
+   </PARA></SECT3><SECT3
+><TITLE
+>Scale by Percent or PPI</TITLE><PARA
+>       One may choose to scale the image by a percentage, or by PPI,
+which means "<EMPHASIS
+>p</EMPHASIS>ixels <EMPHASIS
+>p</EMPHASIS>er
+<EMPHASIS
+>i</EMPHASIS>nch".  Click the radio button
+next to the word to set the desired scaling factor.
+   </PARA><PARA
+>     When scaling by a percentage, the number reflected in the spin
+box next to the slider bar represents the percentage relative
+to the full size of the selected print medium.  For example, with this spin box
+set to 50, the image will be scaled to 50% of the size of the print
+medium.  When set to 100, the image will attempt to fill the print
+medium, within the constraints of maintaining the proper aspect ratio
+and the margins of the selected print medium.  This effect can be seen
+in the preview window.
+   </PARA><PARA
+>     When scaling by PPI, the number reflected in the spin box next to
+the slider bar represents the number of pixels that will be
+printed per inch.  For example, if the user is printing a 640x480
+image at a size of 6.4x4.8 inches (as measured by the size boxes), the
+image will be printed at 100 DPI.
+   </PARA></SECT3><SECT3
+><TITLE
+>Use Original Image Size</TITLE><PARA
+>       By clicking this button, the image will be scaled to as close
+to the native size of the image as possible.  This effect can
+immediately be seen in the preview image.
+     </PARA><PARA
+>     The native image size may be found or set in the GIMP by
+     selecting <GUIMENUITEM
+MOREINFO="NONE"
+>Image/Scale Image</GUIMENUITEM> in the
+     GIMP.  Under the <GUILABEL
+MOREINFO="NONE"
+>Print Size and Display Unit</GUILABEL>
+     group in the <GUILABEL
+MOREINFO="NONE"
+>Scale Image</GUILABEL> dialog, you can
+     determine (or change) the width and height of the image, or
+     choose the resolution.
+     </PARA></SECT3><SECT3
+><TITLE
+>Width and Height</TITLE><PARA
+>       These boxes show the size of the printed image in either inches
+or centimeters (depending on which unit is selected).  The user may
+choose to manually modify these values.  When one value is modified,
+the other value is automatically modified in order to maintain the
+aspect ratio (the ratio of width to height).  This effect can be
+immediately seen in the preview image.
+     </PARA></SECT3><SECT3
+><TITLE
+>Units</TITLE><PARA
+>      The units can be set to inches or centimeters by clicking the appropriate
+radio button next to the desired unit.  This setting effects the
+values printed in the six position boxes (left, right, right border,
+top, bottom, bottom border) and the two size boxes (width and height).
+   </PARA></SECT3></SECT2><SECT2
+><TITLE
+ID="SEC-IMAGE-SETTINGS"
+>Image/Output Settings</TITLE><PARA
+>   By clicking on the tab labeled <GUILABEL
+MOREINFO="NONE"
+>Image/Output
+Settings</GUILABEL>, the Gimp-Print window will appear as shown in
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI-1"
+></XREF>.  Notice that there are
+two sections to this portion of the window, namely,
+<GUILABEL
+MOREINFO="NONE"
+>Image Type</GUILABEL> and
+<GUILABEL
+MOREINFO="NONE"
+>Output Type</GUILABEL>.
+
+   </PARA><SECT3
+><TITLE
+>Image Type</TITLE><SECT4
+><TITLE
+>Line Art</TITLE><PARA
+>      This setting tells the printer driver to generate color
+quickly.  The color is bold and bright, but color accuracy is not very
+good.  There may also be some unexpectedly sharp transitions in
+colors.  This mode is acceptable for printing text with small amounts
+of color, and may be acceptable for presentation graphics.
+    </PARA></SECT4><SECT4
+><TITLE
+>Solid Colors</TITLE><PARA
+>      This mode produces color which is considerably more accurate
+than the <GUILABEL
+MOREINFO="NONE"
+>Line Art</GUILABEL> mode, but with a reduction in performance.  In
+general, hues will be accurate but tonalities may not be accurate.
+There should be no sharp transitions in colors.  This mode is good for
+printing presentation graphics in most cases.
+    </PARA></SECT4><SECT4
+><TITLE
+>Photograph</TITLE><PARA
+>      This mode produces the most accurate colors and tonalities at a
+greater cost in performance.  This is the mode to use when printing
+high quality photographs or other high quality images.
+    </PARA></SECT4></SECT3><SECT3
+><TITLE
+>Output Type</TITLE><PARA
+>      The user is given the choice of color, black and white, and
+grayscale.  Color is selected when the desired output is to be in
+color.  Greyscale will result in the printed image having various
+shades of grey.  Black and white is just that.  The effect of this
+setting can be seen in the preview window.
+    </PARA></SECT3><SECT3
+><TITLE
+>Adjust Output</TITLE><PARA
+>      Clicking on this button causes the <GUILABEL
+MOREINFO="NONE"
+>Print Color Adjust</GUILABEL> window to
+appear (see <XREF
+LINKEND="FIG-GIMP-PRINT-COLOR-ADJUST"
+></XREF>).  In
+this window, one will see a representation of the image to be printed
+as well as several slider bars.  These slider bars collectively adjust
+many different aspects of the image.  The values can also be adjusted
+by clicking the arrows or by typing a value into the appropriate spin
+box on the right side of each slider bar.
+   </PARA><FIGURE
+FLOAT="0"
+ID="FIG-GIMP-PRINT-COLOR-ADJUST"
+><TITLE
+>The Print Color Adjust Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-print-color-adjust.png"
+FORMAT="PNG"
+SCALE="50"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>&gt;The Print Color Adjust Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><SECT4
+><TITLE
+>Brightness</TITLE><PARA
+>    Adjust the brightness of the image.  A setting of 0.0 gives a fully black
+image, while a 2.0 setting gives a fully white image.  Values greater than 1.0 will result in
+ black not being solid and highlights turning white; values less than
+ 1.0 will result in white not being perfectly clear and shadows turning
+ black.
+    </PARA></SECT4><SECT4
+><TITLE
+>Contrast</TITLE><PARA
+>    Adjust the contrast of the image.  A setting of 0.0 gives a solid gray for the
+entire image, the exact gray depending upon the brightness chosen.
+    </PARA></SECT4><SECT4
+><TITLE
+>Cyan, Magenta, Yellow</TITLE><PARA
+>These three options allow specification of the cyan, magenta, and
+yellow levels independently, for rebalancing the levels.  Normally,
+these should be adjusted to yield neutral gray, but they can be used
+for other effects.
+    </PARA></SECT4><SECT4
+><TITLE
+>Saturation</TITLE><PARA
+>Adjust the brilliance of colors.  A setting of 0.0 results in pure grayscale.
+A saturation setting of less than 1.0 results in more muted colors.  A
+saturation setting of greater than 1.0 results in more vibrant colors.  Very high
+saturation often results in very strange effects, including
+posterization and banding that might not be expected.  For normal
+purposes, the saturation should generally be set to a value less than 1.5.
+    </PARA></SECT4><SECT4
+><TITLE
+>Density</TITLE><PARA
+>Adjust the amount of ink deposited on the paper.  If you have chosen the
+correct paper type and are getting ink bleeding through the paper
+or puddling, try reducing the density to the lowest value you
+can while still achieving solid black.  If black is not solid
+black, even with the contrast and brightness at 1.0, try increasing
+the density.  Note that changes to this setting will not be visible in
+the image preview.
+    </PARA><PARA
+>All of the supported printers actually need less than 100% ink
+density in most cases, so the actual density is something other than
+the nominal density setting.  The effective density setting cannot go
+above 100%, so if a value specified will result in an excessively high
+density level, it will be silently limited to a setting of 1.0.
+    </PARA></SECT4><SECT4
+><TITLE
+>Gamma</TITLE><PARA
+>Adjust the gamma of the image, over and above the printer-specific
+correction.  Gamma less than 1.0 will result in a darker image; gamma
+greater than 1.0 will result in a lighter image.  Unlike brightness,
+gamma adjustment does not change the endpoints; it merely changes the
+shape of the input-&gt;output curve.
+    </PARA></SECT4><SECT4
+><TITLE
+>Dither Algorithm</TITLE><PARA
+>The recommended dither algorithm is <GUIMENUITEM
+MOREINFO="NONE"
+>Adaptive
+Hybrid</GUIMENUITEM> (which is the default) for text or other fine
+black detail, or if this is mixed with continuous tone images.  The
+<GUIMENUITEM
+MOREINFO="NONE"
+>Ordered</GUIMENUITEM> dithering algorithm is just as good
+(and somewhat faster) for pure continuous-tone images and photographs,
+but may yield poor results with text or other fine detail,
+particularly at high printing resolutions.
+    </PARA><PARA
+> The <GUIMENUITEM
+MOREINFO="NONE"
+>Fast</GUIMENUITEM> algorithm gives the
+fastest results at the expense of color accuracy.  It is a simplified
+ordered dither.  On simple four color printers (or other printers used
+in four color mode), the quality is similar to
+<GUIMENUITEM
+MOREINFO="NONE"
+>Ordered</GUIMENUITEM>, although dark gray rendition is
+not as good due to a simpler transfer between black and colored ink.
+With six-color printers, color rendition is somewhat worse, but it
+should be quite usable in cases where optimum quality is not critical.
+In black and white, it is an efficient way to render grayscale, but it
+may not give best results when used with variable dot size printers
+(modern Epson printers, or Canon printers using DMT).  On rare three
+color printers (CMY only) the results should be identical to ordered
+dither.
+    </PARA><PARA
+> <GUIMENUITEM
+MOREINFO="NONE"
+>Very Fast</GUIMENUITEM> is even faster than
+<GUIMENUITEM
+MOREINFO="NONE"
+>Fast</GUIMENUITEM>, with even more loss of quality.
+Color and grayscale output will show strong patterning that resembles
+screening, although it isn't.  On laser printers, and possibly on
+certain kinds of text and line art, <GUIMENUITEM
+MOREINFO="NONE"
+>Very
+Fast</GUIMENUITEM> dithering may actually yield the best quality.
+    </PARA><PARA
+>Error diffusion algorithms (<GUIMENUITEM
+MOREINFO="NONE"
+>Hybrid
+Floyd-Steinberg</GUIMENUITEM> is such an algorithm) perform very well
+at high densities, and are capable of
+rendering very fine detail rather well, but they tend to exhibit artifacts in
+the form of "waves" or "worms" of dots which results in noticeable
+texturing in pale areas.  Furthermore, pale areas immediately adjacent
+to white take a while to "build up" sufficient error to print at all.
+This is sometimes called "tearing" or "waterfalling".
+    </PARA></SECT4><SECT4
+><TITLE
+>Set Defaults and Close</TITLE><PARA
+>      When the <GUIBUTTON
+MOREINFO="NONE"
+>Set Defaults</GUIBUTTON> button is clicked,
+the slider bar settings will return to their default values.  The
+dither algorithm setting is uneffected.  The <GUILABEL
+MOREINFO="NONE"
+>Print Color
+Adjust</GUILABEL> window will close when the
+<GUIBUTTON
+MOREINFO="NONE"
+>Close</GUIBUTTON> button is clicked.
+    </PARA></SECT4></SECT3></SECT2><SECT2
+><TITLE
+ID="SEC-PRINTING-AND-SAVING-SETTINGS"
+>Printing and Saving Settings</TITLE><PARA
+>    At the bottom of the Gimp-Print window, there are five buttons labeled
+<GUIBUTTON
+MOREINFO="NONE"
+>About</GUIBUTTON>,
+<GUIBUTTON
+MOREINFO="NONE"
+>Print and Save Settings</GUIBUTTON>,
+<GUIBUTTON
+MOREINFO="NONE"
+>Save Settings</GUIBUTTON>,
+<GUIBUTTON
+MOREINFO="NONE"
+>Print</GUIBUTTON>,
+and <GUIBUTTON
+MOREINFO="NONE"
+>Cancel</GUIBUTTON>.  The <GUIBUTTON
+MOREINFO="NONE"
+>About</GUIBUTTON>
+button will show information about the Gutenprint software, such as
+the version number, authors names, project web site, and software
+licensing.  After clicking on the <GUIBUTTON
+MOREINFO="NONE"
+>About</GUIBUTTON>, read
+the information, and then close the window by pressing the
+<GUIBUTTON
+MOREINFO="NONE"
+>OK</GUIBUTTON> button.
+    </PARA><PARA
+>      The <GUIBUTTON
+MOREINFO="NONE"
+>Print and Save Settings</GUIBUTTON> button will
+save the current settings and then print the desired image.  Recall
+that these settings are saved in <FILENAME
+MOREINFO="NONE"
+>~/.gimp-1.2/printrc</FILENAME>.  The
+<GUIBUTTON
+MOREINFO="NONE"
+>Save Settings</GUIBUTTON> button will only save the
+settings.  The <GUIBUTTON
+MOREINFO="NONE"
+>Print</GUIBUTTON> button will print the
+image only.  The <GUIBUTTON
+MOREINFO="NONE"
+>Cancel</GUIBUTTON> will close the
+Gimp-Print GUI window.
+    </PARA></SECT2></SECT1></CHAPTER><APPENDIX
+ID="GFDL"
+><TITLE
+>GNU Free Documentation License</TITLE><PARA
+>Version 1.1, March 2000</PARA><BLOCKQUOTE
+><PARA
+>Copyright (C) 2000  Free Software Foundation, Inc. https://fsf.org/
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.</PARA></BLOCKQUOTE><SECT1
+LABEL="0"
+><TITLE
+>PREAMBLE</TITLE><PARA
+>The purpose of this License is to make a manual, textbook,
+    or other written document "free" in the sense of freedom: to
+    assure everyone the effective freedom to copy and redistribute it,
+    with or without modifying it, either commercially or
+    noncommercially.  Secondarily, this License preserves for the
+    author and publisher a way to get credit for their work, while not
+    being considered responsible for modifications made by
+    others.</PARA><PARA
+>This License is a kind of "copyleft", which means that
+    derivative works of the document must themselves be free in the
+    same sense.  It complements the GNU General Public License, which
+    is a copyleft license designed for free software.</PARA><PARA
+>We have designed this License in order to use it for manuals
+    for free software, because free software needs free documentation:
+    a free program should come with manuals providing the same
+    freedoms that the software does.  But this License is not limited
+    to software manuals; it can be used for any textual work,
+    regardless of subject matter or whether it is published as a
+    printed book.  We recommend this License principally for works
+    whose purpose is instruction or reference.</PARA></SECT1><SECT1
+LABEL="1"
+><TITLE
+>APPLICABILITY AND DEFINITIONS</TITLE><PARA
+>This License applies to any manual or other work that
+    contains a notice placed by the copyright holder saying it can be
+    distributed under the terms of this License.  The "Document",
+    below, refers to any such manual or work.  Any member of the
+    public is a licensee, and is addressed as "you".</PARA><PARA
+>A "Modified Version" of the Document means any work
+    containing the Document or a portion of it, either copied
+    verbatim, or with modifications and/or translated into another
+    language.</PARA><PARA
+>A "Secondary Section" is a named appendix or a front-matter
+    section of the Document that deals exclusively with the
+    relationship of the publishers or authors of the Document to the
+    Document's overall subject (or to related matters) and contains
+    nothing that could fall directly within that overall subject.
+    (For example, if the Document is in part a textbook of
+    mathematics, a Secondary Section may not explain any mathematics.)
+    The relationship could be a matter of historical connection with
+    the subject or with related matters, or of legal, commercial,
+    philosophical, ethical or political position regarding
+    them.</PARA><PARA
+>The "Invariant Sections" are certain Secondary Sections
+    whose titles are designated, as being those of Invariant Sections,
+    in the notice that says that the Document is released under this
+    License.</PARA><PARA
+>The "Cover Texts" are certain short passages of text that
+    are listed, as Front-Cover Texts or Back-Cover Texts, in the
+    notice that says that the Document is released under this
+    License.</PARA><PARA
+>A "Transparent" copy of the Document means a
+    machine-readable copy, represented in a format whose specification
+    is available to the general public, whose contents can be viewed
+    and edited directly and straightforwardly with generic text
+    editors or (for images composed of pixels) generic paint programs
+    or (for drawings) some widely available drawing editor, and that
+    is suitable for input to text formatters or for automatic
+    translation to a variety of formats suitable for input to text
+    formatters.  A copy made in an otherwise Transparent file format
+    whose markup has been designed to thwart or discourage subsequent
+    modification by readers is not Transparent.  A copy that is not
+    "Transparent" is called "Opaque".</PARA><PARA
+>Examples of suitable formats for Transparent copies include
+    plain ASCII without markup, Texinfo input format, LaTeX input
+    format, SGML or XML using a publicly available DTD, and
+    standard-conforming simple HTML designed for human modification.
+    Opaque formats include PostScript, PDF, proprietary formats that
+    can be read and edited only by proprietary word processors, SGML
+    or XML for which the DTD and/or processing tools are not generally
+    available, and the machine-generated HTML produced by some word
+    processors for output purposes only.</PARA><PARA
+>The "Title Page" means, for a printed book, the title page
+    itself, plus such following pages as are needed to hold, legibly,
+    the material this License requires to appear in the title page.
+    For works in formats which do not have any title page as such,
+    "Title Page" means the text near the most prominent appearance of
+    the work's title, preceding the beginning of the body of the
+    text.</PARA></SECT1><SECT1
+LABEL="2"
+><TITLE
+>VERBATIM COPYING</TITLE><PARA
+>You may copy and distribute the Document in any medium,
+    either commercially or noncommercially, provided that this
+    License, the copyright notices, and the license notice saying this
+    License applies to the Document are reproduced in all copies, and
+    that you add no other conditions whatsoever to those of this
+    License.  You may not use technical measures to obstruct or
+    control the reading or further copying of the copies you make or
+    distribute.  However, you may accept compensation in exchange for
+    copies.  If you distribute a large enough number of copies you
+    must also follow the conditions in section 3.</PARA><PARA
+>You may also lend copies, under the same conditions stated
+    above, and you may publicly display copies.</PARA></SECT1><SECT1
+LABEL="3"
+><TITLE
+>COPYING IN QUANTITY</TITLE><PARA
+>If you publish printed copies of the Document numbering more
+    than 100, and the Document's license notice requires Cover Texts,
+    you must enclose the copies in covers that carry, clearly and
+    legibly, all these Cover Texts: Front-Cover Texts on the front
+    cover, and Back-Cover Texts on the back cover.  Both covers must
+    also clearly and legibly identify you as the publisher of these
+    copies.  The front cover must present the full title with all
+    words of the title equally prominent and visible.  You may add
+    other material on the covers in addition.  Copying with changes
+    limited to the covers, as long as they preserve the title of the
+    Document and satisfy these conditions, can be treated as verbatim
+    copying in other respects.</PARA><PARA
+>If the required texts for either cover are too voluminous to
+    fit legibly, you should put the first ones listed (as many as fit
+    reasonably) on the actual cover, and continue the rest onto
+    adjacent pages.</PARA><PARA
+>If you publish or distribute Opaque copies of the Document
+    numbering more than 100, you must either include a
+    machine-readable Transparent copy along with each Opaque copy, or
+    state in or with each Opaque copy a publicly-accessible
+    computer-network location containing a complete Transparent copy
+    of the Document, free of added material, which the general
+    network-using public has access to download anonymously at no
+    charge using public-standard network protocols.  If you use the
+    latter option, you must take reasonably prudent steps, when you
+    begin distribution of Opaque copies in quantity, to ensure that
+    this Transparent copy will remain thus accessible at the stated
+    location until at least one year after the last time you
+    distribute an Opaque copy (directly or through your agents or
+    retailers) of that edition to the public.</PARA><PARA
+>It is requested, but not required, that you contact the
+    authors of the Document well before redistributing any large
+    number of copies, to give them a chance to provide you with an
+    updated version of the Document.</PARA></SECT1><SECT1
+LABEL="4"
+><TITLE
+>MODIFICATIONS</TITLE><PARA
+>You may copy and distribute a Modified Version of the
+    Document under the conditions of sections 2 and 3 above, provided
+    that you release the Modified Version under precisely this
+    License, with the Modified Version filling the role of the
+    Document, thus licensing distribution and modification of the
+    Modified Version to whoever possesses a copy of it.  In addition,
+    you must do these things in the Modified Version:</PARA><ORDEREDLIST
+NUMERATION="UPPERALPHA"
+INHERITNUM="IGNORE"
+CONTINUATION="RESTARTS"
+><LISTITEM
+><PARA
+>Use in the Title Page
+      (and on the covers, if any) a title distinct from that of the
+      Document, and from those of previous versions (which should, if
+      there were any, be listed in the History section of the
+      Document).  You may use the same title as a previous version if
+      the original publisher of that version gives permission.</PARA></LISTITEM><LISTITEM
+><PARA
+>List on the Title Page,
+      as authors, one or more persons or entities responsible for
+      authorship of the modifications in the Modified Version,
+      together with at least five of the principal authors of the
+      Document (all of its principal authors, if it has less than
+      five).</PARA></LISTITEM><LISTITEM
+><PARA
+>State on the Title page
+      the name of the publisher of the Modified Version, as the
+      publisher.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve all the
+      copyright notices of the Document.</PARA></LISTITEM><LISTITEM
+><PARA
+>Add an appropriate
+      copyright notice for your modifications adjacent to the other
+      copyright notices.</PARA></LISTITEM><LISTITEM
+><PARA
+>Include, immediately
+      after the copyright notices, a license notice giving the public
+      permission to use the Modified Version under the terms of this
+      License, in the form shown in the Addendum below.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve in that license
+      notice the full lists of Invariant Sections and required Cover
+      Texts given in the Document's license notice.</PARA></LISTITEM><LISTITEM
+><PARA
+>Include an unaltered
+      copy of this License.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve the section
+      entitled "History", and its title, and add to it an item stating
+      at least the title, year, new authors, and publisher of the
+      Modified Version as given on the Title Page.  If there is no
+      section entitled "History" in the Document, create one stating
+      the title, year, authors, and publisher of the Document as given
+      on its Title Page, then add an item describing the Modified
+      Version as stated in the previous sentence.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve the network
+      location, if any, given in the Document for public access to a
+      Transparent copy of the Document, and likewise the network
+      locations given in the Document for previous versions it was
+      based on.  These may be placed in the "History" section.  You
+      may omit a network location for a work that was published at
+      least four years before the Document itself, or if the original
+      publisher of the version it refers to gives permission.</PARA></LISTITEM><LISTITEM
+><PARA
+>In any section entitled
+      "Acknowledgements" or "Dedications", preserve the section's
+      title, and preserve in the section all the substance and tone of
+      each of the contributor acknowledgements and/or dedications
+      given therein.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve all the
+      Invariant Sections of the Document, unaltered in their text and
+      in their titles.  Section numbers or the equivalent are not
+      considered part of the section titles.</PARA></LISTITEM><LISTITEM
+><PARA
+>Delete any section
+      entitled "Endorsements".  Such a section may not be included in
+      the Modified Version.</PARA></LISTITEM><LISTITEM
+><PARA
+>Do not retitle any
+      existing section as "Endorsements" or to conflict in title with
+      any Invariant Section.</PARA></LISTITEM></ORDEREDLIST><PARA
+>If the Modified Version includes new front-matter sections
+    or appendices that qualify as Secondary Sections and contain no
+    material copied from the Document, you may at your option
+    designate some or all of these sections as invariant.  To do this,
+    add their titles to the list of Invariant Sections in the Modified
+    Version's license notice.  These titles must be distinct from any
+    other section titles.</PARA><PARA
+>You may add a section entitled "Endorsements", provided it
+    contains nothing but endorsements of your Modified Version by
+    various parties--for example, statements of peer review or that
+    the text has been approved by an organization as the authoritative
+    definition of a standard.</PARA><PARA
+>You may add a passage of up to five words as a Front-Cover
+    Text, and a passage of up to 25 words as a Back-Cover Text, to the
+    end of the list of Cover Texts in the Modified Version.  Only one
+    passage of Front-Cover Text and one of Back-Cover Text may be
+    added by (or through arrangements made by) any one entity.  If the
+    Document already includes a cover text for the same cover,
+    previously added by you or by arrangement made by the same entity
+    you are acting on behalf of, you may not add another; but you may
+    replace the old one, on explicit permission from the previous
+    publisher that added the old one.</PARA><PARA
+>The author(s) and publisher(s) of the Document do not by
+    this License give permission to use their names for publicity for
+    or to assert or imply endorsement of any Modified Version.</PARA></SECT1><SECT1
+LABEL="5"
+><TITLE
+>COMBINING DOCUMENTS</TITLE><PARA
+>You may combine the Document with other documents released
+    under this License, under the terms defined in section 4 above for
+    modified versions, provided that you include in the combination
+    all of the Invariant Sections of all of the original documents,
+    unmodified, and list them all as Invariant Sections of your
+    combined work in its license notice.</PARA><PARA
+>The combined work need only contain one copy of this
+    License, and multiple identical Invariant Sections may be replaced
+    with a single copy.  If there are multiple Invariant Sections with
+    the same name but different contents, make the title of each such
+    section unique by adding at the end of it, in parentheses, the
+    name of the original author or publisher of that section if known,
+    or else a unique number.  Make the same adjustment to the section
+    titles in the list of Invariant Sections in the license notice of
+    the combined work.</PARA><PARA
+>In the combination, you must combine any sections entitled
+    "History" in the various original documents, forming one section
+    entitled "History"; likewise combine any sections entitled
+    "Acknowledgements", and any sections entitled "Dedications".  You
+    must delete all sections entitled "Endorsements."</PARA></SECT1><SECT1
+LABEL="6"
+><TITLE
+>COLLECTIONS OF DOCUMENTS</TITLE><PARA
+>You may make a collection consisting of the Document and
+    other documents released under this License, and replace the
+    individual copies of this License in the various documents with a
+    single copy that is included in the collection, provided that you
+    follow the rules of this License for verbatim copying of each of
+    the documents in all other respects.</PARA><PARA
+>You may extract a single document from such a collection,
+    and distribute it individually under this License, provided you
+    insert a copy of this License into the extracted document, and
+    follow this License in all other respects regarding verbatim
+    copying of that document.</PARA></SECT1><SECT1
+LABEL="7"
+><TITLE
+>AGGREGATION WITH INDEPENDENT WORKS</TITLE><PARA
+>A compilation of the Document or its derivatives with other
+    separate and independent documents or works, in or on a volume of
+    a storage or distribution medium, does not as a whole count as a
+    Modified Version of the Document, provided no compilation
+    copyright is claimed for the compilation.  Such a compilation is
+    called an "aggregate", and this License does not apply to the
+    other self-contained works thus compiled with the Document, on
+    account of their being thus compiled, if they are not themselves
+    derivative works of the Document.</PARA><PARA
+>If the Cover Text requirement of section 3 is applicable to
+    these copies of the Document, then if the Document is less than
+    one quarter of the entire aggregate, the Document's Cover Texts
+    may be placed on covers that surround only the Document within the
+    aggregate.  Otherwise they must appear on covers around the whole
+    aggregate.</PARA></SECT1><SECT1
+LABEL="8"
+><TITLE
+>TRANSLATION</TITLE><PARA
+>Translation is considered a kind of modification, so you may
+    distribute translations of the Document under the terms of section
+    4.  Replacing Invariant Sections with translations requires
+    special permission from their copyright holders, but you may
+    include translations of some or all Invariant Sections in addition
+    to the original versions of these Invariant Sections.  You may
+    include a translation of this License provided that you also
+    include the original English version of this License.  In case of
+    a disagreement between the translation and the original English
+    version of this License, the original English version will
+    prevail.</PARA></SECT1><SECT1
+LABEL="9"
+><TITLE
+>TERMINATION</TITLE><PARA
+>You may not copy, modify, sublicense, or distribute the
+    Document except as expressly provided for under this License.  Any
+    other attempt to copy, modify, sublicense or distribute the
+    Document is void, and will automatically terminate your rights
+    under this License.  However, parties who have received copies, or
+    rights, from you under this License will not have their licenses
+    terminated so long as such parties remain in full
+    compliance.</PARA></SECT1><SECT1
+LABEL="10"
+><TITLE
+>FUTURE REVISIONS OF THIS LICENSE</TITLE><PARA
+>The Free Software Foundation may publish new, revised
+    versions of the GNU Free Documentation License from time to time.
+    Such new versions will be similar in spirit to the present
+    version, but may differ in detail to address new problems or
+    concerns.  See <ULINK
+URL="http://www.gnu.org/copyleft/"
+>http://www.gnu.org/copyleft/</ULINK>.</PARA><PARA
+>Each version of the License is given a distinguishing
+    version number.  If the Document specifies that a particular
+    numbered version of this License "or any later version" applies to
+    it, you have the option of following the terms and conditions
+    either of that specified version or of any later version that has
+    been published (not as a draft) by the Free Software Foundation.
+    If the Document does not specify a version number of this License,
+    you may choose any version ever published (not as a draft) by the
+    Free Software Foundation.</PARA></SECT1><SECT1
+LABEL=""
+><TITLE
+>How to use this License for your documents</TITLE><PARA
+>To use this License in a document you have written, include
+    a copy of the License in the document and put the following
+    copyright and license notices just after the title page:</PARA><BLOCKQUOTE
+><PARA
+>      Copyright (c)  YEAR  YOUR NAME.
+      Permission is granted to copy, distribute and/or modify this document
+      under the terms of the GNU Free Documentation License, Version 1.1
+      or any later version published by the Free Software Foundation;
+      with the Invariant Sections being LIST THEIR TITLES, with the
+      Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST.
+      A copy of the license is included in the section entitled "GNU
+      Free Documentation License".</PARA></BLOCKQUOTE><PARA
+>If you have no Invariant Sections, write "with no Invariant
+    Sections" instead of saying which ones are invariant.  If you have
+    no Front-Cover Texts, write "no Front-Cover Texts" instead of
+    "Front-Cover Texts being LIST"; likewise for Back-Cover
+    Texts.</PARA><PARA
+>If your document contains nontrivial examples of program
+    code, we recommend releasing these examples in parallel under your
+    choice of free software license, such as the GNU General Public
+    License, to permit their use in free software.</PARA></SECT1></APPENDIX></BOOK><PARA
+>    Permission is granted to copy, distribute and/or modify this
+document under the terms of the GNU Free Documentation License,
+Version 1.1 or any later version published by the Free Software
+Foundation with no invariant sections, no Front-Cover texts, and no
+Back-Cover texts.  A copy of the license is included in <XREF
+LINKEND="GFDL"
+></XREF>.
+    </PARA><ABSTRACT
+><PARA
+>    The Gutenprint Top Quality Printer Drivers (hereafter
+called Gutenprint) are a set of printer drivers written to
+take advantage of the full capabilities of a wide range of
+printers. These drivers should work on any POSIX compliant operating
+system (e.g. Linux, Solaris, IRIX, etc).  This document will explain how to
+use the Gutenprint software to achieve high quality printouts from the
+<ULINK
+URL="http://www.gimp.org"
+>GIMP</ULINK> (GNU Image
+Manipulation Program) and
+<ULINK
+URL="http://www.cups.org"
+>CUPS</ULINK> (Common Unix Printing
+System).
+  </PARA><PARA
+>Regardless of whether the Gutenprint software is used with the GIMP or
+CUPS, the print quality and printer settings remain the same.
+  </PARA><PARA
+>  This document corresponds to version 4.2.0 and later of the Gutenprint
+software. This document will serve as a guide to the user, and as such
+will not explain how to install Gutenprint, CUPS, GIMP, or any other related
+software.
+  </PARA><PARA
+>    Andy Stewart, the author, is the founder of the
+<ULINK
+URL="http://www.wlug.org"
+>Worcester Linux Users' Group</ULINK> in
+Worcester, Massachusetts, USA.  The group was founded in July 1997 and has
+approximately 140 people on its mailing list.  Monthly meetings are
+held and all are invited.
+  </PARA><PARA
+>    In terms of "code", this is the author's first contribution to the
+open source community, and definitely his first experience with DocBook.
+Constructive comments, praise, words of encouragement, and the like
+will be most appreciated if e-mailed to the
+<ULINK
+URL="mailto:andystewart@attbi.com"
+>author</ULINK>.
+  </PARA></ABSTRACT><CHAPTER
+><TITLE
+>Project History</TITLE><PARA
+>This software package was first written by Michael Sweet of
+<ULINK
+URL="http://www.easysw.com"
+>Easy Software Products</ULINK> and
+initially worked only as a print plugin to the GIMP (GNU Image
+Manipulation Program).  In the summer of 1999,
+Robert Krawitz (the current
+Gutenprint project leader) purchased an Epson Stylus Photo EX printer
+to feed his photography hobby. Finding no existing printer drivers, Robert
+adapted Mike's GIMP Print plugin to his six-color printer, and by the end
+of the year released version 3.0 of the Gimp-Print software, which was
+included in version 1.1 of the GIMP.  The intention was for this to be
+the stable plugin in version 1.2 of the GIMP while development of the
+GIMP Print plugin continued for later release.
+  </PARA><PARA
+>Robert put the Gimp-Print development tree on SourceForge starting
+with version 3.1, and quickly found a group of like-minded people who wanted to print
+high quality output on inexpensive inkjet printers. One of the main
+goals, which was not expected to be met until late in the version 3.1
+cycle, was to write a Ghostscript driver so that printing would not be
+restricted to the GIMP.  Imagine Robert's surprise when Henryk "Buggs"
+Richter wrote one within days!
+  </PARA><PARA
+>In July 2000, not more than a year after Robert bought his Epson
+Stylus Photo EX, he was invited to the Linux Printing
+Summit hosted by VA Linux Systems. In preparation for that, he spent
+long hours printing out test images.  Robert went back to the
+Gimp-Print version 3.0.9 release, which seemed like such an advance
+at the time,  and was floored at how far the project had come in four
+months! Output that had been considered impressive with using six
+colors was put to shame by four color output. That should give you
+an idea what six color and variable dot size printers can do. It also
+illustrates what a group of committed people can do.
+  </PARA><PARA
+>Robert came away from the Printing Summit with a lot of new ideas, and in
+November 2000, Gimp-Print version 4.0 was released, the culmination of 9 months
+of work by the team.  The quality was already tremendously improved
+over what the software could do at the Printing Summit.
+  </PARA><PARA
+>The team started serious work on version 4.1 in December
+2000, and version 4.2.0 was released in November 2001.  Despite the fact
+that version 4.2.0 is a "minor" release over version 4.0, there are vast
+improvements:
+  <ITEMIZEDLIST
+><LISTITEM
+><PARA
+>      The driver is built as a shared library, making it much easier
+to use by higher layers of software
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>      The packaging system now follows GNU standards
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>The print quality (in particular, color accuracy, a well-known weakness in 4.0) is even better
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>      Improved performance
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>      Many more options
+      </PARA></LISTITEM><LISTITEM
+><PARA
+>      More supported printers
+      </PARA></LISTITEM></ITEMIZEDLIST>
+
+  </PARA><PARA
+>Releases of Gimp-Print have been historically numbered in
+a fashion similar to that of the Linux kernel, where major releases
+are denoted by the first digit (in this case '4'), while minor
+releases are denoted by subsequent digits (such as '4.2.0').  Even
+numbered minor releases are considered stable, while odd numbered
+minor releases are considered development releases (whose stability
+may vary for any given release).
+  </PARA><PARA
+>This project is by no means finished.  In future releases, the development
+team hopes to include the following:
+  <ITEMIZEDLIST
+><LISTITEM
+><PARA
+>implementation of proper color management</PARA></LISTITEM><LISTITEM
+><PARA
+>improved dithering</PARA></LISTITEM><LISTITEM
+><PARA
+>improvements in performance</PARA></LISTITEM></ITEMIZEDLIST>
+  </PARA><PARA
+>The entire Gutenprint team hopes you will really enjoy using this
+software!  For more information, please consult the Gutenprint project
+<ULINK
+URL="http://gimp-print.sourceforge.net"
+>web page</ULINK>.
+  </PARA></CHAPTER><CHAPTER
+ID="CH-GIMP-AND-GIMP-PRINT"
+><TITLE
+>GIMP and Gutenprint</TITLE><SECT1
+><TITLE
+>Running the GIMP</TITLE><PARA
+>   This section assumes that you have the GIMP version 1.2 installed
+and working properly on your computer, and that you have an image of
+some type that you desire to print. To get started quickly, log into
+your system, start the X window system, and bring up your favorite terminal
+window.  At the $ prompt, type:
+
+  <PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+     $ gimp &amp;
+    
+  </PROGRAMLISTING>
+
+   This should start the GIMP for you. If it does not, check that
+you have installed the GIMP properly, and that its binary is located
+in one of the directories listed in your [dollar]PATH environment
+variable. On the assumption that this worked, the screen should now
+look something like this:
+
+   <FIGURE
+FLOAT="0"
+><TITLE
+>The Startup Window for The GIMP</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp_startup.png"
+FORMAT="PNG"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>Startup window for The GIMP</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE>
+
+   </PARA><PARA
+>   At this point, you should use the
+
+    <MENUCHOICE
+MOREINFO="NONE"
+><GUIMENU
+MOREINFO="NONE"
+>File</GUIMENU><GUIMENUITEM
+MOREINFO="NONE"
+>Open</GUIMENUITEM></MENUCHOICE>
+
+menu option to open your favorite picture. We will print this picture
+shortly. Your picture should be displayed next to the GIMP startup
+window, perhaps looking similar to the following (sssh! Don't tell
+anybody the secret!):
+
+   <FIGURE
+FLOAT="0"
+><TITLE
+>A Sample Image Displayed by The GIMP</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp_image.png"
+FORMAT="PNG"
+SCALE="50"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>A Sample Image displayed by The Gimp</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE>
+
+  </PARA></SECT1><SECT1
+><TITLE
+>The Gimp-Print Graphical User Interface</TITLE><PARA
+>   Now that the GIMP is displaying your picture, put your mouse over
+the picture and click the right mouse button. A menu will appear.
+Choose the
+    <MENUCHOICE
+MOREINFO="NONE"
+><GUIMENU
+MOREINFO="NONE"
+>File</GUIMENU><GUIMENUITEM
+MOREINFO="NONE"
+>Print</GUIMENUITEM></MENUCHOICE>
+menu option. This will cause the Gimp-Print GUI window to appear (see
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI"
+></XREF>). Move the mouse cursor
+over the various parts of the Gimp-Print GUI window, and notice that
+if you leave your mouse in one place for a short time without clicking
+any buttons, a small box appears.  This box contains helpful text.
+These small boxes are called "tooltips" and are intended to remind you
+about the function of each part of the graphical interface.
+    </PARA><PARA
+>The next several sections will continuously refer to
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI"
+></XREF> and
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI-1"
+></XREF>.  The difference between
+the two figures can be seen in the top right corner of the window.
+Notice that there are two tabs, one which reads
+<GUILABEL
+MOREINFO="NONE"
+>Printer Settings</GUILABEL> and another which reads
+<GUILABEL
+MOREINFO="NONE"
+>Image/Output Settings</GUILABEL>.  Notice also that the
+window is divided into several major sections which directly map to
+the major sections of this document:
+  <ITEMIZEDLIST
+><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-PREVIEW"
+>Preview</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-PRINTER-SETTINGS"
+>Printer Settings</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-PRINTER-SETTINGS"
+>Image/Output Settings</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-POSITION"
+>Position</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-SCALING"
+>Size</LINK></PARA></LISTITEM><LISTITEM
+><PARA
+><LINK
+LINKEND="SEC-PRINTING-AND-SAVING-SETTINGS"
+>Printing and Saving Settings</LINK></PARA></LISTITEM></ITEMIZEDLIST>
+  </PARA><FIGURE
+FLOAT="0"
+ID="FIG-GIMP-PRINT-GUI"
+><TITLE
+>The Gimp-Print Graphical User Interface 1 (GUI)</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-gui.png"
+FORMAT="PNG"
+SCALE="40"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The GIMP Print GUI showing printer settings</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><FIGURE
+FLOAT="0"
+ID="FIG-GIMP-PRINT-GUI-1"
+><TITLE
+>The Gimp-Print Graphical User Interface 2 (GUI)</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-gui-1.png"
+FORMAT="PNG"
+SCALE="40"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The GIMP Print GUI showing image/output settings</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><SECT2
+><TITLE
+ID="SEC-PRINTER-SETTINGS"
+>Printer Settings</TITLE><INDEXTERM
+SIGNIFICANCE="NORMAL"
+ID="IDX-PRINTER-SETTINGS"
+><PRIMARY
+>Printer Settings</PRIMARY></INDEXTERM><SECT3
+><TITLE
+>Printer</TITLE><PARA
+>      Click on the <GUILABEL
+MOREINFO="NONE"
+>Printer Settings</GUILABEL> tab near the
+top right hand corner of the window (see
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI"
+></XREF>).  Then, click on the downward
+facing arrow to the right of the <GUILABEL
+MOREINFO="NONE"
+>Printer</GUILABEL> combo
+box to see a list of the system printer queues.  Select the queue to which
+you would like the printed image to be sent.  One may also print the
+image directly to a file by selecting <GUIMENUITEM
+MOREINFO="NONE"
+>File</GUIMENUITEM>.
+In this event, the user will be prompted for the filename when either the
+<GUIBUTTON
+MOREINFO="NONE"
+>Print</GUIBUTTON> button or the <GUIBUTTON
+MOREINFO="NONE"
+>Print and Save
+Settings</GUIBUTTON> button is clicked.
+     </PARA><PARA
+>When either the <GUIBUTTON
+MOREINFO="NONE"
+>Print and Save Settings</GUIBUTTON> button
+or the <GUIBUTTON
+MOREINFO="NONE"
+>Save Settings</GUIBUTTON> button is clicked,
+the settings are saved in a file called
+<FILENAME
+MOREINFO="NONE"
+>~/.gimp-1.2/printrc</FILENAME>.  The user is cautioned about
+hand editing this file since it is generated by Gutenprint (although
+it was the only way that the author found for removing bogus entries
+created while playing with the <GUIBUTTON
+MOREINFO="NONE"
+>New Printer</GUIBUTTON> button).
+    </PARA></SECT3><SECT3
+><TITLE
+>Setup Printer</TITLE><PARA
+>     Before any useful printing can occur, the user needs to associate
+the named printer with the
+actual make and model of the printer.  Click the
+<GUIBUTTON
+MOREINFO="NONE"
+>Setup Printer</GUIBUTTON> button in
+the <GUILABEL
+MOREINFO="NONE"
+>Printer</GUILABEL> section of the window (the upper
+right, and just below the Printer display box). When this is done, the
+following window appears:
+
+   <FIGURE
+FLOAT="0"
+><TITLE
+>The Setup Printer Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-setup.png"
+FORMAT="PNG"
+SCALE="60"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The Setup Printer Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE>
+    </PARA><PARA
+>     Scroll through the Printer Model section of the window until you
+find a printer which matches yours. If you cannot find the precise
+model, pick something close and hope for the best.  There are selections
+for a wide array of Postscript, inkjet, and laser printers.  After you
+have selected a printer, you will see the printer command displayed.
+    </PARA><PARA
+>The Gutenprint software does all of the necessary conversion of the
+image to be printed into the language of your printer. It is
+unnecessary and undesirable for any other software to manipulate this
+data.  (This is why the command contains the "-l" switch or the "-o
+raw" switch).  Please use care if you feel the need to edit this
+command.  Once you are satisfied with your selection, click the
+<GUIBUTTON
+MOREINFO="NONE"
+>OK</GUIBUTTON> button.
+    </PARA></SECT3><SECT3
+><TITLE
+>New Printer</TITLE><PARA
+>     In the previous sections, the user selected an existing printer
+queue and associated a particular type of printer to that queue.  For
+most cases, this is probably all that is required.  However, some
+situations might require more detailed control over the handling of
+the printer data.
+     </PARA><PARA
+>     Click the <GUIBUTTON
+MOREINFO="NONE"
+>New Printer</GUIBUTTON> button to tell the
+software that you wish to create a new name.  In this case, the new
+name may actually be an existing printer with different settings that
+you wish to save, or it may simply be a name associated with a
+particular command for handling the printer data.  A window will
+appear thus:
+
+   <FIGURE
+FLOAT="0"
+><TITLE
+>The New Printer Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-new-printer.png"
+FORMAT="PNG"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The New Printer Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE>
+
+    Type a name into the window and click <GUIBUTTON
+MOREINFO="NONE"
+>OK</GUIBUTTON>
+(or <GUIBUTTON
+MOREINFO="NONE"
+>Cancel</GUIBUTTON> if you wish not to do this).
+Notice that the new name now appears as the selected <GUILABEL
+MOREINFO="NONE"
+>Printer</GUILABEL>.
+As you change settings in the rest of the Gimp-Print GUI, they will be
+associated with this printer name.  When the settings are saved,
+they can be recovered easily by simply selecting this named printer
+from the Printer combo box.
+    </PARA><PARA
+>    One example where this feature might be used is as follows.  The
+author frequently prints photos on Epson 4x6 photo paper.  Note that
+this paper is physically larger than 4x6 and it has perforations on
+all four sides.  The author dislikes printing part of the image on the
+perforated parts of the paper which will be removed after
+printing the photo.  By selecting the proper scaling percentage,
+printing can be constrained to the 4x6 part of the paper which will
+remain after the perforated sections are removed.  The author has
+saved this setting using this feature of the Gutenprint software.
+    </PARA></SECT3><SECT3
+><TITLE
+>Media Size</TITLE><PARA
+>     The term <EMPHASIS
+>media</EMPHASIS> refers to paper, card stock,
+envelopes, or whatever you have put into your printer onto which
+something will be printed.  Click the arrow to the right of the
+<GUILABEL
+MOREINFO="NONE"
+>Media Size</GUILABEL> box to see a long list of different
+sizes of media.  Choose the size that matches the media which you have
+loaded into your printer.  Once you have made your choice, the drop
+down menu will disappear, and your choice will be shown in the
+<GUILABEL
+MOREINFO="NONE"
+>Media Size</GUILABEL> box.  The available paper sizes will
+vary depending upon the printer model you have selected.
+   </PARA><PARA
+>   Some printers support arbitrary (within limits!) paper sizes.
+   These printers will let you select <EMPHASIS
+>Custom</EMPHASIS>
+   or <EMPHASIS
+>Roll</EMPHASIS> paper sizes.  When you select such a
+   printer, one or both of the <GUILABEL
+MOREINFO="NONE"
+>Dimensions</GUILABEL> boxes
+   will let you enter your paper size (in inches or centimetres).  The
+   boxes will not let you enter sizes that your printer cannot handle.
+   </PARA></SECT3><SECT3
+><TITLE
+>Media Type</TITLE><PARA
+>     The type of media onto which your image will be printed should be
+selected here.  Click on the arrow to the right of the <GUILABEL
+MOREINFO="NONE"
+>Media
+Type</GUILABEL> box to see a long list of the different types of media
+onto which you may print your image.  Media types include such things
+as plain paper, postcards, photo quality paper, transparencies, and
+more!  Once you have made your choice, the drop down menu will
+disappear, and your choice will be shown in the <GUILABEL
+MOREINFO="NONE"
+>Media
+Type</GUILABEL> box.  The choices available will vary depending upon
+the printer model you have selected.
+   </PARA></SECT3><SECT3
+><TITLE
+>Media Source</TITLE><PARA
+>     The <GUILABEL
+MOREINFO="NONE"
+>Media Source</GUILABEL> box allows the user to
+  choose the paper source, sometimes called <EMPHASIS
+>Input
+  Slot</EMPHASIS>, that the paper will be fed from.  Many printers
+  only have one available input source (such as the standard paper
+  tray), in which case this entry will be grayed out.  If your printer
+  does support multiple input sources, you may specify the source of
+  your choice here.  Some Epson printers offer a roll feed option in
+  addition to the standard paper tray, and many HP LaserJet printers
+  have multiple paper trays.
+   </PARA></SECT3><SECT3
+><TITLE
+>Ink Type</TITLE><PARA
+>   Some printers offer a choice of different types of ink or ink
+   cartridges.  Many Canon and Lexmark printers support various
+   combinations of cartridges, such as black only, black and color,
+   photo color, and so forth.  Most Epson printers let you choose
+   between three and four color printing (three color uses only color
+   ink, while four color uses black ink as well).  Epson printers that
+   support six color photo printing allow you to choose five and six
+   color printing as well.
+   </PARA></SECT3><SECT3
+><TITLE
+>Resolution</TITLE><PARA
+>     Click on the arrow to the right of the
+<GUILABEL
+MOREINFO="NONE"
+>Resolution</GUILABEL> box to see a long list of resolutions
+at which you can print your image.  The list is written with the
+lowest resolution at the top, with increasing resolution (and
+generally improved printing quality) as you approach the bottom of the
+list.  Different printers support different resolution options, and
+many printers support different quality choices using the same basic
+resolution.  In this menu are a few terms which may be unfamiliar to
+you, and they will now be explained.
+   </PARA><SECT4
+><TITLE
+>DPI</TITLE><PARA
+>         DPI is an acronym which stands for <EMPHASIS
+>D</EMPHASIS>ots
+<EMPHASIS
+>P</EMPHASIS>er <EMPHASIS
+>I</EMPHASIS>nch.  This term refers
+to the number of dots that your printer will print in a space of one
+inch (approximately 2.54 cm).  This is highly dependent upon the
+capability of your printer.  Resolutions below 300 DPI are
+used for draft quality.  For general purpose printing, select
+300 - 360 DPI.  Higher quality printing can be achieved by
+selecting 600 - 720 DPI.  Settings higher than this are used for the
+highest possible quality for printing photographs and other high
+quality graphics.  Experiment with your printer and these settings
+with different types of graphics and photographs to see what
+results you can obtain with your printer.  High resolutions (large
+numbers of dots per inch) require substantial image processing time,
+and the print files can be very large; it's not uncommon for a full
+page, 1440x720 DPI image to require 100 MB of temporary storage!
+       </PARA></SECT4><SECT4
+><TITLE
+>Draft or Fast Economy Draft</TITLE><PARA
+>     When this text appears next to the resolution, it refers to the
+fact that the quality will be relatively low, but suitable for rough
+drafts.  Draft quality is higher than fast economy draft.  These
+options will give you the fastest printing speed.  Economy Draft uses
+less ink, and as a result the image will be pale.  These modes are
+generally not very useful for printing photographs.
+     </PARA></SECT4><SECT4
+><TITLE
+>Unidirectional</TITLE><PARA
+>         When printing an image, you have probably noticed the print
+head inside the printer moving back and forth across the print media.
+Many printers are capable of putting ink on the page regardless of
+which direction the print head is moving.  However, quality can
+sometimes be improved by only putting ink on the page when the printer
+head is moving in one direction.  The
+<GUIMENUITEM
+MOREINFO="NONE"
+>Unidirectional</GUIMENUITEM> setting instructs the
+software to only place ink on the page when the print head is moving
+one way.  When the print head returns, it will not place ink on the
+page.  On many printers, the print quality is better, at the expense
+of printing speed.
+       </PARA></SECT4><SECT4
+><TITLE
+>High(est) Quality</TITLE><PARA
+>         With lower quality print modes, one may see an effect where
+the printed image looks like it has rows of stripes with a small
+separation between the stripes.  This effect is called "banding" and
+is undesirable.  In the <EMPHASIS
+>high</EMPHASIS> and
+<EMPHASIS
+>highest</EMPHASIS> quality modes, the printer will make more
+passes over the same part of the page in order to improve quality and
+(reduce or) eliminate banding.  This requires more temporary disk
+space and prints more slowly, but does not require significantly more
+processing time.
+       </PARA></SECT4><SECT4
+><TITLE
+>DMT</TITLE><PARA
+>       DMT is an acronym which stands for <EMPHASIS
+>D</EMPHASIS>ot
+       <EMPHASIS
+>M</EMPHASIS>odulation
+       <EMPHASIS
+>T</EMPHASIS>echnology.
+       This term refers to a print mode used by certain Canon printers
+       to improve the quality of the printed output.  Unfortunately,
+       at this time,  all of the available DMT modes do not work
+       correctly.  The cases which do work correctly will offer
+       significantly improved printing quality.
+       </PARA></SECT4></SECT3></SECT2><SECT2
+><TITLE
+ID="SEC-PREVIEW"
+>Preview</TITLE><PARA
+>   Notice in the upper left of the window is a preview of your image.
+This preview is a representation of where your picture will print on
+the selected media, and approximately what it will look like.  This
+preview will be updated as you modify selections in the
+<GUILABEL
+MOREINFO="NONE"
+>Position</GUILABEL>, <GUILABEL
+MOREINFO="NONE"
+>Size</GUILABEL>,
+<GUILABEL
+MOREINFO="NONE"
+>Media Size</GUILABEL>, and <GUILABEL
+MOREINFO="NONE"
+>Output Type</GUILABEL>
+portions of the window. You may also select the image with your mouse
+and move it manually if you wish. In doing so, you will note that the
+<GUILABEL
+MOREINFO="NONE"
+>Position</GUILABEL> settings are updated accordingly.  Take
+note of the arrow, which points toward the top of the media, where top
+is the first part of the media to enter the printer.
+  </PARA><PARA
+>  The preview may be moved around the page as follows:
+  </PARA><ITEMIZEDLIST
+><LISTITEM
+><PARA
+> Clicking and dragging the <EMPHASIS
+>left</EMPHASIS>
+  (primary) mouse button moves the image around the page as you would
+  expect; the image moves with the mouse.  </PARA></LISTITEM><LISTITEM
+><PARA
+> Clicking and dragging the
+  <EMPHASIS
+>middle</EMPHASIS> mouse button moves the image around the
+  page in a finer fashion, such that each pixel of mouse movement
+  moves the image by one point (1/72 inch).  This allows very fine
+  placement of the image on the page.  </PARA></LISTITEM><LISTITEM
+><PARA
+> Clicking and dragging the
+  <EMPHASIS
+>right</EMPHASIS> (secondary) mouse button moves the image
+  around the page much the same as with the left button, but the image
+  will only move in units of the image size.  Thus, if the image is
+  one inch wide and two inches tall, the image will not move at all
+  until you have moved the mouse far enough so that the image would be
+  moved one inch vertically and two inches horizontally.  This is
+  handy if you wish to print multiple images of the same size on one
+  piece of paper.</PARA></LISTITEM><LISTITEM
+><PARA
+> If you hold down the <EMPHASIS
+>shift</EMPHASIS> key
+  on the keyboard when you click and drag the mouse, the image will
+  only move in the horizontal or vertical direction (depending upon
+  which way you first move the mouse).  This allows you to constrain
+  motion to the horizontal or vertical. </PARA></LISTITEM><LISTITEM
+><PARA
+> If you click another button while dragging the
+  mouse, the image will immediately return to the position it was in
+  before you clicked the mouse the first time.  This allows you to
+  not move the image if you have started moving it and have decided
+  that you don't want to move it.  The preview will not respond to the
+  mouse until you release all of the mouse buttons and click and drag
+  afresh. </PARA></LISTITEM></ITEMIZEDLIST></SECT2><SECT2
+><TITLE
+ID="SEC-POSITION"
+>Position</TITLE><SECT3
+><TITLE
+>Orientation</TITLE><PARA
+>      The Orientation menu allows the user to choose the orientation
+of the paper.  The menu selections are
+<GUIMENUITEM
+MOREINFO="NONE"
+>Auto</GUIMENUITEM>, <GUIMENUITEM
+MOREINFO="NONE"
+>Portrait</GUIMENUITEM>,
+<GUIMENUITEM
+MOREINFO="NONE"
+>Landscape</GUIMENUITEM>, <GUIMENUITEM
+MOREINFO="NONE"
+>Upside
+down</GUIMENUITEM>, and <GUIMENUITEM
+MOREINFO="NONE"
+>Seascape</GUIMENUITEM>.  Click on
+the rectangular tab to see these choices
+and make your selection.  When you have done so, the pulldown menu
+will have disappeared, and your choice will appear.  Also, note that
+the preview image will have changed accordingly.
+   </PARA><PARA
+>     When set to <GUIMENUITEM
+MOREINFO="NONE"
+>Auto</GUIMENUITEM>, the software will make an
+intelligent choice of orientation based on the dimensions of the image
+to be printed.   <GUIMENUITEM
+MOREINFO="NONE"
+>Portrait</GUIMENUITEM> orients the print media
+with the longest edge going from top to bottom, while
+<GUIMENUITEM
+MOREINFO="NONE"
+>Landscape</GUIMENUITEM> orients the paper with the longest edge
+going from side to side.  <GUIMENUITEM
+MOREINFO="NONE"
+>Upside down</GUIMENUITEM> and
+<GUIMENUITEM
+MOREINFO="NONE"
+>Seascape</GUIMENUITEM> orient the paper the same as
+<GUIMENUITEM
+MOREINFO="NONE"
+>Portrait</GUIMENUITEM> and  <GUIMENUITEM
+MOREINFO="NONE"
+>Landscape</GUIMENUITEM>
+respectively, with the difference being that the image is rotated 180 degrees.
+   </PARA></SECT3><SECT3
+><TITLE
+>Automatic Centering</TITLE><PARA
+>      There are three buttons that deal with centering an image.  The
+leftmost button is the <GUIBUTTON
+MOREINFO="NONE"
+>Vertically</GUIBUTTON> button, the
+middle button is the <GUIBUTTON
+MOREINFO="NONE"
+>Both</GUIBUTTON> button, and
+the rightmost button is the <GUIBUTTON
+MOREINFO="NONE"
+>Horizontally</GUIBUTTON>
+button.  Use the <GUIBUTTON
+MOREINFO="NONE"
+>Both</GUIBUTTON> button to center your
+image both horizontally and vertically.  This will cause the top and
+bottom borders to be equal, and the left and right borders to be
+equal.  If you have placed your image manually by using the mouse
+button, then you may center the image in the horizontal direction only
+by clicking on the <GUIBUTTON
+MOREINFO="NONE"
+>Horizontally</GUIBUTTON> button.
+Likewise, to adjust the image only in the vertical direction, click on
+the <GUIBUTTON
+MOREINFO="NONE"
+>Vertically</GUIBUTTON> button.  Note that in
+each case, the image is centered with regard to the edges of the
+media, and without regard to the printable portion of the media.  Many
+printers are incapable of printing to each edge of the media.  Some
+media may have edges which detach.  Consult your printer documentation
+for more details regarding your printer's capabilities in this regard.
+   </PARA></SECT3><SECT3
+><TITLE
+>Manual Settings</TITLE><PARA
+>      You will notice that there are six boxes that contain numbers
+just below the Orientation menu and just above the GUI buttons related
+to centering an image.  When you move the preview image manually with
+the mouse, or when you click on one of the centering buttons, the
+preview image moves and these six boxes get updated.
+   </PARA><SECT4
+><TITLE
+>Left</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Left</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the left side of the image
+will be printed away from the left edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Right</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Right</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the right side of the image
+will be printed away from the left edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Right Border</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Right Border</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the right side of the image
+will be printed away from the right edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Top</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Top</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the top side of the image
+will be printed away from the top edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Bottom</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Bottom</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the bottom side of the image
+will be printed away from the top edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4><SECT4
+><TITLE
+>Bottom Border</TITLE><PARA
+>     The number appearing in the <GUIMENUITEM
+MOREINFO="NONE"
+>Bottom Border</GUIMENUITEM> box denotes
+the number of units (cm or inches) that the bottom side of the image
+will be printed away from the bottom edge of the media.  You may select
+the units by clicking the <GUIBUTTON
+MOREINFO="NONE"
+>Inch</GUIBUTTON> or
+<GUIBUTTON
+MOREINFO="NONE"
+>cm</GUIBUTTON> buttons in the  <GUILABEL
+MOREINFO="NONE"
+>Units</GUILABEL> section just below
+these GUI boxes.
+   </PARA></SECT4></SECT3></SECT2><SECT2
+><TITLE
+ID="SEC-SCALING"
+>Size</TITLE><SECT3
+><TITLE
+>Slider Bar and Spin Box</TITLE><PARA
+>      The slider bar can be moved as desired by the user.  Notice
+that while sliding this bar, the preview image changes accordingly.
+One will also note that several boxes in the Gimp-Print GUI change values when this bar is moved.
+These boxes are the six position boxes (left, right, right border,
+top, bottom, bottom border), the two size boxes (width and height),
+and the spin box to the right of the slider bar.
+   </PARA><PARA
+>   This slider bar is used to scale the image to a desirable size, but the same effect can
+be obtained by either clicking an arrow on the spin box to the right of this
+slider bar, or by manually typing a number into this spin box.  Notice
+that by setting the spin box in this way, the slider bar is also
+moved.  All of the described methods will cause the image to be
+scaled accordingly.
+   </PARA></SECT3><SECT3
+><TITLE
+>Scale by Percent or PPI</TITLE><PARA
+>       One may choose to scale the image by a percentage, or by PPI,
+which means "<EMPHASIS
+>p</EMPHASIS>ixels <EMPHASIS
+>p</EMPHASIS>er
+<EMPHASIS
+>i</EMPHASIS>nch".  Click the radio button
+next to the word to set the desired scaling factor.
+   </PARA><PARA
+>     When scaling by a percentage, the number reflected in the spin
+box next to the slider bar represents the percentage relative
+to the full size of the selected print medium.  For example, with this spin box
+set to 50, the image will be scaled to 50% of the size of the print
+medium.  When set to 100, the image will attempt to fill the print
+medium, within the constraints of maintaining the proper aspect ratio
+and the margins of the selected print medium.  This effect can be seen
+in the preview window.
+   </PARA><PARA
+>     When scaling by PPI, the number reflected in the spin box next to
+the slider bar represents the number of pixels that will be
+printed per inch.  For example, if the user is printing a 640x480
+image at a size of 6.4x4.8 inches (as measured by the size boxes), the
+image will be printed at 100 DPI.
+   </PARA></SECT3><SECT3
+><TITLE
+>Use Original Image Size</TITLE><PARA
+>       By clicking this button, the image will be scaled to as close
+to the native size of the image as possible.  This effect can
+immediately be seen in the preview image.
+     </PARA><PARA
+>     The native image size may be found or set in the GIMP by
+     selecting <GUIMENUITEM
+MOREINFO="NONE"
+>Image/Scale Image</GUIMENUITEM> in the
+     GIMP.  Under the <GUILABEL
+MOREINFO="NONE"
+>Print Size and Display Unit</GUILABEL>
+     group in the <GUILABEL
+MOREINFO="NONE"
+>Scale Image</GUILABEL> dialog, you can
+     determine (or change) the width and height of the image, or
+     choose the resolution.
+     </PARA></SECT3><SECT3
+><TITLE
+>Width and Height</TITLE><PARA
+>       These boxes show the size of the printed image in either inches
+or centimeters (depending on which unit is selected).  The user may
+choose to manually modify these values.  When one value is modified,
+the other value is automatically modified in order to maintain the
+aspect ratio (the ratio of width to height).  This effect can be
+immediately seen in the preview image.
+     </PARA></SECT3><SECT3
+><TITLE
+>Units</TITLE><PARA
+>      The units can be set to inches or centimeters by clicking the appropriate
+radio button next to the desired unit.  This setting effects the
+values printed in the six position boxes (left, right, right border,
+top, bottom, bottom border) and the two size boxes (width and height).
+   </PARA></SECT3></SECT2><SECT2
+><TITLE
+ID="SEC-IMAGE-SETTINGS"
+>Image/Output Settings</TITLE><PARA
+>   By clicking on the tab labeled <GUILABEL
+MOREINFO="NONE"
+>Image/Output
+Settings</GUILABEL>, the Gimp-Print window will appear as shown in
+<XREF
+LINKEND="FIG-GIMP-PRINT-GUI-1"
+></XREF>.  Notice that there are
+two sections to this portion of the window, namely,
+<GUILABEL
+MOREINFO="NONE"
+>Image Type</GUILABEL> and
+<GUILABEL
+MOREINFO="NONE"
+>Output Type</GUILABEL>.
+
+   </PARA><SECT3
+><TITLE
+>Image Type</TITLE><SECT4
+><TITLE
+>Line Art</TITLE><PARA
+>      This setting tells the printer driver to generate color
+quickly.  The color is bold and bright, but color accuracy is not very
+good.  There may also be some unexpectedly sharp transitions in
+colors.  This mode is acceptable for printing text with small amounts
+of color, and may be acceptable for presentation graphics.
+    </PARA></SECT4><SECT4
+><TITLE
+>Solid Colors</TITLE><PARA
+>      This mode produces color which is considerably more accurate
+than the <GUILABEL
+MOREINFO="NONE"
+>Line Art</GUILABEL> mode, but with a reduction in performance.  In
+general, hues will be accurate but tonalities may not be accurate.
+There should be no sharp transitions in colors.  This mode is good for
+printing presentation graphics in most cases.
+    </PARA></SECT4><SECT4
+><TITLE
+>Photograph</TITLE><PARA
+>      This mode produces the most accurate colors and tonalities at a
+greater cost in performance.  This is the mode to use when printing
+high quality photographs or other high quality images.
+    </PARA></SECT4></SECT3><SECT3
+><TITLE
+>Output Type</TITLE><PARA
+>      The user is given the choice of color, black and white, and
+grayscale.  Color is selected when the desired output is to be in
+color.  Greyscale will result in the printed image having various
+shades of grey.  Black and white is just that.  The effect of this
+setting can be seen in the preview window.
+    </PARA></SECT3><SECT3
+><TITLE
+>Adjust Output</TITLE><PARA
+>      Clicking on this button causes the <GUILABEL
+MOREINFO="NONE"
+>Print Color Adjust</GUILABEL> window to
+appear (see <XREF
+LINKEND="FIG-GIMP-PRINT-COLOR-ADJUST"
+></XREF>).  In
+this window, one will see a representation of the image to be printed
+as well as several slider bars.  These slider bars collectively adjust
+many different aspects of the image.  The values can also be adjusted
+by clicking the arrows or by typing a value into the appropriate spin
+box on the right side of each slider bar.
+   </PARA><FIGURE
+FLOAT="0"
+ID="FIG-GIMP-PRINT-COLOR-ADJUST"
+><TITLE
+>The Print Color Adjust Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/gimp-print-print-color-adjust.png"
+FORMAT="PNG"
+SCALE="50"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>&gt;The Print Color Adjust Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><SECT4
+><TITLE
+>Brightness</TITLE><PARA
+>    Adjust the brightness of the image.  A setting of 0.0 gives a fully black
+image, while a 2.0 setting gives a fully white image.  Values greater than 1.0 will result in
+ black not being solid and highlights turning white; values less than
+ 1.0 will result in white not being perfectly clear and shadows turning
+ black.
+    </PARA></SECT4><SECT4
+><TITLE
+>Contrast</TITLE><PARA
+>    Adjust the contrast of the image.  A setting of 0.0 gives a solid gray for the
+entire image, the exact gray depending upon the brightness chosen.
+    </PARA></SECT4><SECT4
+><TITLE
+>Cyan, Magenta, Yellow</TITLE><PARA
+>These three options allow specification of the cyan, magenta, and
+yellow levels independently, for rebalancing the levels.  Normally,
+these should be adjusted to yield neutral gray, but they can be used
+for other effects.
+    </PARA></SECT4><SECT4
+><TITLE
+>Saturation</TITLE><PARA
+>Adjust the brilliance of colors.  A setting of 0.0 results in pure grayscale.
+A saturation setting of less than 1.0 results in more muted colors.  A
+saturation setting of greater than 1.0 results in more vibrant colors.  Very high
+saturation often results in very strange effects, including
+posterization and banding that might not be expected.  For normal
+purposes, the saturation should generally be set to a value less than 1.5.
+    </PARA></SECT4><SECT4
+><TITLE
+>Density</TITLE><PARA
+>Adjust the amount of ink deposited on the paper.  If you have chosen the
+correct paper type and are getting ink bleeding through the paper
+or puddling, try reducing the density to the lowest value you
+can while still achieving solid black.  If black is not solid
+black, even with the contrast and brightness at 1.0, try increasing
+the density.  Note that changes to this setting will not be visible in
+the image preview.
+    </PARA><PARA
+>All of the supported printers actually need less than 100% ink
+density in most cases, so the actual density is something other than
+the nominal density setting.  The effective density setting cannot go
+above 100%, so if a value specified will result in an excessively high
+density level, it will be silently limited to a setting of 1.0.
+    </PARA></SECT4><SECT4
+><TITLE
+>Gamma</TITLE><PARA
+>Adjust the gamma of the image, over and above the printer-specific
+correction.  Gamma less than 1.0 will result in a darker image; gamma
+greater than 1.0 will result in a lighter image.  Unlike brightness,
+gamma adjustment does not change the endpoints; it merely changes the
+shape of the input-&gt;output curve.
+    </PARA></SECT4><SECT4
+><TITLE
+>Dither Algorithm</TITLE><PARA
+>The recommended dither algorithm is <GUIMENUITEM
+MOREINFO="NONE"
+>Adaptive
+Hybrid</GUIMENUITEM> (which is the default) for text or other fine
+black detail, or if this is mixed with continuous tone images.  The
+<GUIMENUITEM
+MOREINFO="NONE"
+>Ordered</GUIMENUITEM> dithering algorithm is just as good
+(and somewhat faster) for pure continuous-tone images and photographs,
+but may yield poor results with text or other fine detail,
+particularly at high printing resolutions.
+    </PARA><PARA
+> The <GUIMENUITEM
+MOREINFO="NONE"
+>Fast</GUIMENUITEM> algorithm gives the
+fastest results at the expense of color accuracy.  It is a simplified
+ordered dither.  On simple four color printers (or other printers used
+in four color mode), the quality is similar to
+<GUIMENUITEM
+MOREINFO="NONE"
+>Ordered</GUIMENUITEM>, although dark gray rendition is
+not as good due to a simpler transfer between black and colored ink.
+With six-color printers, color rendition is somewhat worse, but it
+should be quite usable in cases where optimum quality is not critical.
+In black and white, it is an efficient way to render grayscale, but it
+may not give best results when used with variable dot size printers
+(modern Epson printers, or Canon printers using DMT).  On rare three
+color printers (CMY only) the results should be identical to ordered
+dither.
+    </PARA><PARA
+> <GUIMENUITEM
+MOREINFO="NONE"
+>Very Fast</GUIMENUITEM> is even faster than
+<GUIMENUITEM
+MOREINFO="NONE"
+>Fast</GUIMENUITEM>, with even more loss of quality.
+Color and grayscale output will show strong patterning that resembles
+screening, although it isn't.  On laser printers, and possibly on
+certain kinds of text and line art, <GUIMENUITEM
+MOREINFO="NONE"
+>Very
+Fast</GUIMENUITEM> dithering may actually yield the best quality.
+    </PARA><PARA
+>Error diffusion algorithms (<GUIMENUITEM
+MOREINFO="NONE"
+>Hybrid
+Floyd-Steinberg</GUIMENUITEM> is such an algorithm) perform very well
+at high densities, and are capable of
+rendering very fine detail rather well, but they tend to exhibit artifacts in
+the form of "waves" or "worms" of dots which results in noticeable
+texturing in pale areas.  Furthermore, pale areas immediately adjacent
+to white take a while to "build up" sufficient error to print at all.
+This is sometimes called "tearing" or "waterfalling".
+    </PARA></SECT4><SECT4
+><TITLE
+>Set Defaults and Close</TITLE><PARA
+>      When the <GUIBUTTON
+MOREINFO="NONE"
+>Set Defaults</GUIBUTTON> button is clicked,
+the slider bar settings will return to their default values.  The
+dither algorithm setting is uneffected.  The <GUILABEL
+MOREINFO="NONE"
+>Print Color
+Adjust</GUILABEL> window will close when the
+<GUIBUTTON
+MOREINFO="NONE"
+>Close</GUIBUTTON> button is clicked.
+    </PARA></SECT4></SECT3></SECT2><SECT2
+><TITLE
+ID="SEC-PRINTING-AND-SAVING-SETTINGS"
+>Printing and Saving Settings</TITLE><PARA
+>    At the bottom of the Gimp-Print window, there are five buttons labeled
+<GUIBUTTON
+MOREINFO="NONE"
+>About</GUIBUTTON>,
+<GUIBUTTON
+MOREINFO="NONE"
+>Print and Save Settings</GUIBUTTON>,
+<GUIBUTTON
+MOREINFO="NONE"
+>Save Settings</GUIBUTTON>,
+<GUIBUTTON
+MOREINFO="NONE"
+>Print</GUIBUTTON>,
+and <GUIBUTTON
+MOREINFO="NONE"
+>Cancel</GUIBUTTON>.  The <GUIBUTTON
+MOREINFO="NONE"
+>About</GUIBUTTON>
+button will show information about the Gutenprint software, such as
+the version number, authors names, project web site, and software
+licensing.  After clicking on the <GUIBUTTON
+MOREINFO="NONE"
+>About</GUIBUTTON>, read
+the information, and then close the window by pressing the
+<GUIBUTTON
+MOREINFO="NONE"
+>OK</GUIBUTTON> button.
+    </PARA><PARA
+>      The <GUIBUTTON
+MOREINFO="NONE"
+>Print and Save Settings</GUIBUTTON> button will
+save the current settings and then print the desired image.  Recall
+that these settings are saved in <FILENAME
+MOREINFO="NONE"
+>~/.gimp-1.2/printrc</FILENAME>.  The
+<GUIBUTTON
+MOREINFO="NONE"
+>Save Settings</GUIBUTTON> button will only save the
+settings.  The <GUIBUTTON
+MOREINFO="NONE"
+>Print</GUIBUTTON> button will print the
+image only.  The <GUIBUTTON
+MOREINFO="NONE"
+>Cancel</GUIBUTTON> will close the
+Gimp-Print GUI window.
+    </PARA></SECT2></SECT1></CHAPTER><CHAPTER
+><TITLE
+>CUPS and Gutenprint</TITLE><SECT1
+><TITLE
+>Introduction</TITLE><PARA
+>       CUPS is an acronym which stands for <EMPHASIS
+>C</EMPHASIS>ommon
+<EMPHASIS
+>U</EMPHASIS>nix <EMPHASIS
+>P</EMPHASIS>rinting
+<EMPHASIS
+>S</EMPHASIS>ystem.  It is assumed that the reader has
+properly installed the CUPS software and the Gutenprint software.
+This section will discuss adding a printer to CUPS that uses a
+Gutenprint printer driver, as well as how to modify the various
+settings supplied by Gutenprint. This will be a rather quick
+explanation, as the CUPS software is quite well documented, and it is
+not my intention to attempt to duplicate the CUPS documentation here.
+     </PARA></SECT1><SECT1
+><TITLE
+>CUPS Printer Installation</TITLE><PARA
+>This explanation will use the web interface provided by CUPS. First,
+aim your favorite web browser at
+<ULINK
+URL="http://localhost:631"
+>the CUPS server</ULINK>.  The
+following screen should appear within your browser.
+    </PARA><FIGURE
+FLOAT="0"
+><TITLE
+>The CUPS Startup Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_startup.png"
+FORMAT="PNG"
+SCALE="45"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The CUPS Startup Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><PARA
+>Now, you may click on either the word <GUILABEL
+MOREINFO="NONE"
+>Printers</GUILABEL> in the bar at the top
+of the page, or you may click on the <GUILABEL
+MOREINFO="NONE"
+>Manage Printers</GUILABEL> text.  In
+either case, the next screen you see will look like this one if you
+have not yet configured any printers.
+   </PARA><FIGURE
+FLOAT="0"
+><TITLE
+>The CUPS Printers Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_printers.png"
+FORMAT="PNG"
+SCALE="45"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The CUPS Printers Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><PARA
+>At this time, click on the <GUIBUTTON
+MOREINFO="NONE"
+>Add Printer</GUIBUTTON> button.
+You will then see the Admin screen (shown below).
+    </PARA><FIGURE
+FLOAT="0"
+><TITLE
+>The CUPS Admin Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_admin.png"
+FORMAT="PNG"
+SCALE="45"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The CUPS Admin Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><PARA
+>Notice in the screenshot that the three boxes are shown after the
+author filled them in for his printer at home.  You will need to fill
+in an appropriate name of your printer, its location, and a
+description which meets your own needs.  Once this is done, click on
+the <GUIBUTTON
+MOREINFO="NONE"
+>Continue</GUIBUTTON> button, and then this screen will appear.
+   </PARA><FIGURE
+FLOAT="0"
+ID="FIG-CUPS-ADMIN-DEVICE"
+><TITLE
+>The CUPS Admin Device Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_admin_device.png"
+FORMAT="PNG"
+SCALE="35"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The CUPS Admin Device Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><PARA
+>Click on the drop down menu next to the word
+<GUILABEL
+MOREINFO="NONE"
+>Device</GUILABEL> and a list of possible printer devices
+appears.  Select the device appropriate for your printer.  Note that
+there are a range of serial, parallel, USB, and other devices from
+which to choose.  Once the selection is made, click the
+<GUIBUTTON
+MOREINFO="NONE"
+>Continue</GUIBUTTON> button.  Now, this screen appears.
+   </PARA><FIGURE
+FLOAT="0"
+><TITLE
+>The CUPS Admin Model/Driver Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_admin_make.png"
+FORMAT="PNG"
+SCALE="35"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The CUPS Admin Model/Driver Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><CAUTION
+><TITLE
+>Caution Regarding USB Printers</TITLE><PARA
+>CUPS versions 1.1.11 and later <EMPHASIS
+>REQUIRE</EMPHASIS>
+the user to insure that the desired USB printer is powered on
+<EMPHASIS
+>AND</EMPHASIS> physically connected to the USB bus
+<EMPHASIS
+>BEFORE</EMPHASIS> starting the CUPS software.
+   </PARA><PARA
+>CUPS must see the USB printer when the software starts.  The CUPS software
+is typically started when the computer boots.  Note that one cannot
+simply plug in the USB printer and power it on after CUPS has started.
+(Note that this does not apply to parallel port printers).
+   </PARA><PARA
+>If the USB printer was not connected and powered on at the time CUPS was
+started, there will not be a USB printer shown in the
+list of devices on the CUPS Admin Device Window (see
+<XREF
+LINKEND="FIG-CUPS-ADMIN-DEVICE"
+></XREF>).  In this event, stop the CUPS
+software, properly connect and power on the USB printer, and restart
+the CUPS software.
+   </PARA><PARA
+>From the list of devices shown in the CUPS Admin Device Window
+(see <XREF
+LINKEND="FIG-CUPS-ADMIN-DEVICE"
+></XREF>), a clever user might
+attempt to avoid this issue by selecting
+<GUIMENUITEM
+MOREINFO="NONE"
+>Internet Printing Protocol</GUIMENUITEM>
+and then enter something similar to 'usb:/dev/usblp0' in the next
+screen.  However, this fails later in the configuration process with a
+"client_error_not_possible" error message with no other explanation.
+Note that entering 'file:/dev/usblp0' will not work either. While CUPS
+will allow this, printing will not actually work in some situations.
+   </PARA><PARA
+>CUPS versions 1.1.10 and earlier exhibit similar behavior with regard
+to not displaying the USB printer if it was not connected to the USB
+bus and powered up prior to starting the CUPS software.  However,
+these versions of CUPS will indeed allow the user to enter the name of
+the USB connection, unlike versions 1.1.11 and later.
+   </PARA></CAUTION><PARA
+>Select the manufacturer of your printer and click the
+<GUIBUTTON
+MOREINFO="NONE"
+>Continue</GUIBUTTON> button.  A window will appear which
+asks you to select the specific model number for your printer.
+   </PARA><PARA
+>Scroll through the long list and find the model number for your
+printer.  Notice carefully that there are many different languages
+supported for each printer, as denoted by the initials in parenthesis.
+(en) would be for English, (da) for Danish, (sv) for Swedish, (fr) for
+French, (no) for Norwegian, (pl) for Polish, and (en_GB) for British
+English (see <XREF
+LINKEND="FIG-CUPS-ADMIN-MODEL"
+></XREF>).  Also take note
+of the Gutenprint revision for the driver, and ensure that it is
+indeed the version of Gutenprint which you have most recently
+installed.  Once you have made the proper selection, click on the
+<GUIBUTTON
+MOREINFO="NONE"
+>Continue</GUIBUTTON> button.
+   </PARA><FIGURE
+FLOAT="0"
+ID="FIG-CUPS-ADMIN-MODEL"
+><TITLE
+>The 2nd CUPS Admin Model/Driver Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_admin_model.png"
+FORMAT="PNG"
+SCALE="55"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The 2nd CUPS Admin Model/Driver Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><FIGURE
+FLOAT="0"
+><TITLE
+>The CUPS Admin Success Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_admin_success.png"
+FORMAT="PNG"
+SCALE="39"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The CUPS Admin Success Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><PARA
+>Congratulations!  You should now see the CUPS window indicating that
+your printer was successfully installed.  Notice the sentence which
+reads "Printer your_printer has been added successfully".  Click on
+your_printer, which will be the underlined name for your printer.
+   </PARA><FIGURE
+FLOAT="0"
+ID="FIG-CUPS-MY-PRINTER"
+><TITLE
+>The CUPS Window for Your Printer</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_my_printer.png"
+FORMAT="PNG"
+SCALE="65"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The CUPS Window for Your Printer</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE><PARA
+>After clicking on your_printer (epson_870 in this example), a window
+will appear similar to that shown in <XREF
+LINKEND="FIG-CUPS-MY-PRINTER"
+></XREF>.
+It would probably be a good idea at this point to click on the
+<GUIBUTTON
+MOREINFO="NONE"
+>Print Test Page</GUIBUTTON> button to ensure that
+everything is working properly.  Take note of the Gutenprint revision
+printed on this screen and confirm once again that it is the expected
+revision.
+   </PARA></SECT1><SECT1
+><TITLE
+>Configuring your Printer in CUPS</TITLE><PARA
+>With reference to <XREF
+LINKEND="FIG-CUPS-MY-PRINTER"
+></XREF>, click
+on the <GUIBUTTON
+MOREINFO="NONE"
+>Configure Printer</GUIBUTTON> button.  A partial
+screenshot of the printer configuration window appears in
+<XREF
+LINKEND="FIG-CUPS-PRINTER-CONFIG-WINDOW"
+></XREF>.
+The contents of this window will vary depending on precisely which
+printer you selected when you configured CUPS for your printer.  The
+screenshot shows the selections made by the author for his printer.
+The individual selections will not be explained in detail here, as
+they are the same selections which are available when using the
+Gutenprint plugin to the GIMP.  These selections are explained in
+detail in various sections of the <EMPHASIS
+>GIMP and
+Gutenprint</EMPHASIS> chapter of <EMPHASIS
+>The User's Guide to the
+Gutenprint Top Quality Printer Drivers</EMPHASIS>.
+   </PARA><FIGURE
+FLOAT="0"
+ID="FIG-CUPS-PRINTER-CONFIG-WINDOW"
+><TITLE
+>The CUPS Printer Cofiguration Window</TITLE><MEDIAOBJECT
+><IMAGEOBJECT
+><IMAGEDATA
+FILEREF="figures/cups_config_printer.png"
+FORMAT="PNG"
+SCALE="30"
+></IMAGEDATA></IMAGEOBJECT><TEXTOBJECT
+><PHRASE
+>The CUPS Printer Configuration Window</PHRASE></TEXTOBJECT></MEDIAOBJECT></FIGURE></SECT1><SECT1
+><TITLE
+>Using CUPS from the Command Line</TITLE><PARA
+>    It is possible to use the CUPS printing system from the command
+line.  While this document will not delve into all of the specifics of
+the CUPS command line interface, there are portions of this interface
+which are specific to the Gutenprint software.
+   </PARA><PARA
+>The command line is in some cases a more convenient way to generate
+printed output (e.g. when printing from a script).  However, most
+people (including the author) cannot easily predict what a command
+line option of "-o stpCyan=1350" will do to the output.  It is
+therefore a good idea to use the GIMP to view the image and the
+Gutenprint plugin to preview these settings before relying on the
+command line.
+   </PARA><PARA
+>When using CUPS from the command line, the command will have this
+general format:
+
+   <PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>   
+     lpr -P my_printer_name \
+         -o option1=&lt;choice1&gt; \
+         -o option2=&lt;choice2&gt; \
+         /path/to/printfile
+     
+   </PROGRAMLISTING>
+
+When typing the command directly onto the command line, put all of the
+command line options on one line, and do not type the "\" characters.
+The list of possible options which are specific to Gutenprint,
+followed by some of the supported choices, are shown below:
+
+   <PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>   
+   -o PageSize=&lt;...| A3 | A4 | A4 | ...&gt;
+   -o InputSlot=&lt;Roll | Standard&gt;
+   -o MediaType=&lt; ..| Inkjet | Plain | GlossyPaper | ...&gt;
+   -o Resolution=&lt;360sw | 360swuni ...| 1440x720 &gt;
+   -o ColorModel=&lt;Black | RGB | Gray | CMYK&gt;
+   -o stpBrightness=&lt;0...2000&gt;
+   -o stpContrast=&lt;0...2000&gt;
+   -o stpCyan=&lt;0...4000&gt;
+   -o stpDensity=&lt;0...2000&gt;
+   -o stpDither=&lt;0...4000&gt;
+   -o stpGamma=&lt;0...4000&gt;
+   -o stpImageType=&lt;LineArt | Continuous | SolidTone&gt;
+   -o stpInkType=&lt;PhotoCMY | CMYK | PhotoCMYK | RGB&gt;
+   -o stpMagenta=&lt;0...4000&gt;
+   -o stpSaturation=&lt;0...9000&gt;
+   -o stpYellow=&lt;0...4000&gt;
+   
+   </PROGRAMLISTING>
+
+For more detailed information, consult the appropriate sections of the <EMPHASIS
+>GIMP and
+Gutenprint</EMPHASIS> chapter of <EMPHASIS
+>The User's Guide to the
+Gutenprint Top Quality Printer Drivers</EMPHASIS>.
+   </PARA></SECT1></CHAPTER><CHAPTER
+><TITLE
+>Gutenprint Utilities</TITLE><SECT1
+><TITLE
+>escputil</TITLE><PARA
+>       <EMPHASIS
+>escputil</EMPHASIS> is a command line utility which
+allows the user to perform a variety of maintenance tasks on Epson
+Stylus inkjet printers.  These tasks include head alignment, head
+cleaning, nozzle check, printer identification, and retrieval of the ink
+level from the printer.  In order for many of the
+<EMPHASIS
+>escputil</EMPHASIS> functions to work, the user must have
+read/write access to the raw printer device (typically /dev/lp0,
+/dev/usb/lp0, and the like).  In general, these operations should be
+performed by the root user.  As always, the user must insure that the
+directory containing the <EMPHASIS
+>escputil</EMPHASIS> utility is
+listed in the [dollar]PATH environment variable, or that the full path is
+specified on the command line.  The examples in this section will
+assume the former.
+     </PARA><CAUTION
+><TITLE
+>Caution</TITLE><PARA
+>       The <EMPHASIS
+>escputil</EMPHASIS> utility was designed for use
+ONLY with Epson Stylus inkjet printers supported by the Gutenprint
+software.  It is possible that damage MIGHT occur to your printer if
+this utility is misused or if it is used with a printer other than an
+Epson Stylus inkjet printer.  It is the sole responsibility of the
+user to insure that this utility is suitable for the task at hand.
+     </PARA></CAUTION><PARA
+>       In this section, specific examples of common usage will be
+presented.  A summary of the command line switches can be
+found in the <EMPHASIS
+>escputil</EMPHASIS>(1) man page.
+     </PARA><SECT2
+><TITLE
+>Determining Ink Level</TITLE><PARA
+>       Perhaps the most basic function performed by
+<EMPHASIS
+>escputil</EMPHASIS> is that of determining the amount of ink
+remaining in the printer. To do this, the user must know the name of
+the raw printer device.  This is usually /dev/lp0 for a printer
+connected to the parallel port, or /dev/usb/lp0 for a printer
+connected to the USB.
+     </PARA><PARA
+>If there are multiple printers connected, one of them may be referenced as
+/dev/lp1 or perhaps /dev/usb/lp1.  In the event of uncertainty, and if
+CUPS is in use, view the following <ULINK
+URL="http://localhost:631/printers"
+>URL</ULINK>
+with a web browser. At that URL, look for a line which reads "Device
+URI".  The author's USB printer is listed as "Device URI:  usb:/dev/usb/lp0".
+     </PARA><PARA
+>For this example, assume that the raw printer device is a USB printer
+specified as /dev/usb/lp0.  To get the ink level for this printer,
+issue this command and notice the output.
+     </PARA><PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+# escputil -r /dev/usb/lp0 -i
+
+Escputil version 4.3.0, Copyright (C) 2000-2001 Robert Krawitz
+Escputil comes with ABSOLUTELY NO WARRANTY; for details type
+'escputil -l'
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'escputil -l' for details.
+
+           Ink color    Percent remaining
+               Black     18
+                Cyan     71
+             Magenta     70
+              Yellow     67
+          Light Cyan     71
+       Light Magenta     70
+    
+  </PROGRAMLISTING><PARA
+>The user would substitute their own raw printer device for the one
+shown in the example after the "-r" switch.  Notice that the printout
+shows the percent of ink remaining for each color of the author's
+Epson Stylus Photo 870.  When the ink levels get too low, print
+quality will suffer.  In the author's personal experience, ink levels
+approaching 10% begin to cause print quality degredation, but this
+will vary depending on the precise printer model.
+     </PARA></SECT2><SECT2
+><TITLE
+>Error During Ink Level Determination</TITLE><PARA
+>       What?  The example above did not work?  An error message was
+printed?  What does it mean?  There are several possibilities,
+depending on the specific error message.  If the error message is
+"Invalid argument" (see following example), the problem is that the
+2.4.x kernel is not configured with the CONFIG_PARPORT_1284 option enabled.
+
+  <PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+# escputil -r /dev/lp0 -i
+
+Escputil version 4.3.0, Copyright (C) 2000-2001 Robert Krawitz
+Escputil comes with ABSOLUTELY NO WARRANTY; for details type
+'escputil -l'
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'escputil -l' for details.
+
+Cannot read from /dev/lp0: Invalid argument
+    
+  </PROGRAMLISTING>
+
+     Another possible cause for error is that the raw printer device
+does not have both read and write permission for the user attempting
+to access the device.  In this case, the error message will read
+"Permission denied".  A final possibility is that the raw printer
+device specified is incorrect, in which case the error message will
+read "No such device".
+   </PARA></SECT2><SECT2
+><TITLE
+>Nozzle Check</TITLE><PARA
+>       On an inkjet printer, there are several small holes on the
+bottom of each ink cartridge through which the ink must flow smoothly
+in order to create high quality images on paper.  If these holes
+become clogged, the printed image will show small gaps where there
+should have been ink.  One can easily test for the existence of this
+condition by running a nozzle check.  One need not be the root user to
+issue this command.  Note that as shown, the command will print a
+nozzle test pattern on the default printer.  If there are multiple
+printers present, the desired printer must be specified with an
+additional "-P printer_name" switch, where "printer_name" is the name
+of the desired printer.
+     </PARA><PARA
+>       The printer will print a series of black (and colored) slanted
+lines on the paper.  Observe these lines carefully.  If there are gaps
+or spaces in these lines, then the corresponding nozzle is clogged and
+the print head must be cleaned.  However, if there are no gaps, the
+nozzles are clean.
+     </PARA><PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+# escputil -n
+Escputil version 4.3.0, Copyright (C) 2000-2001 Robert Krawitz
+Escputil comes with ABSOLUTELY NO WARRANTY; for details type
+'escputil -l'
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'escputil -l' for details.
+
+Running nozzle check, please ensure paper is in the printer.
+    
+  </PROGRAMLISTING></SECT2><SECT2
+><TITLE
+>Clean the Print Head</TITLE><PARA
+>       If the printed output is showing gaps where there should have
+been ink, it is likely that one or more nozzles are clogged and the
+print head is in need of cleaning.  One can verify this by first
+running a nozzle check and looking for gaps in the printout.  To clean
+the print head, issue the following command.  One need not be the root user to
+issue this command.  Note that as shown, the command will clean the
+print head on the default printer.  If there are multiple
+printers present, the desired printer must be specified with an
+additional "-P printer_name" switch, where "printer_name" is the name
+of the desired printer.
+     </PARA><PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+# escputil -c
+Escputil version 4.3.0, Copyright (C) 2000-2001 Robert Krawitz
+Escputil comes with ABSOLUTELY NO WARRANTY; for details type
+'escputil -l'
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'escputil -l' for details.
+
+Cleaning heads...
+    
+  </PROGRAMLISTING><PARA
+>       Nothing will be printed on the paper.  The printer will make
+some noise as it cleans the print head.  Wait until the printer is
+finished cleaning the print head.  Afterwards, execute another nozzle
+check and insure that the print head is indeed completely clean.  Note
+that the process of cleaning the print head causes ink consumption, so
+do not clean the print head any more than necessary.
+     </PARA><PARA
+>For severely clogged nozzles, one may have to execute two or three cycles
+of nozzle check followed by a cleaning of the print head.  If the
+printer had gone unused for a long time, the nozzles may be so clogged
+with dried ink as to be unrecoverable, in which case, the best course
+of action is to replace the ink cartridge.
+     </PARA></SECT2><SECT2
+><TITLE
+>Align the Print Head</TITLE><PARA
+>       To insure the highest quality printouts, the print head must
+be in proper physical alignment.  One can check and realign the print
+head by running this interactive alignment test.
+     </PARA><PARA
+>The <EMPHASIS
+>escputil</EMPHASIS> utility must know the exact printer model in
+use.  One may specify the model on the command line using the "-m"
+switch, or the utility can detect the printer model if the user passes
+the "-r" switch and the name of the raw printer device.
+     </PARA><PARA
+>Note that an unprivileged user may use this command with the "-m" switch, but that
+(in general) the root user may only use the "-r" switch (which
+requires read/write access to the raw printer device).  In the case of
+multiple printers in use, the "-P" switch is required to align the
+print head on the non-default printer.
+     </PARA><CAUTION
+><TITLE
+>Caution</TITLE><PARA
+>This utility lets you align the print head of your Epson Stylus inkjet
+printer.  Misuse of this utility may cause your print quality to degrade
+and possibly damage your printer.  This utility has not been reviewed by
+Seiko Epson for correctness, and is offered with no warranty at all.  The
+entire risk of using this utility lies with you.
+     </PARA></CAUTION><PARA
+>       Aligning the print head is an interactive process.  The utility
+will print out a set of instructions and ask you for responses.  Please
+read the instructions carefully and follow them precisely.  A single
+sheet of paper will be needed (one can print on both sides to save paper).
+     </PARA><PARA
+>The following example illustrates the alignment process when issued by an
+unprivileged user who specified the printer model on the command
+line.  (To obtain a list of printer models, issue the "escputil -M"
+command).  Of course, your responses will vary and should be
+substituted for the responses shown in the following example.
+     </PARA><PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+
+*** NOTE - 870 is an illustrative example! ***
+*** You MUST use the proper printer model! ***
+*** Run:  escputil -M for a listing of     ***
+*** supported printer models!              ***
+
+linuxpc&gt; escputil -a -m 870
+Escputil version 4.3.0, Copyright (C) 2000-2001 Robert Krawitz
+Escputil comes with ABSOLUTELY NO WARRANTY; for details type
+'escputil -l'
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'escputil -l' for details.
+
+Please read these instructions very carefully before proceeding.
+
+This utility lets you align the print head of your Epson Stylus
+inkjet printer.  Misuse of this utility may cause your print
+quality to degrade and possibly damage your printer.  This utility
+has not been reviewed by Seiko Epson for correctness, and is
+offered with no warranty at all.  The entire risk of using this
+utility lies with you.
+
+This utility prints 3 test patterns.  Each pattern looks very
+similar.  The patterns consist of a series of pairs of vertical
+lines that overlap.  Below each pair of lines is a number between
+1 and 15.
+
+When you inspect the pairs of lines, you should find the pair
+of lines that is best in alignment, that is, that best forms
+a single vertical line.  Inspect the pairs very carefully to
+find the best match.  Using a loupe or magnifying glass is
+recommended for the most critical inspection.  It is also
+suggested that you use a good quality paper for the test, so
+that the lines are well-formed and do not spread through the
+paper.  After picking the number matching the best pair, place
+the paper back in the paper input tray before typing it in.
+
+Each pattern is similar, but later patterns use finer dots for
+more critical alignment.  You must run all of the passes to
+correctly align your printer.  After running all the alignment
+passes, the alignment patterns will be printed once more.  You
+should find that the middle-most pair (#8 out of the 15) is the
+best for all patterns.
+
+After the passes are printed once more, you will be offered the
+choices of (s)aving the result in the printer, (r)epeating the
+process, or (q)uitting without saving.  Quitting will not restore
+the previous settings, but powering the printer off and back
+on will.  If you quit, you must repeat the entire process if
+you wish to later save the results.  It is essential that you
+not turn your printer off during this procedure.
+
+This procedure assumes that your printer is an Epson Stylus Photo
+870.  If this is not your printer model, please type control-C now
+and choose your actual printer model.
+
+Please place a sheet of paper in your printer to begin the head
+alignment procedure.
+Press enter to continue &gt;
+Please inspect the print, and choose the best pair of lines in
+each pattern.  Type a pair number, '?' for help, or 'r' to repeat
+the procedure.
+Pass #1&gt; 8
+Pass #2&gt; 8
+Pass #3&gt; 8
+Attempting to set alignment...succeeded.
+Please verify that the alignment is correct.  After the alignment
+pattern is printed again, please ensure that the best pattern
+for each line is pattern 8.  If it is not, you should repeat the
+process to get the best quality printing.
+Please insert a fresh sheet of paper.
+Press enter to continue &gt;
+Please inspect the final output very carefully to ensure that your
+printer is in proper alignment. You may now:
+  (s)ave the results in the printer,
+  (q)uit without saving the results, or
+  (r)epeat the entire process from the beginning.
+You will then be asked to confirm your choice.
+What do you want to do (s, q, r)?
+&gt; s
+This will permanently alter the configuration of your printer.
+WARNING: this procedure has not been approved by Seiko Epson,
+and it may damage your printer. Proceed?
+Please confirm by typing 's' again that you wish to save the
+settings to your printer:
+&gt; s
+About to save settings...succeeded!
+Your alignment settings have been saved to the printer.
+    
+  </PROGRAMLISTING><PARA
+>      The following example shows what will happen if an unprivileged
+user attempts to align the print head by specifying the raw printer
+device on the command line.
+    </PARA><PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+linuxpc&gt; escputil -a -r /dev/usb/lp0
+Escputil version 4.2.0, Copyright (C) 2000-2001 Robert Krawitz
+Escputil comes with ABSOLUTELY NO WARRANTY; for details type
+'escputil -l'
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'escputil -l' for details.
+
+Attempting to detect printer model...
+Cannot open /dev/usb/lp0 read/write: Permission denied
+    
+  </PROGRAMLISTING><PARA
+>      This next example illustrates the results obtained when the root
+user issues an alignment command while specifying the raw printer
+device.  Note that the output is truncated and only shows the printer
+detection output.
+    </PARA><PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+# escputil -a -r /dev/usb/lp0
+Escputil version 4.3.0, Copyright (C) 2000-2001 Robert Krawitz
+Escputil comes with ABSOLUTELY NO WARRANTY; for details type
+'escputil -l'
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'escputil -l' for details.
+
+Attempting to detect printer model...Stylus Photo 870
+
+Please read these instructions very carefully before proceeding.
+    
+  </PROGRAMLISTING></SECT2><SECT2
+><TITLE
+>Printer Identification</TITLE><PARA
+>       The printer identification command will query the printer for
+make and model information.  This command requires read/write access
+to the raw printer device (generally limited to the root user).
+Substitute your own raw printer device in place of the /dev/usb/lp0
+shown in the example.  The output will vary depending on the precise
+printer model.
+     </PARA><PROGRAMLISTING
+FORMAT="LINESPECIFIC"
+>  
+# escputil -d -r /dev/usb/lp0
+Escputil version 4.3.0, Copyright (C) 2000-2001 Robert Krawitz
+Escputil comes with ABSOLUTELY NO WARRANTY; for details type
+'escputil -l'
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'escputil -l' for details.
+
+@EJL ID
+MFG:EPSON;CMD:ESCPL2,BDC;MDL:Stylus Photo 870;CLS:PRINTER;DES:
+EPSON Stylus Photo 870;
+    
+  </PROGRAMLISTING></SECT2><SECT2
+><TITLE
+>More Information</TITLE><PARA
+>       For more detailed information about the command line switches
+accepted by the <EMPHASIS
+>escputil</EMPHASIS> utility, please consult
+the man page which is supplied with the Gutenprint software.  The user
+may also issue the "escputil --help" command to get a listing of supported
+command line switches.  The command requires no special privileges to execute.
+     </PARA></SECT2></SECT1></CHAPTER><APPENDIX
+ID="GFDL"
+><TITLE
+>GNU Free Documentation License</TITLE><PARA
+>Version 1.1, March 2000</PARA><BLOCKQUOTE
+><PARA
+>Copyright (C) 2000  Free Software Foundation, Inc. https://fsf.org/
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.</PARA></BLOCKQUOTE><SECT1
+LABEL="0"
+><TITLE
+>PREAMBLE</TITLE><PARA
+>The purpose of this License is to make a manual, textbook,
+    or other written document "free" in the sense of freedom: to
+    assure everyone the effective freedom to copy and redistribute it,
+    with or without modifying it, either commercially or
+    noncommercially.  Secondarily, this License preserves for the
+    author and publisher a way to get credit for their work, while not
+    being considered responsible for modifications made by
+    others.</PARA><PARA
+>This License is a kind of "copyleft", which means that
+    derivative works of the document must themselves be free in the
+    same sense.  It complements the GNU General Public License, which
+    is a copyleft license designed for free software.</PARA><PARA
+>We have designed this License in order to use it for manuals
+    for free software, because free software needs free documentation:
+    a free program should come with manuals providing the same
+    freedoms that the software does.  But this License is not limited
+    to software manuals; it can be used for any textual work,
+    regardless of subject matter or whether it is published as a
+    printed book.  We recommend this License principally for works
+    whose purpose is instruction or reference.</PARA></SECT1><SECT1
+LABEL="1"
+><TITLE
+>APPLICABILITY AND DEFINITIONS</TITLE><PARA
+>This License applies to any manual or other work that
+    contains a notice placed by the copyright holder saying it can be
+    distributed under the terms of this License.  The "Document",
+    below, refers to any such manual or work.  Any member of the
+    public is a licensee, and is addressed as "you".</PARA><PARA
+>A "Modified Version" of the Document means any work
+    containing the Document or a portion of it, either copied
+    verbatim, or with modifications and/or translated into another
+    language.</PARA><PARA
+>A "Secondary Section" is a named appendix or a front-matter
+    section of the Document that deals exclusively with the
+    relationship of the publishers or authors of the Document to the
+    Document's overall subject (or to related matters) and contains
+    nothing that could fall directly within that overall subject.
+    (For example, if the Document is in part a textbook of
+    mathematics, a Secondary Section may not explain any mathematics.)
+    The relationship could be a matter of historical connection with
+    the subject or with related matters, or of legal, commercial,
+    philosophical, ethical or political position regarding
+    them.</PARA><PARA
+>The "Invariant Sections" are certain Secondary Sections
+    whose titles are designated, as being those of Invariant Sections,
+    in the notice that says that the Document is released under this
+    License.</PARA><PARA
+>The "Cover Texts" are certain short passages of text that
+    are listed, as Front-Cover Texts or Back-Cover Texts, in the
+    notice that says that the Document is released under this
+    License.</PARA><PARA
+>A "Transparent" copy of the Document means a
+    machine-readable copy, represented in a format whose specification
+    is available to the general public, whose contents can be viewed
+    and edited directly and straightforwardly with generic text
+    editors or (for images composed of pixels) generic paint programs
+    or (for drawings) some widely available drawing editor, and that
+    is suitable for input to text formatters or for automatic
+    translation to a variety of formats suitable for input to text
+    formatters.  A copy made in an otherwise Transparent file format
+    whose markup has been designed to thwart or discourage subsequent
+    modification by readers is not Transparent.  A copy that is not
+    "Transparent" is called "Opaque".</PARA><PARA
+>Examples of suitable formats for Transparent copies include
+    plain ASCII without markup, Texinfo input format, LaTeX input
+    format, SGML or XML using a publicly available DTD, and
+    standard-conforming simple HTML designed for human modification.
+    Opaque formats include PostScript, PDF, proprietary formats that
+    can be read and edited only by proprietary word processors, SGML
+    or XML for which the DTD and/or processing tools are not generally
+    available, and the machine-generated HTML produced by some word
+    processors for output purposes only.</PARA><PARA
+>The "Title Page" means, for a printed book, the title page
+    itself, plus such following pages as are needed to hold, legibly,
+    the material this License requires to appear in the title page.
+    For works in formats which do not have any title page as such,
+    "Title Page" means the text near the most prominent appearance of
+    the work's title, preceding the beginning of the body of the
+    text.</PARA></SECT1><SECT1
+LABEL="2"
+><TITLE
+>VERBATIM COPYING</TITLE><PARA
+>You may copy and distribute the Document in any medium,
+    either commercially or noncommercially, provided that this
+    License, the copyright notices, and the license notice saying this
+    License applies to the Document are reproduced in all copies, and
+    that you add no other conditions whatsoever to those of this
+    License.  You may not use technical measures to obstruct or
+    control the reading or further copying of the copies you make or
+    distribute.  However, you may accept compensation in exchange for
+    copies.  If you distribute a large enough number of copies you
+    must also follow the conditions in section 3.</PARA><PARA
+>You may also lend copies, under the same conditions stated
+    above, and you may publicly display copies.</PARA></SECT1><SECT1
+LABEL="3"
+><TITLE
+>COPYING IN QUANTITY</TITLE><PARA
+>If you publish printed copies of the Document numbering more
+    than 100, and the Document's license notice requires Cover Texts,
+    you must enclose the copies in covers that carry, clearly and
+    legibly, all these Cover Texts: Front-Cover Texts on the front
+    cover, and Back-Cover Texts on the back cover.  Both covers must
+    also clearly and legibly identify you as the publisher of these
+    copies.  The front cover must present the full title with all
+    words of the title equally prominent and visible.  You may add
+    other material on the covers in addition.  Copying with changes
+    limited to the covers, as long as they preserve the title of the
+    Document and satisfy these conditions, can be treated as verbatim
+    copying in other respects.</PARA><PARA
+>If the required texts for either cover are too voluminous to
+    fit legibly, you should put the first ones listed (as many as fit
+    reasonably) on the actual cover, and continue the rest onto
+    adjacent pages.</PARA><PARA
+>If you publish or distribute Opaque copies of the Document
+    numbering more than 100, you must either include a
+    machine-readable Transparent copy along with each Opaque copy, or
+    state in or with each Opaque copy a publicly-accessible
+    computer-network location containing a complete Transparent copy
+    of the Document, free of added material, which the general
+    network-using public has access to download anonymously at no
+    charge using public-standard network protocols.  If you use the
+    latter option, you must take reasonably prudent steps, when you
+    begin distribution of Opaque copies in quantity, to ensure that
+    this Transparent copy will remain thus accessible at the stated
+    location until at least one year after the last time you
+    distribute an Opaque copy (directly or through your agents or
+    retailers) of that edition to the public.</PARA><PARA
+>It is requested, but not required, that you contact the
+    authors of the Document well before redistributing any large
+    number of copies, to give them a chance to provide you with an
+    updated version of the Document.</PARA></SECT1><SECT1
+LABEL="4"
+><TITLE
+>MODIFICATIONS</TITLE><PARA
+>You may copy and distribute a Modified Version of the
+    Document under the conditions of sections 2 and 3 above, provided
+    that you release the Modified Version under precisely this
+    License, with the Modified Version filling the role of the
+    Document, thus licensing distribution and modification of the
+    Modified Version to whoever possesses a copy of it.  In addition,
+    you must do these things in the Modified Version:</PARA><ORDEREDLIST
+NUMERATION="UPPERALPHA"
+INHERITNUM="IGNORE"
+CONTINUATION="RESTARTS"
+><LISTITEM
+><PARA
+>Use in the Title Page
+      (and on the covers, if any) a title distinct from that of the
+      Document, and from those of previous versions (which should, if
+      there were any, be listed in the History section of the
+      Document).  You may use the same title as a previous version if
+      the original publisher of that version gives permission.</PARA></LISTITEM><LISTITEM
+><PARA
+>List on the Title Page,
+      as authors, one or more persons or entities responsible for
+      authorship of the modifications in the Modified Version,
+      together with at least five of the principal authors of the
+      Document (all of its principal authors, if it has less than
+      five).</PARA></LISTITEM><LISTITEM
+><PARA
+>State on the Title page
+      the name of the publisher of the Modified Version, as the
+      publisher.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve all the
+      copyright notices of the Document.</PARA></LISTITEM><LISTITEM
+><PARA
+>Add an appropriate
+      copyright notice for your modifications adjacent to the other
+      copyright notices.</PARA></LISTITEM><LISTITEM
+><PARA
+>Include, immediately
+      after the copyright notices, a license notice giving the public
+      permission to use the Modified Version under the terms of this
+      License, in the form shown in the Addendum below.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve in that license
+      notice the full lists of Invariant Sections and required Cover
+      Texts given in the Document's license notice.</PARA></LISTITEM><LISTITEM
+><PARA
+>Include an unaltered
+      copy of this License.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve the section
+      entitled "History", and its title, and add to it an item stating
+      at least the title, year, new authors, and publisher of the
+      Modified Version as given on the Title Page.  If there is no
+      section entitled "History" in the Document, create one stating
+      the title, year, authors, and publisher of the Document as given
+      on its Title Page, then add an item describing the Modified
+      Version as stated in the previous sentence.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve the network
+      location, if any, given in the Document for public access to a
+      Transparent copy of the Document, and likewise the network
+      locations given in the Document for previous versions it was
+      based on.  These may be placed in the "History" section.  You
+      may omit a network location for a work that was published at
+      least four years before the Document itself, or if the original
+      publisher of the version it refers to gives permission.</PARA></LISTITEM><LISTITEM
+><PARA
+>In any section entitled
+      "Acknowledgements" or "Dedications", preserve the section's
+      title, and preserve in the section all the substance and tone of
+      each of the contributor acknowledgements and/or dedications
+      given therein.</PARA></LISTITEM><LISTITEM
+><PARA
+>Preserve all the
+      Invariant Sections of the Document, unaltered in their text and
+      in their titles.  Section numbers or the equivalent are not
+      considered part of the section titles.</PARA></LISTITEM><LISTITEM
+><PARA
+>Delete any section
+      entitled "Endorsements".  Such a section may not be included in
+      the Modified Version.</PARA></LISTITEM><LISTITEM
+><PARA
+>Do not retitle any
+      existing section as "Endorsements" or to conflict in title with
+      any Invariant Section.</PARA></LISTITEM></ORDEREDLIST><PARA
+>If the Modified Version includes new front-matter sections
+    or appendices that qualify as Secondary Sections and contain no
+    material copied from the Document, you may at your option
+    designate some or all of these sections as invariant.  To do this,
+    add their titles to the list of Invariant Sections in the Modified
+    Version's license notice.  These titles must be distinct from any
+    other section titles.</PARA><PARA
+>You may add a section entitled "Endorsements", provided it
+    contains nothing but endorsements of your Modified Version by
+    various parties--for example, statements of peer review or that
+    the text has been approved by an organization as the authoritative
+    definition of a standard.</PARA><PARA
+>You may add a passage of up to five words as a Front-Cover
+    Text, and a passage of up to 25 words as a Back-Cover Text, to the
+    end of the list of Cover Texts in the Modified Version.  Only one
+    passage of Front-Cover Text and one of Back-Cover Text may be
+    added by (or through arrangements made by) any one entity.  If the
+    Document already includes a cover text for the same cover,
+    previously added by you or by arrangement made by the same entity
+    you are acting on behalf of, you may not add another; but you may
+    replace the old one, on explicit permission from the previous
+    publisher that added the old one.</PARA><PARA
+>The author(s) and publisher(s) of the Document do not by
+    this License give permission to use their names for publicity for
+    or to assert or imply endorsement of any Modified Version.</PARA></SECT1><SECT1
+LABEL="5"
+><TITLE
+>COMBINING DOCUMENTS</TITLE><PARA
+>You may combine the Document with other documents released
+    under this License, under the terms defined in section 4 above for
+    modified versions, provided that you include in the combination
+    all of the Invariant Sections of all of the original documents,
+    unmodified, and list them all as Invariant Sections of your
+    combined work in its license notice.</PARA><PARA
+>The combined work need only contain one copy of this
+    License, and multiple identical Invariant Sections may be replaced
+    with a single copy.  If there are multiple Invariant Sections with
+    the same name but different contents, make the title of each such
+    section unique by adding at the end of it, in parentheses, the
+    name of the original author or publisher of that section if known,
+    or else a unique number.  Make the same adjustment to the section
+    titles in the list of Invariant Sections in the license notice of
+    the combined work.</PARA><PARA
+>In the combination, you must combine any sections entitled
+    "History" in the various original documents, forming one section
+    entitled "History"; likewise combine any sections entitled
+    "Acknowledgements", and any sections entitled "Dedications".  You
+    must delete all sections entitled "Endorsements."</PARA></SECT1><SECT1
+LABEL="6"
+><TITLE
+>COLLECTIONS OF DOCUMENTS</TITLE><PARA
+>You may make a collection consisting of the Document and
+    other documents released under this License, and replace the
+    individual copies of this License in the various documents with a
+    single copy that is included in the collection, provided that you
+    follow the rules of this License for verbatim copying of each of
+    the documents in all other respects.</PARA><PARA
+>You may extract a single document from such a collection,
+    and distribute it individually under this License, provided you
+    insert a copy of this License into the extracted document, and
+    follow this License in all other respects regarding verbatim
+    copying of that document.</PARA></SECT1><SECT1
+LABEL="7"
+><TITLE
+>AGGREGATION WITH INDEPENDENT WORKS</TITLE><PARA
+>A compilation of the Document or its derivatives with other
+    separate and independent documents or works, in or on a volume of
+    a storage or distribution medium, does not as a whole count as a
+    Modified Version of the Document, provided no compilation
+    copyright is claimed for the compilation.  Such a compilation is
+    called an "aggregate", and this License does not apply to the
+    other self-contained works thus compiled with the Document, on
+    account of their being thus compiled, if they are not themselves
+    derivative works of the Document.</PARA><PARA
+>If the Cover Text requirement of section 3 is applicable to
+    these copies of the Document, then if the Document is less than
+    one quarter of the entire aggregate, the Document's Cover Texts
+    may be placed on covers that surround only the Document within the
+    aggregate.  Otherwise they must appear on covers around the whole
+    aggregate.</PARA></SECT1><SECT1
+LABEL="8"
+><TITLE
+>TRANSLATION</TITLE><PARA
+>Translation is considered a kind of modification, so you may
+    distribute translations of the Document under the terms of section
+    4.  Replacing Invariant Sections with translations requires
+    special permission from their copyright holders, but you may
+    include translations of some or all Invariant Sections in addition
+    to the original versions of these Invariant Sections.  You may
+    include a translation of this License provided that you also
+    include the original English version of this License.  In case of
+    a disagreement between the translation and the original English
+    version of this License, the original English version will
+    prevail.</PARA></SECT1><SECT1
+LABEL="9"
+><TITLE
+>TERMINATION</TITLE><PARA
+>You may not copy, modify, sublicense, or distribute the
+    Document except as expressly provided for under this License.  Any
+    other attempt to copy, modify, sublicense or distribute the
+    Document is void, and will automatically terminate your rights
+    under this License.  However, parties who have received copies, or
+    rights, from you under this License will not have their licenses
+    terminated so long as such parties remain in full
+    compliance.</PARA></SECT1><SECT1
+LABEL="10"
+><TITLE
+>FUTURE REVISIONS OF THIS LICENSE</TITLE><PARA
+>The Free Software Foundation may publish new, revised
+    versions of the GNU Free Documentation License from time to time.
+    Such new versions will be similar in spirit to the present
+    version, but may differ in detail to address new problems or
+    concerns.  See <ULINK
+URL="http://www.gnu.org/copyleft/"
+>http://www.gnu.org/copyleft/</ULINK>.</PARA><PARA
+>Each version of the License is given a distinguishing
+    version number.  If the Document specifies that a particular
+    numbered version of this License "or any later version" applies to
+    it, you have the option of following the terms and conditions
+    either of that specified version or of any later version that has
+    been published (not as a draft) by the Free Software Foundation.
+    If the Document does not specify a version number of this License,
+    you may choose any version ever published (not as a draft) by the
+    Free Software Foundation.</PARA></SECT1><SECT1
+LABEL=""
+><TITLE
+>How to use this License for your documents</TITLE><PARA
+>To use this License in a document you have written, include
+    a copy of the License in the document and put the following
+    copyright and license notices just after the title page:</PARA><BLOCKQUOTE
+><PARA
+>      Copyright (c)  YEAR  YOUR NAME.
+      Permission is granted to copy, distribute and/or modify this document
+      under the terms of the GNU Free Documentation License, Version 1.1
+      or any later version published by the Free Software Foundation;
+      with the Invariant Sections being LIST THEIR TITLES, with the
+      Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST.
+      A copy of the license is included in the section entitled "GNU
+      Free Documentation License".</PARA></BLOCKQUOTE><PARA
+>If you have no Invariant Sections, write "with no Invariant
+    Sections" instead of saying which ones are invariant.  If you have
+    no Front-Cover Texts, write "no Front-Cover Texts" instead of
+    "Front-Cover Texts being LIST"; likewise for Back-Cover
+    Texts.</PARA><PARA
+>If your document contains nontrivial examples of program
+    code, we recommend releasing these examples in parallel under your
+    choice of free software license, such as the GNU General Public
+    License, to permit their use in free software.</PARA></SECT1></APPENDIX>
