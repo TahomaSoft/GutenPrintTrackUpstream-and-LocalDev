@@ -34,6 +34,7 @@ conf = configuration_data()
 conf.set_quoted('VERSION', as_version)
 
 configure_file (
+  input: 'config.h.meson',
   output: 'config.h',
   configuration : conf
 )
@@ -47,3 +48,4 @@ message('Host machine cpu family: ' + host_cpu_family)
 
 subdir('man')
 subdir('samples')
+subdir('include')
